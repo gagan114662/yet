@@ -1,0 +1,11 @@
+{
+    "algorithm-type-name": "DailyMomentumRotator",
+    "algorithm-language": "Python",
+    "algorithm-location": "main.py",
+    "parameters": {},
+    "description": "Daily Momentum Rotator - Forces 100+ trades/year with daily asset rotation",
+    "cloud-id": 23285905,
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0",
+    "python-venv": 1,
+    "encrypted": false
+}

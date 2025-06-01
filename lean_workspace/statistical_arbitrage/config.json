@@ -1,0 +1,9 @@
+{
+    "algorithm-type-name": "StatisticalArbitrage",
+    "algorithm-language": "Python",
+    "algorithm-location": "main.py",
+    "parameters": {},
+    "description": "Statistical Arbitrage - Quant pairs trading exploiting mean reversion in correlated assets",
+    "cloud-id": 23294165,
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0"
+}

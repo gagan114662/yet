@@ -1,0 +1,2 @@
+2022-01-01 00:00:00 Runtime Error: Unable to locate next market open within two weeks. Market is always open for this asset, this can happen e.g. if using TimeRules AfterMarketOpen for a crypto asset. An alternative would be TimeRules.At(), TimeRules.Every(), TimeRules.Midnight or TimeRules.Noon instead in SecurityExchangeHours.cs:line 365
+2022-01-01 00:00:00 Algorithm Id:(1486064977) completed in 0.03 seconds at 0k data points per second. Processing total of 0 data points.

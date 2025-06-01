@@ -1,0 +1,11 @@
+{
+    "algorithm-type-name": "TargetBeatingStrategy",
+    "algorithm-language": "Python",
+    "algorithm-location": "main.py",
+    "parameters": {},
+    "description": "Target Beating Strategy with &gt;25% CAGR, &gt;1 Sharpe, &gt;100 trades/year",
+    "cloud-id": 23285691,
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0",
+    "python-venv": 1,
+    "encrypted": false
+}

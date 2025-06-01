@@ -1,0 +1,8 @@
+{
+    "description": "Crisis Alpha & Tail Risk Hedging Strategy with 10x leverage targeting 50%+ CAGR during crises",
+    "parameters": {},
+    "algorithm-type-name": "CrisisAlphaStrategy",
+    "algorithm-language": "Python",
+    "algorithm-location": "main.py",
+    "local-id": 227779280
+}

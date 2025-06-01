@@ -1,0 +1,9 @@
+{
+    "algorithm-type-name": "VolatilityHarvester",
+    "algorithm-language": "Python",
+    "algorithm-location": "main.py",
+    "parameters": {},
+    "description": "Volatility Harvesting Strategy - Profits from VIX contango and mean reversion with sophisticated regime detection",
+    "cloud-id": 23294160,
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0"
+}

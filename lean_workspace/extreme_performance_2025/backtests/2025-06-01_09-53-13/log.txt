@@ -1,0 +1,337 @@
+2025-06-01T13:53:14.1573256Z TRACE:: Engine.Main(): LEAN ALGORITHMIC TRADING ENGINE v2.5.0.0 Mode: DEBUG (64bit) Host: ubuntu-dev
+2025-06-01T13:53:14.1617860Z TRACE:: Engine.Main(): Started 1:53 PM
+2025-06-01T13:53:14.1659088Z TRACE:: Config.Get(): Configuration key not found. Key: lean-manager-type - Using default value: LocalLeanManager
+2025-06-01T13:53:14.1846070Z TRACE:: JobQueue.NextJob(): Selected /LeanCLI/main.py
+2025-06-01T13:53:14.2122300Z TRACE:: Config.GetValue(): scheduled-event-leaky-bucket-capacity - Using default value: 120
+2025-06-01T13:53:14.2122589Z TRACE:: Config.GetValue(): scheduled-event-leaky-bucket-time-interval-minutes - Using default value: 1440
+2025-06-01T13:53:14.2122669Z TRACE:: Config.GetValue(): scheduled-event-leaky-bucket-refill-amount - Using default value: 18
+2025-06-01T13:53:14.2126662Z TRACE:: Config.GetValue(): storage-limit - Using default value: 10737418240
+2025-06-01T13:53:14.2126819Z TRACE:: Config.GetValue(): storage-permissions - Using default value: 3
+2025-06-01T13:53:14.2127153Z TRACE:: Config.Get(): Configuration key not found. Key: optimization-id - Using default value: 
+2025-06-01T13:53:14.2127209Z TRACE:: Config.Get(): Configuration key not found. Key: backtest-name - Using default value: local
+2025-06-01T13:53:14.2157012Z TRACE:: Config.Get(): Configuration key not found. Key: data-channel - Using default value: 
+2025-06-01T13:53:14.2159454Z TRACE:: Config.Get(): Configuration key not found. Key: python-venv - Using default value: 
+2025-06-01T13:53:14.2160873Z TRACE:: Config.Get(): Configuration key not found. Key: out-of-sample-max-end-date - Using default value: 
+2025-06-01T13:53:14.2160992Z TRACE:: Config.GetValue(): out-of-sample-days - Using default value: 0
+2025-06-01T13:53:14.2166951Z TRACE:: Config.Get(): Configuration key not found. Key: data-permission-manager - Using default value: DataPermissionManager
+2025-06-01T13:53:14.2167048Z TRACE:: Config.Get(): Configuration key not found. Key: data-monitor - Using default value: QuantConnect.Data.DataMonitor
+2025-06-01T13:53:14.2271964Z TRACE:: Config.GetValue(): algorithm-creation-timeout - Using default value: 90
+2025-06-01T13:53:14.2354362Z TRACE:: Config.GetValue(): zip-data-cache-provider - Using default value: 10
+2025-06-01T13:53:14.2360695Z TRACE:: Config.Get(): Configuration key not found. Key: fundamental-data-provider - Using default value: CoarseFundamentalDataProvider
+2025-06-01T13:53:14.2374784Z TRACE:: AlgorithmManager.CreateTokenBucket(): Initializing LeakyBucket: Capacity: 120 RefillAmount: 18 TimeInterval: 1440
+2025-06-01T13:53:14.2377631Z TRACE:: Config.GetValue(): algorithm-manager-time-loop-maximum - Using default value: 20
+2025-06-01T13:53:14.2412004Z TRACE:: Config.GetValue(): downloader-data-update-period - Using default value: 7
+2025-06-01T13:53:14.2421631Z TRACE:: Engine.Run(): Resource limits '0' CPUs. 2147483647 MB RAM.
+2025-06-01T13:53:14.2424697Z TRACE:: TextSubscriptionDataSourceReader.SetCacheSize(): Setting cache size to 71582788 items
+2025-06-01T13:53:14.7688862Z TRACE:: PythonInitializer.Initialize(): start...
+2025-06-01T13:53:15.4411481Z TRACE:: PythonInitializer.Initialize(): ended
+2025-06-01T13:53:15.4426615Z TRACE:: AlgorithmPythonWrapper(): Python version 3.11.8 | packaged by conda-forge | (main, Feb 16 2024, 21:14:50) [GCC 12.3.0]: Importing python module main
+2025-06-01T13:53:16.9816509Z TRACE:: AlgorithmPythonWrapper(): main successfully imported.
+2025-06-01T13:53:16.9844444Z TRACE:: AlgorithmPythonWrapper(): Creating IAlgorithm instance.
+2025-06-01T13:53:16.9919163Z TRACE:: Config.Get(): Configuration key not found. Key: databases-refresh-period - Using default value: 1.00:00:00
+2025-06-01T13:53:17.0699051Z TRACE:: Config.GetValue(): mute-python-library-logging - Using default value: True
+2025-06-01T13:53:17.0720291Z TRACE:: LocalObjectStore.Initialize(): Storage Root: /Storage. StorageFileCount 9999999. StorageLimit 10240MB
+2025-06-01T13:53:17.0756688Z TRACE:: Config.GetValue(): zip-data-cache-provider - Using default value: 10
+2025-06-01T13:53:17.0783524Z TRACE:: HistoryProviderManager.Initialize(): history providers [SubscriptionDataReaderHistoryProvider]
+2025-06-01T13:53:17.0803810Z TRACE:: BaseSetupHandler.Setup(LocalPlatform): UID: 357130, PID: -1, Version: 2.5.0.0, Source: WebIDE
+2025-06-01T13:53:17.0822303Z TRACE:: Config.Get(): Configuration key not found. Key: security-data-feeds - Using default value: 
+2025-06-01T13:53:17.1607542Z TRACE:: Event Name "EveryDay: Every 60 min", scheduled to run.
+2025-06-01T13:53:17.1628215Z TRACE:: Event Name "EveryDay: 9.58", scheduled to run.
+2025-06-01T13:53:17.1632143Z TRACE:: Event Name "EveryDay: 15.75", scheduled to run.
+2025-06-01T13:53:17.1641464Z TRACE:: Event Name "WeekStart: 9.5", scheduled to run.
+2025-06-01T13:53:17.1862420Z TRACE:: BaseSetupHandler.SetupCurrencyConversions():
+Account Type: Margin
+
+Symbol      Quantity    Conversion = Value in USD
+USD: $      100000.00 @       1.00 = $100000
+-------------------------------------------------
+CashBook Total Value:                $100000
+
+2025-06-01T13:53:17.1871418Z TRACE:: Total margin information: TotalMarginUsed: 0.00, MarginRemaining: 100000.00
+2025-06-01T13:53:17.1873444Z TRACE:: SetUp Backtesting: User: 357130 ProjectId: -1 AlgoId: 1249929887
+2025-06-01T13:53:17.1887089Z TRACE:: Dates: Start: 01/01/2015 End: 12/31/2023 Cash: ¤100,000.00 MaximumRuntime: 100.00:00:00 MaxOrders: 2147483647
+2025-06-01T13:53:17.1898340Z TRACE:: BacktestingResultHandler(): Sample Period Set: 1183.32
+2025-06-01T13:53:17.1904606Z TRACE:: Config.GetValue(): forward-console-messages - Using default value: True
+2025-06-01T13:53:17.1907618Z TRACE:: JOB HANDLERS:
+         DataFeed:             QuantConnect.Lean.Engine.DataFeeds.FileSystemDataFeed
+         Setup:                QuantConnect.Lean.Engine.Setup.BacktestingSetupHandler
+         RealTime:             QuantConnect.Lean.Engine.RealTime.BacktestingRealTimeHandler
+         Results:              QuantConnect.Lean.Engine.Results.BacktestingResultHandler
+         Transactions:         QuantConnect.Lean.Engine.TransactionHandlers.BacktestingTransactionHandler
+         Object Store:         QuantConnect.Lean.Engine.Storage.LocalObjectStore
+         History Provider:     QuantConnect.Lean.Engine.HistoricalData.HistoryProviderManager
+         Brokerage:            QuantConnect.Brokerages.Backtesting.BacktestingBrokerage
+         Data Provider:        QuantConnect.Lean.Engine.DataFeeds.DefaultDataProvider
+
+2025-06-01T13:53:17.2032671Z TRACE:: Event Name "Daily Sampling", scheduled to run.
+2025-06-01T13:53:17.2045530Z TRACE:: AlgorithmManager.Run(): Begin DataStream - Start: 1/1/2015 12:00:00 AM Stop: 12/31/2023 11:59:59 PM Time: 12/2/2014 12:00:00 AM Warmup: True
+2025-06-01T13:53:17.2055789Z TRACE:: Debug: Launching analysis for 1249929887 with LEAN Engine v2.5.0.0
+2025-06-01T13:53:17.2254427Z TRACE:: Config.GetValue(): data-feed-workers-count - Using default value: 20
+2025-06-01T13:53:17.2258556Z TRACE:: Config.GetValue(): data-feed-max-work-weight - Using default value: 400
+2025-06-01T13:53:17.2258713Z TRACE:: WeightedWorkScheduler(): will use 20 workers and MaxWorkWeight is 400
+2025-06-01T13:53:17.4560582Z TRACE:: Debug: Extreme Performance 2025 Strategy Initialized
+2025-06-01T13:53:17.4561009Z TRACE:: Debug: Accurate daily end-times now enabled by default. See more at https://qnt.co/3YHaWHL. To disable it and use legacy daily bars set self.settings.daily_precise_end_time = False.
+2025-06-01T13:53:17.4561119Z TRACE:: Debug: Algorithm starting warm up...
+2025-06-01T13:53:17.4561204Z TRACE:: Debug: Algorithm finished warming up.
+2025-06-01T13:53:17.4561294Z TRACE:: Debug: Weekly Stats - Trades: 0, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 2.2
+2025-06-01T13:53:17.5071268Z ERROR:: UPRO: The security does not have an accurate price as it has not yet received a bar of data. Before placing a trade (or using SetHoldings) warm up your algorithm with SetWarmup, or use slice.Contains(symbol) to confirm the Slice object has price before using the data. Data does not necessarily all arrive at the same time so your algorithm should confirm the data is ready before using it. In live trading this can mean you do not have an active subscription to the asset class you're trying to trade. If using custom data make sure you've set the 'Value' property.
+2025-06-01T13:53:17.5071827Z TRACE:: Debug: Weekly Stats - Trades: 1, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 2.4
+2025-06-01T13:53:17.5071952Z TRACE:: Debug: Weekly Stats - Trades: 3, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 2.7
+2025-06-01T13:53:17.5072103Z TRACE:: Debug: Weekly Stats - Trades: 6, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 2.9
+2025-06-01T13:53:17.5072197Z TRACE:: Debug: Weekly Stats - Trades: 6, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:17.5573296Z TRACE:: Debug: Weekly Stats - Trades: 7, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:17.5573655Z TRACE:: Debug: Weekly Stats - Trades: 8, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:17.6075051Z TRACE:: Debug: Weekly Stats - Trades: 11, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:17.6576792Z TRACE:: Debug: Weekly Stats - Trades: 12, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:17.7078392Z TRACE:: Debug: Weekly Stats - Trades: 14, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:17.7078712Z TRACE:: Debug: Weekly Stats - Trades: 15, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:17.8080879Z TRACE:: Debug: Weekly Stats - Trades: 16, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:17.8582282Z TRACE:: Debug: Weekly Stats - Trades: 17, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:17.8582666Z TRACE:: Debug: Weekly Stats - Trades: 18, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:17.9083711Z TRACE:: Debug: Weekly Stats - Trades: 19, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:17.9084019Z TRACE:: Debug: Weekly Stats - Trades: 20, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:17.9084109Z TRACE:: Debug: Weekly Stats - Trades: 21, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:17.9585348Z TRACE:: Debug: Weekly Stats - Trades: 22, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:17.9585694Z TRACE:: Debug: Weekly Stats - Trades: 24, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:17.9585786Z TRACE:: Debug: Weekly Stats - Trades: 28, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:17.9585868Z TRACE:: Debug: Weekly Stats - Trades: 33, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.0087265Z TRACE:: Debug: Weekly Stats - Trades: 36, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.0087719Z TRACE:: Debug: Weekly Stats - Trades: 37, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.0087873Z TRACE:: Debug: Weekly Stats - Trades: 38, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.0589153Z TRACE:: Debug: Weekly Stats - Trades: 39, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.0589471Z TRACE:: Debug: Weekly Stats - Trades: 41, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.1090808Z TRACE:: Debug: Weekly Stats - Trades: 42, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.1091129Z TRACE:: Debug: Weekly Stats - Trades: 43, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.1091220Z TRACE:: Debug: Weekly Stats - Trades: 45, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.1091297Z TRACE:: Debug: Weekly Stats - Trades: 46, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.1592475Z TRACE:: Debug: Weekly Stats - Trades: 47, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.1592794Z TRACE:: Debug: Weekly Stats - Trades: 50, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.1592904Z TRACE:: Debug: Weekly Stats - Trades: 53, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.1592977Z TRACE:: Debug: Weekly Stats - Trades: 55, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.1593052Z TRACE:: Debug: Weekly Stats - Trades: 57, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.2094344Z TRACE:: Debug: Weekly Stats - Trades: 61, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.2094643Z TRACE:: Debug: Weekly Stats - Trades: 63, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.2094734Z TRACE:: Debug: Weekly Stats - Trades: 64, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.2094849Z TRACE:: Debug: Weekly Stats - Trades: 66, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.2094923Z TRACE:: Debug: Weekly Stats - Trades: 68, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.2596271Z TRACE:: Debug: Weekly Stats - Trades: 69, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.3097825Z TRACE:: Debug: Weekly Stats - Trades: 70, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.3098193Z TRACE:: Debug: Weekly Stats - Trades: 71, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.3098327Z TRACE:: Debug: Weekly Stats - Trades: 73, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.3098413Z TRACE:: Debug: Weekly Stats - Trades: 75, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.3599717Z TRACE:: Debug: Weekly Stats - Trades: 76, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.3600058Z TRACE:: Debug: Weekly Stats - Trades: 79, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.3600182Z TRACE:: Debug: Weekly Stats - Trades: 81, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.3600320Z TRACE:: Debug: Weekly Stats - Trades: 82, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.4602061Z TRACE:: Debug: Weekly Stats - Trades: 84, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.5104281Z TRACE:: Debug: Weekly Stats - Trades: 85, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.5104557Z TRACE:: Debug: Weekly Stats - Trades: 87, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.5605806Z TRACE:: Debug: Weekly Stats - Trades: 88, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.6108965Z TRACE:: Debug: Weekly Stats - Trades: 89, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.6610457Z TRACE:: Debug: Weekly Stats - Trades: 90, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.6610794Z TRACE:: Debug: Weekly Stats - Trades: 91, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.7612740Z TRACE:: Debug: Weekly Stats - Trades: 92, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.8114183Z TRACE:: Debug: Weekly Stats - Trades: 93, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.8114488Z TRACE:: Debug: Weekly Stats - Trades: 94, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.8615855Z TRACE:: Debug: Weekly Stats - Trades: 95, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.9117305Z TRACE:: Debug: Weekly Stats - Trades: 96, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.9117639Z TRACE:: Debug: Weekly Stats - Trades: 97, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:18.9618886Z TRACE:: Debug: Weekly Stats - Trades: 98, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.0120459Z TRACE:: Debug: Weekly Stats - Trades: 100, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.0120816Z TRACE:: Debug: Weekly Stats - Trades: 101, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.0621850Z TRACE:: Debug: Weekly Stats - Trades: 103, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.0622157Z TRACE:: Debug: Weekly Stats - Trades: 105, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.0622254Z TRACE:: Debug: Weekly Stats - Trades: 108, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.0622342Z TRACE:: Debug: Weekly Stats - Trades: 109, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.0622471Z TRACE:: Debug: Weekly Stats - Trades: 110, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.0622569Z TRACE:: Debug: Weekly Stats - Trades: 113, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.0622664Z TRACE:: Debug: Weekly Stats - Trades: 115, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.0622740Z TRACE:: Debug: Weekly Stats - Trades: 117, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.0622821Z TRACE:: Debug: Weekly Stats - Trades: 121, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.0622899Z TRACE:: Debug: Weekly Stats - Trades: 122, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.1124137Z TRACE:: Debug: Weekly Stats - Trades: 126, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.1124415Z TRACE:: Debug: Weekly Stats - Trades: 130, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.1124629Z TRACE:: Debug: Weekly Stats - Trades: 131, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.1124754Z TRACE:: Debug: Weekly Stats - Trades: 132, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.1124933Z TRACE:: Debug: Weekly Stats - Trades: 134, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.1125023Z TRACE:: Debug: Weekly Stats - Trades: 137, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.1125104Z TRACE:: Debug: Weekly Stats - Trades: 138, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.1626472Z TRACE:: Debug: Weekly Stats - Trades: 139, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.1626859Z TRACE:: Debug: Weekly Stats - Trades: 141, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.1626954Z TRACE:: Debug: Weekly Stats - Trades: 144, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.1627069Z TRACE:: Debug: Weekly Stats - Trades: 145, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.2128337Z TRACE:: Debug: Weekly Stats - Trades: 146, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.2128640Z TRACE:: Debug: Weekly Stats - Trades: 147, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.2128726Z TRACE:: Debug: Weekly Stats - Trades: 148, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.2128953Z TRACE:: Debug: Weekly Stats - Trades: 149, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.2629970Z TRACE:: Debug: Weekly Stats - Trades: 150, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.2630291Z TRACE:: Debug: Weekly Stats - Trades: 153, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.2630385Z TRACE:: Debug: Weekly Stats - Trades: 156, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.2630447Z TRACE:: Debug: Weekly Stats - Trades: 157, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.2630515Z TRACE:: Debug: Weekly Stats - Trades: 160, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.2630575Z TRACE:: Debug: Weekly Stats - Trades: 161, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.2630637Z TRACE:: Debug: Weekly Stats - Trades: 165, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.2630694Z TRACE:: Debug: Weekly Stats - Trades: 168, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.2630752Z TRACE:: Debug: Weekly Stats - Trades: 170, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.2630831Z TRACE:: Debug: Weekly Stats - Trades: 173, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.2630891Z TRACE:: Debug: Weekly Stats - Trades: 177, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.3131889Z TRACE:: Debug: Weekly Stats - Trades: 180, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.3132415Z TRACE:: Debug: Weekly Stats - Trades: 181, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.3132610Z TRACE:: Debug: Weekly Stats - Trades: 184, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.3132643Z TRACE:: Debug: Weekly Stats - Trades: 186, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.3132678Z TRACE:: Debug: Weekly Stats - Trades: 187, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.3132703Z TRACE:: Debug: Weekly Stats - Trades: 188, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.3132728Z TRACE:: Debug: Weekly Stats - Trades: 190, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.3132782Z TRACE:: Debug: Weekly Stats - Trades: 194, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.3132823Z TRACE:: Debug: Weekly Stats - Trades: 197, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.3132845Z TRACE:: Debug: Weekly Stats - Trades: 198, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.3633636Z TRACE:: Debug: Weekly Stats - Trades: 199, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.3633859Z TRACE:: Debug: Weekly Stats - Trades: 201, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.3633891Z TRACE:: Debug: Weekly Stats - Trades: 202, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.3633917Z TRACE:: Debug: Weekly Stats - Trades: 204, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.3633942Z TRACE:: Debug: Weekly Stats - Trades: 205, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.3633992Z TRACE:: Debug: Weekly Stats - Trades: 210, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.3634018Z TRACE:: Debug: Weekly Stats - Trades: 211, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.3634150Z TRACE:: Debug: Weekly Stats - Trades: 213, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.3634174Z TRACE:: Debug: Weekly Stats - Trades: 216, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.4135309Z TRACE:: Debug: Weekly Stats - Trades: 219, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.4135482Z TRACE:: Debug: Weekly Stats - Trades: 220, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.4135512Z TRACE:: Debug: Weekly Stats - Trades: 223, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.4135539Z TRACE:: Debug: Weekly Stats - Trades: 226, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.4135596Z TRACE:: Debug: Weekly Stats - Trades: 228, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.4135620Z TRACE:: Debug: Weekly Stats - Trades: 230, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.4135646Z TRACE:: Debug: Weekly Stats - Trades: 232, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.4135677Z TRACE:: Debug: Weekly Stats - Trades: 233, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.4135699Z TRACE:: Debug: Weekly Stats - Trades: 234, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.4135720Z TRACE:: Debug: Weekly Stats - Trades: 237, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.4135748Z TRACE:: Debug: Weekly Stats - Trades: 240, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.4135769Z TRACE:: Debug: Weekly Stats - Trades: 242, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.4636851Z TRACE:: Debug: Weekly Stats - Trades: 243, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.4637071Z TRACE:: Debug: Weekly Stats - Trades: 245, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.4637090Z TRACE:: Debug: Weekly Stats - Trades: 247, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.4637106Z TRACE:: Debug: Weekly Stats - Trades: 249, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.4637122Z TRACE:: Debug: Weekly Stats - Trades: 250, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.4637138Z TRACE:: Debug: Weekly Stats - Trades: 251, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.4637159Z TRACE:: Debug: Weekly Stats - Trades: 254, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.4637173Z TRACE:: Debug: Weekly Stats - Trades: 256, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.4637186Z TRACE:: Debug: Weekly Stats - Trades: 257, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.5138306Z TRACE:: Debug: Weekly Stats - Trades: 260, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.5138463Z TRACE:: Debug: Weekly Stats - Trades: 262, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.5138480Z TRACE:: Debug: Weekly Stats - Trades: 263, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.5138494Z TRACE:: Debug: Weekly Stats - Trades: 266, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.5138507Z TRACE:: Debug: Weekly Stats - Trades: 267, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.5138521Z TRACE:: Debug: Weekly Stats - Trades: 268, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.5138537Z TRACE:: Debug: Weekly Stats - Trades: 270, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.5138636Z TRACE:: Debug: Weekly Stats - Trades: 273, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.5138658Z TRACE:: Debug: Weekly Stats - Trades: 276, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.5138706Z TRACE:: Debug: Weekly Stats - Trades: 279, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.5138719Z TRACE:: Debug: Weekly Stats - Trades: 281, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.5639768Z TRACE:: Debug: Weekly Stats - Trades: 286, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.5639928Z TRACE:: Debug: Weekly Stats - Trades: 290, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.5639948Z TRACE:: Debug: Weekly Stats - Trades: 292, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.5639970Z TRACE:: Debug: Weekly Stats - Trades: 294, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.5639986Z TRACE:: Debug: Weekly Stats - Trades: 297, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.5640001Z TRACE:: Debug: Weekly Stats - Trades: 301, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.5640034Z TRACE:: Debug: Weekly Stats - Trades: 303, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.5640050Z TRACE:: Debug: Weekly Stats - Trades: 306, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.5640064Z TRACE:: Debug: Weekly Stats - Trades: 311, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.5640078Z TRACE:: Debug: Weekly Stats - Trades: 313, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.5640092Z TRACE:: Debug: Weekly Stats - Trades: 315, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.5640128Z TRACE:: Debug: Weekly Stats - Trades: 316, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.5640141Z TRACE:: Debug: Weekly Stats - Trades: 319, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.6140763Z TRACE:: Debug: Weekly Stats - Trades: 322, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.6140913Z TRACE:: Debug: Weekly Stats - Trades: 324, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.6140952Z TRACE:: Debug: Weekly Stats - Trades: 325, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.6140967Z TRACE:: Debug: Weekly Stats - Trades: 329, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.6140981Z TRACE:: Debug: Weekly Stats - Trades: 335, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.6140997Z TRACE:: Debug: Weekly Stats - Trades: 336, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.6141012Z TRACE:: Debug: Weekly Stats - Trades: 338, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.6141025Z TRACE:: Debug: Weekly Stats - Trades: 344, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.6141039Z TRACE:: Debug: Weekly Stats - Trades: 347, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.6141053Z TRACE:: Debug: Weekly Stats - Trades: 348, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.6141077Z TRACE:: Debug: Weekly Stats - Trades: 349, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.6141092Z TRACE:: Debug: Weekly Stats - Trades: 352, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.6642020Z TRACE:: Debug: Weekly Stats - Trades: 355, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.6642214Z TRACE:: Debug: Weekly Stats - Trades: 359, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.6642238Z TRACE:: Debug: Weekly Stats - Trades: 361, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.6642260Z TRACE:: Debug: Weekly Stats - Trades: 363, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.6642277Z TRACE:: Debug: Weekly Stats - Trades: 364, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.6642294Z TRACE:: Debug: Weekly Stats - Trades: 368, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.6642314Z TRACE:: Debug: Weekly Stats - Trades: 372, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.6642357Z TRACE:: Debug: Weekly Stats - Trades: 374, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.6642373Z TRACE:: Debug: Weekly Stats - Trades: 375, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.6642389Z TRACE:: Debug: Weekly Stats - Trades: 378, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.6642404Z TRACE:: Debug: Weekly Stats - Trades: 379, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.6642421Z TRACE:: Debug: Weekly Stats - Trades: 381, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.7143203Z TRACE:: Debug: Weekly Stats - Trades: 382, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.7143348Z TRACE:: Debug: Weekly Stats - Trades: 387, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.7143367Z TRACE:: Debug: Weekly Stats - Trades: 388, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.7143404Z TRACE:: Debug: Weekly Stats - Trades: 390, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.7143421Z TRACE:: Debug: Weekly Stats - Trades: 395, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.7143436Z TRACE:: Debug: Weekly Stats - Trades: 399, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.7143452Z TRACE:: Debug: Weekly Stats - Trades: 401, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.7143467Z TRACE:: Debug: Weekly Stats - Trades: 402, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.7143483Z TRACE:: Debug: Weekly Stats - Trades: 405, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.7143499Z TRACE:: Debug: Weekly Stats - Trades: 408, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.7143513Z TRACE:: Debug: Weekly Stats - Trades: 409, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.7143535Z TRACE:: Debug: Weekly Stats - Trades: 411, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:19.7644630Z TRACE:: Debug: Weekly Stats - Trades: 414, Win Rate: 0.00%, Avg Profit: 0.00%, Drawdown: 0.00%, Leverage: 3.0
+2025-06-01T13:53:20.2980220Z TRACE:: Synchronizer.GetEnumerator(): Exited thread.
+2025-06-01T13:53:20.2982597Z TRACE:: AlgorithmManager.Run(): Firing On End Of Algorithm...
+2025-06-01T13:53:20.2987176Z TRACE:: Engine.Run(): Exiting Algorithm Manager
+2025-06-01T13:53:20.3002346Z TRACE:: StopSafely(): Waiting for 'Isolator Thread' thread to stop...
+2025-06-01T13:53:20.3004600Z TRACE:: FileSystemDataFeed.Exit(): Start. Setting cancellation token...
+2025-06-01T13:53:20.3011520Z TRACE:: FileSystemDataFeed.Exit(): Exit Finished.
+2025-06-01T13:53:20.3012761Z TRACE:: BacktestingResultHandler.Exit(): starting...
+2025-06-01T13:53:20.3013228Z TRACE:: BacktestingResultHandler.Exit(): Saving logs...
+2025-06-01T13:53:20.3018775Z TRACE:: StopSafely(): Waiting for 'Result Thread' thread to stop...
+2025-06-01T13:53:20.6048183Z TRACE:: Debug: Algorithm Id:(1249929887) completed in 3.11 seconds at 5k data points per second. Processing total of 16,020 data points.
+2025-06-01T13:53:20.6048282Z TRACE:: Debug: Your log was successfully created and can be retrieved from: /Results/1249929887-log.txt
+2025-06-01T13:53:20.6048300Z TRACE:: BacktestingResultHandler.Run(): Ending Thread...
+2025-06-01T13:53:20.7723899Z TRACE:: 
+STATISTICS:: Total Orders 0
+STATISTICS:: Average Win 0%
+STATISTICS:: Average Loss 0%
+STATISTICS:: Compounding Annual Return 0%
+STATISTICS:: Drawdown 0%
+STATISTICS:: Expectancy 0
+STATISTICS:: Start Equity 100000
+STATISTICS:: End Equity 100000
+STATISTICS:: Net Profit 0%
+STATISTICS:: Sharpe Ratio 0
+STATISTICS:: Sortino Ratio 0
+STATISTICS:: Probabilistic Sharpe Ratio 0%
+STATISTICS:: Loss Rate 0%
+STATISTICS:: Win Rate 0%
+STATISTICS:: Profit-Loss Ratio 0
+STATISTICS:: Alpha 0
+STATISTICS:: Beta 0
+STATISTICS:: Annual Standard Deviation 0
+STATISTICS:: Annual Variance 0
+STATISTICS:: Information Ratio 0
+STATISTICS:: Tracking Error 0
+STATISTICS:: Treynor Ratio 0
+STATISTICS:: Total Fees $0.00
+STATISTICS:: Estimated Strategy Capacity $0
+STATISTICS:: Lowest Capacity Asset 
+STATISTICS:: Portfolio Turnover 0%
+STATISTICS:: OrderListHash d41d8cd98f00b204e9800998ecf8427e
+2025-06-01T13:53:20.7724066Z TRACE:: BacktestingResultHandler.SendAnalysisResult(): Processed final packet
+2025-06-01T13:53:20.7725614Z TRACE:: Engine.Run(): Disconnecting from brokerage...
+2025-06-01T13:53:20.7725871Z TRACE:: Engine.Run(): Disposing of setup handler...
+2025-06-01T13:53:20.7725981Z TRACE:: Engine.Main(): Analysis Completed and Results Posted.
+2025-06-01T13:53:20.7727128Z TRACE:: StopSafely(): Waiting for '' thread to stop...
+2025-06-01T13:53:20.7735271Z TRACE:: DataMonitor.GenerateReport():
+DATA USAGE:: Total data requests 16
+DATA USAGE:: Succeeded data requests 2
+DATA USAGE:: Failed data requests 14
+DATA USAGE:: Failed data requests percentage 88%
+DATA USAGE:: Total universe data requests 0
+DATA USAGE:: Succeeded universe data requests 0
+DATA USAGE:: Failed universe data requests 0
+DATA USAGE:: Failed universe data requests percentage 0%
+2025-06-01T13:53:20.7781969Z TRACE:: Engine.Main(): Packet removed from queue: 1249929887
+2025-06-01T13:53:20.7782404Z TRACE:: LeanEngineSystemHandlers.Dispose(): start...
+2025-06-01T13:53:20.7786311Z TRACE:: LeanEngineSystemHandlers.Dispose(): Disposed of system handlers.
+2025-06-01T13:53:20.7788348Z TRACE:: LeanEngineAlgorithmHandlers.Dispose(): start...
+2025-06-01T13:53:20.7792757Z TRACE:: LeanEngineAlgorithmHandlers.Dispose(): Disposed of algorithm handlers.

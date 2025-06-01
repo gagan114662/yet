@@ -1,0 +1,12 @@
+2009-11-12 00:00:00 Launching analysis for 1812017583 with LEAN Engine v2.5.0.0
+2009-11-12 00:00:00 Accurate daily end-times now enabled by default. See more at https://qnt.co/3YHaWHL. To disable it and use legacy daily bars set self.settings.daily_precise_end_time = False.
+2009-11-12 00:00:00 Algorithm starting warm up...
+2010-01-04 11:00:00 Algorithm finished warming up.
+2010-01-08 11:00:00 The starting dates for the following symbols have been adjusted to match their map files first date: [VXX, 2018-01-18]
+2010-01-08 11:00:00 Runtime Error: Trying to retrieve an element from a collection using a key that does not exist in that collection throws a KeyError exception. To prevent the exception, ensure that the SPY key exist in the collection and/or that collection is not empty.
+  at WeeklyRiskAssessment
+    spy_volatility = self.indicators["SPY"]["std_20"].Current.Value / self.Securities["SPY"].Price
+                     ~~~~~~~~~~~~~~~^^^^^^^
+ in main.py: line 486
+
+2010-01-08 11:00:00 Algorithm Id:(1812017583) completed in 0.37 seconds at 1k data points per second. Processing total of 266 data points.

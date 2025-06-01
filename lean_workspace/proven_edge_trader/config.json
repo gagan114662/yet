@@ -1,0 +1,9 @@
+{
+    "algorithm-type-name": "ProvenEdgeTrader",
+    "algorithm-language": "Python",
+    "algorithm-location": "main.py",
+    "parameters": {},
+    "description": "Proven Edge Trader - Exploits research-backed market anomalies: Monday effect, VIX mean reversion, momentum factor, volatility breakouts, oversold bounces",
+    "cloud-id": 23286300,
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0"
+}

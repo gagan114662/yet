@@ -1,0 +1,29 @@
+{
+    "algorithm-type-name": "ExtremePerformance2025",
+    "algorithm-language": "Python",
+    "algorithm-location": "main.py",
+    "data-folder": "../data",
+    "debugging": false,
+    "debugging-method": "LocalCmdline",
+    "log-handler": "QuantConnect.Logging.CompositeLogHandler",
+    "messaging-handler": "QuantConnect.Messaging.EventMessagingHandler",
+    "job-queue-handler": "QuantConnect.Queues.JobQueue",
+    "api-handler": "QuantConnect.Api.Api",
+    "map-file-provider": "QuantConnect.Data.Auxiliary.LocalDiskMapFileProvider",
+    "factor-file-provider": "QuantConnect.Data.Auxiliary.LocalDiskFactorFileProvider",
+    "data-provider": "QuantConnect.Lean.Engine.DataFeeds.DefaultDataProvider",
+    "results-destination-folder": "./backtests",
+    "environments": {
+        "backtesting": {
+            "live-mode": false,
+            "setup-handler": "QuantConnect.Lean.Engine.Setup.BacktestingSetupHandler",
+            "result-handler": "QuantConnect.Lean.Engine.Results.BacktestingResultHandler",
+            "data-feed-handler": "QuantConnect.Lean.Engine.DataFeeds.FileSystemDataFeed",
+            "real-time-handler": "QuantConnect.Lean.Engine.RealTime.BacktestingRealTimeHandler",
+            "history-provider": "QuantConnect.Lean.Engine.HistoricalData.SubscriptionDataReaderHistoryProvider",
+            "transaction-handler": "QuantConnect.Lean.Engine.TransactionHandlers.BacktestingTransactionHandler"
+        }
+    },
+    "strategy-description": "Extreme Performance 2025 - Aggressive momentum and mean reversion strategy with 3x leveraged ETFs targeting CAGR >25%, Sharpe >1, Max DD <20%",
+    "local-id": 417792792
+}

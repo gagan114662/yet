@@ -1,0 +1,11 @@
+{
+    "algorithm-type-name": "AggressiveLeveragedMomentum",
+    "algorithm-language": "Python",
+    "algorithm-location": "main.py",
+    "parameters": {},
+    "description": "Aggressive Leveraged Momentum Strategy with 4x leverage for 25%+ CAGR",
+    "cloud-id": 23285829,
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0",
+    "python-venv": 1,
+    "encrypted": false
+}

@@ -1,0 +1,11 @@
+{
+    "algorithm-type-name": "LeveragedBuyHold",
+    "algorithm-language": "Python",
+    "algorithm-location": "main.py",
+    "parameters": {},
+    "description": "Leveraged Buy &amp; Hold Strategy with minimal trading costs for sustainable high returns",
+    "cloud-id": 23285852,
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0",
+    "python-venv": 1,
+    "encrypted": false
+}

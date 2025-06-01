@@ -1,0 +1,9 @@
+/option/usa/universes/spy/20231228.csv
+/option/usa/universes/spy/20231229.csv
+/option/usa/universes/spy/20240102.csv
+/option/usa/universes/spy/20240103.csv
+/option/usa/universes/spy/20240104.csv
+/option/usa/universes/spy/20240105.csv
+/option/usa/universes/spy/20240108.csv
+/option/usa/universes/spy/20240109.csv
+/alternative/interest-rate/usa/interest-rate.csv

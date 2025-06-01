@@ -1,0 +1,9 @@
+{
+    "algorithm-type-name": "TargetDominator",
+    "algorithm-language": "Python",
+    "algorithm-location": "main.py",
+    "parameters": {},
+    "description": "Target Dominator - Extreme 12x leveraged strategy designed to dominate all 5 targets with ultra-high frequency trading",
+    "cloud-id": 23286700,
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0"
+}

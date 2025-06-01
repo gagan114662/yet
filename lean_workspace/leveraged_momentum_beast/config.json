@@ -1,0 +1,11 @@
+{
+    "algorithm-type-name": "LeveragedMomentumBeast",
+    "algorithm-language": "Python",
+    "algorithm-location": "main.py",
+    "parameters": {},
+    "description": "Leveraged Momentum Beast for 25%+ CAGR over 20 years",
+    "cloud-id": 23285745,
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0",
+    "python-venv": 1,
+    "encrypted": false
+}

@@ -1,0 +1,118 @@
+2025-05-31T16:21:47.5617550Z TRACE:: Engine.Main(): LEAN ALGORITHMIC TRADING ENGINE v2.5.0.0 Mode: DEBUG (64bit) Host: ubuntu-dev
+2025-05-31T16:21:47.5829083Z TRACE:: Engine.Main(): Started 4:21 PM
+2025-05-31T16:21:47.5867899Z TRACE:: Config.Get(): Configuration key not found. Key: lean-manager-type - Using default value: LocalLeanManager
+2025-05-31T16:21:47.6036065Z TRACE:: JobQueue.NextJob(): Selected /LeanCLI/main.py
+2025-05-31T16:21:47.6358765Z TRACE:: Config.GetValue(): scheduled-event-leaky-bucket-capacity - Using default value: 120
+2025-05-31T16:21:47.6359017Z TRACE:: Config.GetValue(): scheduled-event-leaky-bucket-time-interval-minutes - Using default value: 1440
+2025-05-31T16:21:47.6359142Z TRACE:: Config.GetValue(): scheduled-event-leaky-bucket-refill-amount - Using default value: 18
+2025-05-31T16:21:47.6362955Z TRACE:: Config.GetValue(): storage-limit - Using default value: 10737418240
+2025-05-31T16:21:47.6363198Z TRACE:: Config.GetValue(): storage-permissions - Using default value: 3
+2025-05-31T16:21:47.6363545Z TRACE:: Config.Get(): Configuration key not found. Key: optimization-id - Using default value: 
+2025-05-31T16:21:47.6363639Z TRACE:: Config.Get(): Configuration key not found. Key: backtest-name - Using default value: local
+2025-05-31T16:21:47.6387550Z TRACE:: Config.Get(): Configuration key not found. Key: data-channel - Using default value: 
+2025-05-31T16:21:47.6388467Z TRACE:: Config.Get(): Configuration key not found. Key: python-venv - Using default value: 
+2025-05-31T16:21:47.6388803Z TRACE:: Config.Get(): Configuration key not found. Key: out-of-sample-max-end-date - Using default value: 
+2025-05-31T16:21:47.6388905Z TRACE:: Config.GetValue(): out-of-sample-days - Using default value: 0
+2025-05-31T16:21:47.6394368Z TRACE:: Config.Get(): Configuration key not found. Key: data-permission-manager - Using default value: DataPermissionManager
+2025-05-31T16:21:47.6394527Z TRACE:: Config.Get(): Configuration key not found. Key: data-monitor - Using default value: QuantConnect.Data.DataMonitor
+2025-05-31T16:21:47.6491380Z TRACE:: Config.GetValue(): algorithm-creation-timeout - Using default value: 90
+2025-05-31T16:21:47.6540870Z TRACE:: Config.GetValue(): zip-data-cache-provider - Using default value: 10
+2025-05-31T16:21:47.6547688Z TRACE:: Config.Get(): Configuration key not found. Key: fundamental-data-provider - Using default value: CoarseFundamentalDataProvider
+2025-05-31T16:21:47.6562847Z TRACE:: AlgorithmManager.CreateTokenBucket(): Initializing LeakyBucket: Capacity: 120 RefillAmount: 18 TimeInterval: 1440
+2025-05-31T16:21:47.6566131Z TRACE:: Config.GetValue(): algorithm-manager-time-loop-maximum - Using default value: 20
+2025-05-31T16:21:47.6600926Z TRACE:: Config.GetValue(): downloader-data-update-period - Using default value: 7
+2025-05-31T16:21:47.6604846Z TRACE:: Engine.Run(): Resource limits '0' CPUs. 2147483647 MB RAM.
+2025-05-31T16:21:47.6614722Z TRACE:: TextSubscriptionDataSourceReader.SetCacheSize(): Setting cache size to 71582788 items
+2025-05-31T16:21:48.0422979Z TRACE:: PythonInitializer.Initialize(): start...
+2025-05-31T16:21:48.6192207Z TRACE:: PythonInitializer.Initialize(): ended
+2025-05-31T16:21:48.6204096Z TRACE:: AlgorithmPythonWrapper(): Python version 3.11.8 | packaged by conda-forge | (main, Feb 16 2024, 21:14:50) [GCC 12.3.0]: Importing python module main
+2025-05-31T16:21:50.6214163Z TRACE:: AlgorithmPythonWrapper(): main successfully imported.
+2025-05-31T16:21:50.6287271Z TRACE:: AlgorithmPythonWrapper(): Creating IAlgorithm instance.
+2025-05-31T16:21:50.6360064Z TRACE:: Config.Get(): Configuration key not found. Key: databases-refresh-period - Using default value: 1.00:00:00
+2025-05-31T16:21:50.7075923Z TRACE:: Config.GetValue(): mute-python-library-logging - Using default value: True
+2025-05-31T16:21:50.7096855Z TRACE:: LocalObjectStore.Initialize(): Storage Root: /Storage. StorageFileCount 9999999. StorageLimit 10240MB
+2025-05-31T16:21:50.7132127Z TRACE:: Config.GetValue(): zip-data-cache-provider - Using default value: 10
+2025-05-31T16:21:50.7155024Z TRACE:: HistoryProviderManager.Initialize(): history providers [SubscriptionDataReaderHistoryProvider]
+2025-05-31T16:21:50.7176007Z TRACE:: BaseSetupHandler.Setup(LocalPlatform): UID: 357130, PID: -1, Version: 2.5.0.0, Source: WebIDE
+2025-05-31T16:21:50.7194163Z TRACE:: Config.Get(): Configuration key not found. Key: security-data-feeds - Using default value: 
+2025-05-31T16:21:50.7620744Z TRACE:: Event Name "EveryDay: SPY 0: 10 min after MarketOpen", scheduled to run.
+2025-05-31T16:21:50.7841758Z TRACE:: Config.GetValue(): data-feed-workers-count - Using default value: 20
+2025-05-31T16:21:50.7846055Z TRACE:: Config.GetValue(): data-feed-max-work-weight - Using default value: 400
+2025-05-31T16:21:50.7846375Z TRACE:: WeightedWorkScheduler(): will use 20 workers and MaxWorkWeight is 400
+2025-05-31T16:21:50.7944134Z TRACE:: BaseSetupHandler.SetupCurrencyConversions():
+Account Type: Margin
+
+Symbol      Quantity    Conversion = Value in USD
+USD: $      100000.00 @       1.00 = $100000
+-------------------------------------------------
+CashBook Total Value:                $100000
+
+2025-05-31T16:21:50.7956731Z TRACE:: Total margin information: TotalMarginUsed: 0.00, MarginRemaining: 100000.00
+2025-05-31T16:21:50.7959053Z TRACE:: SetUp Backtesting: User: 357130 ProjectId: -1 AlgoId: 1486064977
+2025-05-31T16:21:50.7972126Z TRACE:: Dates: Start: 01/01/2022 End: 12/31/2023 Cash: ¤100,000.00 MaximumRuntime: 100.00:00:00 MaxOrders: 2147483647
+2025-05-31T16:21:50.7983099Z TRACE:: BacktestingResultHandler(): Sample Period Set: 262.80
+2025-05-31T16:21:50.7985393Z TRACE:: Config.GetValue(): forward-console-messages - Using default value: True
+2025-05-31T16:21:50.7988255Z TRACE:: JOB HANDLERS:
+         DataFeed:             QuantConnect.Lean.Engine.DataFeeds.FileSystemDataFeed
+         Setup:                QuantConnect.Lean.Engine.Setup.BacktestingSetupHandler
+         RealTime:             QuantConnect.Lean.Engine.RealTime.BacktestingRealTimeHandler
+         Results:              QuantConnect.Lean.Engine.Results.BacktestingResultHandler
+         Transactions:         QuantConnect.Lean.Engine.TransactionHandlers.BacktestingTransactionHandler
+         Object Store:         QuantConnect.Lean.Engine.Storage.LocalObjectStore
+         History Provider:     QuantConnect.Lean.Engine.HistoricalData.HistoryProviderManager
+         Brokerage:            QuantConnect.Brokerages.Backtesting.BacktestingBrokerage
+         Data Provider:        QuantConnect.Lean.Engine.DataFeeds.DefaultDataProvider
+
+2025-05-31T16:21:50.8165510Z ERROR:: Extensions.SetRuntimeError(): Extensions.SetRuntimeError(): RuntimeError at 01/01/2022 05:00:00 UTC. Context: Engine Isolator System.ArgumentException: Unable to locate next market open within two weeks. Market is always open for this asset, this can happen e.g. if using TimeRules AfterMarketOpen for a crypto asset. An alternative would be TimeRules.At(), TimeRules.Every(), TimeRules.Midnight or TimeRules.Noon instead
+   at QuantConnect.Securities.SecurityExchangeHours.GetNextMarketOpen(DateTime localDateTime, Boolean extendedMarketHours) in Common/Securities/SecurityExchangeHours.cs:line 365
+   at QuantConnect.Securities.SecurityExchangeHours.GetPreviousMarketOpen(DateTime localDateTime, Boolean extendedMarketHours, Boolean firstOpen) in Common/Securities/SecurityExchangeHours.cs:line 274
+   at QuantConnect.Securities.SecurityExchangeHours.GetFirstDailyMarketOpen(DateTime localDateTime, Boolean extendedMarketHours) in Common/Securities/SecurityExchangeHours.cs:line 250
+   at QuantConnect.Scheduling.TimeRules.<>c__DisplayClass15_0.<AfterMarketOpen>b__1(DateTime date) in Common/Scheduling/TimeRules.cs:line 185
+   at System.Linq.Enumerable.IEnumerableSelectIterator`2.MoveNext()
+   at System.Linq.Enumerable.IEnumerableWhereSelectIterator`2.MoveNext()
+   at QuantConnect.Scheduling.ScheduledEvent.get_NextEventUtcTime() in Common/Scheduling/ScheduledEvent.cs:line 80
+   at QuantConnect.Lean.Engine.RealTime.BacktestingRealTimeHandler.<>c.<GetScheduledEventsSortedByTime>b__11_0(KeyValuePair`2 x) in Engine/RealTime/BacktestingRealTimeHandler.cs:line 158
+   at System.Linq.Enumerable.EnumerableSorter`2.ComputeKeys(TElement[] elements, Int32 count)
+   at System.Linq.Enumerable.EnumerableSorter`1.ComputeMap(TElement[] elements, Int32 count)
+   at System.Linq.Enumerable.EnumerableSorter`1.Sort(TElement[] elements, Int32 count)
+   at System.Linq.Enumerable.OrderedIterator`1.SortedMap(TElement[] buffer)
+   at System.Linq.Enumerable.OrderedIterator`2.MoveNext()
+   at System.Linq.Enumerable.IteratorSelectIterator`2.Fill(Iterator`1 source, Span`1 results, Func`2 func)
+   at System.Linq.Enumerable.IteratorSelectIterator`2.ToList()
+   at QuantConnect.Lean.Engine.RealTime.BacktestingRealTimeHandler.GetScheduledEventsSortedByTime() in Engine/RealTime/BacktestingRealTimeHandler.cs:line 156
+   at QuantConnect.Lean.Engine.RealTime.BacktestingRealTimeHandler.Setup(IAlgorithm algorithm, AlgorithmNodePacket job, IResultHandler resultHandler, IApi api, IIsolatorLimitResultProvider isolatorLimitProvider) in Engine/RealTime/BacktestingRealTimeHandler.cs:line 52
+   at QuantConnect.Lean.Engine.Engine.Run(AlgorithmNodePacket job, AlgorithmManager manager, String assemblyPath, WorkerThread workerThread) in Engine/Engine.cs:line 303
+2025-05-31T16:21:50.8277485Z TRACE:: FileSystemDataFeed.Exit(): Start. Setting cancellation token...
+2025-05-31T16:21:50.8284321Z TRACE:: FileSystemDataFeed.Exit(): Exit Finished.
+2025-05-31T16:21:50.8284488Z TRACE:: Engine.Run(): Sending runtime error to user...
+2025-05-31T16:21:50.8320327Z ERROR:: Runtime Error: Unable to locate next market open within two weeks. Market is always open for this asset, this can happen e.g. if using TimeRules AfterMarketOpen for a crypto asset. An alternative would be TimeRules.At(), TimeRules.Every(), TimeRules.Midnight or TimeRules.Noon instead in SecurityExchangeHours.cs:line 365
+ Unable to locate next market open within two weeks. Market is always open for this asset, this can happen e.g. if using TimeRules AfterMarketOpen for a crypto asset. An alternative would be TimeRules.At(), TimeRules.Every(), TimeRules.Midnight or TimeRules.Noon instead in SecurityExchangeHours.cs:line 365
+2025-05-31T16:21:50.8320798Z TRACE:: Debug: Algorithm Id:(1486064977) completed in 0.03 seconds at 0k data points per second. Processing total of 0 data points.
+2025-05-31T16:21:50.8336219Z TRACE:: StopSafely(): Waiting for 'Isolator Thread' thread to stop...
+2025-05-31T16:21:50.8339150Z TRACE:: BacktestingResultHandler.Exit(): starting...
+2025-05-31T16:21:50.8374666Z TRACE:: BacktestingResultHandler.Exit(): Saving logs...
+2025-05-31T16:21:50.8380457Z TRACE:: StopSafely(): Waiting for 'Result Thread' thread to stop...
+2025-05-31T16:21:50.8380499Z TRACE:: Debug: Accurate daily end-times now enabled by default. See more at https://qnt.co/3YHaWHL. To disable it and use legacy daily bars set self.settings.daily_precise_end_time = False.
+2025-05-31T16:21:50.8380544Z TRACE:: Debug: Your log was successfully created and can be retrieved from: /Results/1486064977-log.txt
+2025-05-31T16:21:50.8380570Z TRACE:: BacktestingResultHandler.Run(): Ending Thread...
+2025-05-31T16:21:50.8871463Z TRACE:: 
+STATISTICS:: OrderListHash d41d8cd98f00b204e9800998ecf8427e
+2025-05-31T16:21:50.8871625Z TRACE:: BacktestingResultHandler.SendAnalysisResult(): Processed final packet
+2025-05-31T16:21:50.8873003Z TRACE:: Engine.Run(): Disconnecting from brokerage...
+2025-05-31T16:21:50.8873292Z TRACE:: Engine.Run(): Disposing of setup handler...
+2025-05-31T16:21:50.8873428Z TRACE:: Engine.Main(): Analysis Completed and Results Posted.
+2025-05-31T16:21:50.8875184Z TRACE:: StopSafely(): Waiting for '' thread to stop...
+2025-05-31T16:21:50.8887920Z TRACE:: DataMonitor.GenerateReport():
+DATA USAGE:: Total data requests 502
+DATA USAGE:: Succeeded data requests 0
+DATA USAGE:: Failed data requests 502
+DATA USAGE:: Failed data requests percentage 100%
+DATA USAGE:: Total universe data requests 502
+DATA USAGE:: Succeeded universe data requests 0
+DATA USAGE:: Failed universe data requests 502
+DATA USAGE:: Failed universe data requests percentage 100%
+2025-05-31T16:21:50.8943341Z TRACE:: Engine.Main(): Packet removed from queue: 1486064977
+2025-05-31T16:21:50.8943891Z TRACE:: LeanEngineSystemHandlers.Dispose(): start...
+2025-05-31T16:21:50.8947945Z TRACE:: LeanEngineSystemHandlers.Dispose(): Disposed of system handlers.
+2025-05-31T16:21:50.8949526Z TRACE:: LeanEngineAlgorithmHandlers.Dispose(): start...
+2025-05-31T16:21:50.8954325Z TRACE:: LeanEngineAlgorithmHandlers.Dispose(): Disposed of algorithm handlers.

@@ -1,0 +1,96 @@
+2025-05-31T16:51:25.9640298Z TRACE:: Engine.Main(): LEAN ALGORITHMIC TRADING ENGINE v2.5.0.0 Mode: DEBUG (64bit) Host: ubuntu-dev
+2025-05-31T16:51:25.9676007Z TRACE:: Engine.Main(): Started 4:51 PM
+2025-05-31T16:51:25.9722843Z TRACE:: Config.Get(): Configuration key not found. Key: lean-manager-type - Using default value: LocalLeanManager
+2025-05-31T16:51:25.9935855Z TRACE:: JobQueue.NextJob(): Selected /LeanCLI/main.py
+2025-05-31T16:51:26.0177132Z TRACE:: Config.GetValue(): scheduled-event-leaky-bucket-capacity - Using default value: 120
+2025-05-31T16:51:26.0177380Z TRACE:: Config.GetValue(): scheduled-event-leaky-bucket-time-interval-minutes - Using default value: 1440
+2025-05-31T16:51:26.0177527Z TRACE:: Config.GetValue(): scheduled-event-leaky-bucket-refill-amount - Using default value: 18
+2025-05-31T16:51:26.0181469Z TRACE:: Config.GetValue(): storage-limit - Using default value: 10737418240
+2025-05-31T16:51:26.0181692Z TRACE:: Config.GetValue(): storage-permissions - Using default value: 3
+2025-05-31T16:51:26.0182038Z TRACE:: Config.Get(): Configuration key not found. Key: optimization-id - Using default value: 
+2025-05-31T16:51:26.0182116Z TRACE:: Config.Get(): Configuration key not found. Key: backtest-name - Using default value: local
+2025-05-31T16:51:26.0214609Z TRACE:: Config.Get(): Configuration key not found. Key: data-channel - Using default value: 
+2025-05-31T16:51:26.0215422Z TRACE:: Config.Get(): Configuration key not found. Key: python-venv - Using default value: 
+2025-05-31T16:51:26.0215867Z TRACE:: Config.Get(): Configuration key not found. Key: out-of-sample-max-end-date - Using default value: 
+2025-05-31T16:51:26.0215939Z TRACE:: Config.GetValue(): out-of-sample-days - Using default value: 0
+2025-05-31T16:51:26.0220836Z TRACE:: Config.Get(): Configuration key not found. Key: data-permission-manager - Using default value: DataPermissionManager
+2025-05-31T16:51:26.0220967Z TRACE:: Config.Get(): Configuration key not found. Key: data-monitor - Using default value: QuantConnect.Data.DataMonitor
+2025-05-31T16:51:26.0302193Z TRACE:: Config.GetValue(): algorithm-creation-timeout - Using default value: 90
+2025-05-31T16:51:26.0352891Z TRACE:: Config.GetValue(): zip-data-cache-provider - Using default value: 10
+2025-05-31T16:51:26.0358663Z TRACE:: Config.Get(): Configuration key not found. Key: fundamental-data-provider - Using default value: CoarseFundamentalDataProvider
+2025-05-31T16:51:26.0370172Z TRACE:: AlgorithmManager.CreateTokenBucket(): Initializing LeakyBucket: Capacity: 120 RefillAmount: 18 TimeInterval: 1440
+2025-05-31T16:51:26.0372778Z TRACE:: Config.GetValue(): algorithm-manager-time-loop-maximum - Using default value: 20
+2025-05-31T16:51:26.0402542Z TRACE:: Config.GetValue(): downloader-data-update-period - Using default value: 7
+2025-05-31T16:51:26.0410334Z TRACE:: Engine.Run(): Resource limits '0' CPUs. 2147483647 MB RAM.
+2025-05-31T16:51:26.0412832Z TRACE:: TextSubscriptionDataSourceReader.SetCacheSize(): Setting cache size to 71582788 items
+2025-05-31T16:51:26.4228452Z TRACE:: PythonInitializer.Initialize(): start...
+2025-05-31T16:51:26.9813628Z TRACE:: PythonInitializer.Initialize(): ended
+2025-05-31T16:51:26.9822800Z TRACE:: AlgorithmPythonWrapper(): Python version 3.11.8 | packaged by conda-forge | (main, Feb 16 2024, 21:14:50) [GCC 12.3.0]: Importing python module main
+2025-05-31T16:51:28.5438505Z TRACE:: AlgorithmPythonWrapper(): main successfully imported.
+2025-05-31T16:51:28.5483203Z TRACE:: AlgorithmPythonWrapper(): Creating IAlgorithm instance.
+2025-05-31T16:51:28.5560438Z TRACE:: Config.Get(): Configuration key not found. Key: databases-refresh-period - Using default value: 1.00:00:00
+2025-05-31T16:51:28.6304559Z TRACE:: Config.GetValue(): mute-python-library-logging - Using default value: True
+2025-05-31T16:51:28.6326269Z TRACE:: LocalObjectStore.Initialize(): Storage Root: /Storage. StorageFileCount 9999999. StorageLimit 10240MB
+2025-05-31T16:51:28.6362140Z TRACE:: Config.GetValue(): zip-data-cache-provider - Using default value: 10
+2025-05-31T16:51:28.6389396Z TRACE:: HistoryProviderManager.Initialize(): history providers [SubscriptionDataReaderHistoryProvider]
+2025-05-31T16:51:28.6409589Z TRACE:: BaseSetupHandler.Setup(LocalPlatform): UID: 357130, PID: -1, Version: 2.5.0.0, Source: WebIDE
+2025-05-31T16:51:28.6427963Z TRACE:: Config.Get(): Configuration key not found. Key: security-data-feeds - Using default value: 
+2025-05-31T16:51:28.6977700Z TRACE:: BacktestingResultHandler(): Sample Period Set: 657.72
+2025-05-31T16:51:28.6984342Z TRACE:: Config.GetValue(): forward-console-messages - Using default value: True
+2025-05-31T16:51:28.7216801Z ERROR:: Engine.Run(): During the algorithm initialization, the following exception has occurred: error return without exception set
+  at Initialize
+    self.universe = [self.spy, self.qqq, self.iwm, self.aapl, self.msft, self.amzn, self.gld, self.tlt]
+    ^^^^^^^^^^^^^
+ in main.py: line 34
+ error return without exception set
+2025-05-31T16:51:28.7219455Z TRACE:: JOB HANDLERS:
+         DataFeed:             QuantConnect.Lean.Engine.DataFeeds.FileSystemDataFeed
+         Setup:                QuantConnect.Lean.Engine.Setup.BacktestingSetupHandler
+         RealTime:             QuantConnect.Lean.Engine.RealTime.BacktestingRealTimeHandler
+         Results:              QuantConnect.Lean.Engine.Results.BacktestingResultHandler
+         Transactions:         QuantConnect.Lean.Engine.TransactionHandlers.BacktestingTransactionHandler
+         Object Store:         QuantConnect.Lean.Engine.Storage.LocalObjectStore
+         History Provider:     QuantConnect.Lean.Engine.HistoricalData.HistoryProviderManager
+         Brokerage:            QuantConnect.Brokerages.Backtesting.BacktestingBrokerage
+         Data Provider:        QuantConnect.Lean.Engine.DataFeeds.DefaultDataProvider
+
+2025-05-31T16:51:28.7221729Z TRACE:: FileSystemDataFeed.Exit(): Start. Setting cancellation token...
+2025-05-31T16:51:28.7228232Z TRACE:: FileSystemDataFeed.Exit(): Exit Finished.
+2025-05-31T16:51:28.7229799Z TRACE:: BacktestingResultHandler.Exit(): starting...
+2025-05-31T16:51:28.7282025Z TRACE:: BacktestingResultHandler.Exit(): Saving logs...
+2025-05-31T16:51:28.7290536Z TRACE:: StopSafely(): Waiting for 'Result Thread' thread to stop...
+2025-05-31T16:51:28.7292089Z ERROR:: During the algorithm initialization, the following exception has occurred: error return without exception set
+  at Initialize
+    self.universe = [self.spy, self.qqq, self.iwm, self.aapl, self.msft, self.amzn, self.gld, self.tlt]
+    ^^^^^^^^^^^^^
+ in main.py: line 34
+ error return without exception set
+ error return without exception set
+  at Initialize
+    self.universe = [self.spy, self.qqq, self.iwm, self.aapl, self.msft, self.amzn, self.gld, self.tlt]
+    ^^^^^^^^^^^^^
+ in main.py: line 34
+ error return without exception set
+2025-05-31T16:51:28.7292579Z TRACE:: Debug: Your log was successfully created and can be retrieved from: /Results/1768480391-log.txt
+2025-05-31T16:51:28.7292701Z TRACE:: BacktestingResultHandler.Run(): Ending Thread...
+2025-05-31T16:51:28.7836593Z TRACE:: 
+STATISTICS:: OrderListHash d41d8cd98f00b204e9800998ecf8427e
+2025-05-31T16:51:28.7836740Z TRACE:: BacktestingResultHandler.SendAnalysisResult(): Processed final packet
+2025-05-31T16:51:28.7838022Z TRACE:: Engine.Run(): Disconnecting from brokerage...
+2025-05-31T16:51:28.7838279Z TRACE:: Engine.Run(): Disposing of setup handler...
+2025-05-31T16:51:28.7838400Z TRACE:: Engine.Main(): Analysis Completed and Results Posted.
+2025-05-31T16:51:28.7841794Z TRACE:: StopSafely(): Waiting for '' thread to stop...
+2025-05-31T16:51:28.7849892Z TRACE:: DataMonitor.GenerateReport():
+DATA USAGE:: Total data requests 0
+DATA USAGE:: Succeeded data requests 0
+DATA USAGE:: Failed data requests 0
+DATA USAGE:: Failed data requests percentage 0%
+DATA USAGE:: Total universe data requests 0
+DATA USAGE:: Succeeded universe data requests 0
+DATA USAGE:: Failed universe data requests 0
+DATA USAGE:: Failed universe data requests percentage 0%
+2025-05-31T16:51:28.7898190Z TRACE:: Engine.Main(): Packet removed from queue: 1768480391
+2025-05-31T16:51:28.7898669Z TRACE:: LeanEngineSystemHandlers.Dispose(): start...
+2025-05-31T16:51:28.7902033Z TRACE:: LeanEngineSystemHandlers.Dispose(): Disposed of system handlers.
+2025-05-31T16:51:28.7903357Z TRACE:: LeanEngineAlgorithmHandlers.Dispose(): start...
+2025-05-31T16:51:28.7907008Z TRACE:: LeanEngineAlgorithmHandlers.Dispose(): Disposed of algorithm handlers.

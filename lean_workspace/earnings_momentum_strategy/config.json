@@ -1,0 +1,8 @@
+{
+    "description": "Earnings Momentum & Options Flow Strategy with 8x leverage targeting 60%+ CAGR",
+    "parameters": {},
+    "algorithm-type-name": "EarningsMomentumStrategy",
+    "algorithm-language": "Python",
+    "algorithm-location": "main.py",
+    "local-id": 820670837
+}

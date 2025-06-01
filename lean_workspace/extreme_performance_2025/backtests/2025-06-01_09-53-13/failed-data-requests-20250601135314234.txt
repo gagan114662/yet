@@ -1,0 +1,14 @@
+/equity/usa/hour/qqq.zip
+/equity/usa/hour/upro.zip
+/equity/usa/hour/sqqq.zip
+/equity/usa/hour/iwm.zip
+/equity/usa/hour/spxu.zip
+/equity/usa/hour/tqqq.zip
+/equity/usa/hour/sqqq.zip
+/equity/usa/hour/tqqq.zip
+/equity/usa/hour/upro.zip
+/equity/usa/hour/iwm.zip
+/equity/usa/hour/spxu.zip
+/equity/usa/hour/qqq.zip
+/equity/usa/hour/tna.zip
+/equity/usa/hour/tna.zip

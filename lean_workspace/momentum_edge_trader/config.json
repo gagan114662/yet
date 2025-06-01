@@ -1,0 +1,9 @@
+{
+    "algorithm-type-name": "MomentumEdgeTrader",
+    "algorithm-language": "Python",
+    "algorithm-location": "main.py",
+    "parameters": {},
+    "description": "Momentum Edge Trader - Academic momentum factor strategy with cross-sectional momentum and mean reversion timing",
+    "cloud-id": 23286400,
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0"
+}

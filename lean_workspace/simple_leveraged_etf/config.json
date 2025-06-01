@@ -1,0 +1,11 @@
+{
+    "algorithm-type-name": "SimpleLeveragedETF",
+    "algorithm-language": "Python",
+    "algorithm-location": "main.py",
+    "parameters": {},
+    "description": "Simple Leveraged ETF Strategy with minimal trading costs",
+    "cloud-id": 23285785,
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0",
+    "python-venv": 1,
+    "encrypted": false
+}

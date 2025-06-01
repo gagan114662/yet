@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-05-30T17:00:16.188914",
+  "total_tested": 3,
+  "successful": 0,
+  "results": [
+    {
+      "strategy": "Momentum_Cross_Strategy",
+      "status": "failed",
+      "error": "/usr/lib/python3/dist-packages/paramiko/transport.py:237: CryptographyDeprecationWarning: Blowfish has been deprecated and will be removed in a future release\n  \"class\": algorithms.Blowfish,\n"
+    },
+    {
+      "strategy": "Mean_Reversion_BB",
+      "status": "error",
+      "error": "Command 'lean create-project 'rd_agent_strategy_20250530_170010' --language python' returned non-zero exit status 1."
+    },
+    {
+      "strategy": "Quality_Factor_Strategy",
+      "status": "error",
+      "error": "Command 'lean create-project 'rd_agent_strategy_20250530_170010' --language python' returned non-zero exit status 1."
+    }
+  ]
+}

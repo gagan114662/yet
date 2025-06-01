@@ -1,0 +1,10 @@
+/equity/usa/hour/dba.zip
+/equity/usa/hour/fxb.zip
+/equity/usa/hour/efa.zip
+/equity/usa/hour/gld.zip
+/equity/usa/hour/tlt.zip
+/equity/usa/hour/hyg.zip
+/equity/usa/hour/fxe.zip
+/equity/usa/hour/uso.zip
+/equity/usa/hour/gbtc.zip
+/equity/usa/hour/eem.zip

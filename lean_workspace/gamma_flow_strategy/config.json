@@ -1,0 +1,8 @@
+{
+    "description": "Advanced Gamma Flow & Options Positioning Strategy with 5x leverage targeting 40%+ CAGR",
+    "parameters": {},
+    "algorithm-type-name": "GammaFlowStrategy",
+    "algorithm-language": "Python",
+    "algorithm-location": "main.py",
+    "local-id": 557787859
+}

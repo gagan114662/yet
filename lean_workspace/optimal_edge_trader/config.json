@@ -1,0 +1,9 @@
+{
+    "algorithm-type-name": "OptimalEdgeTrader",
+    "algorithm-language": "Python",
+    "algorithm-location": "main.py",
+    "parameters": {},
+    "description": "Optimal Edge Trader - Balanced 1.5x leverage + edge-based trading for 25%+ CAGR with 100+ trades/year",
+    "cloud-id": 23286210,
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0"
+}

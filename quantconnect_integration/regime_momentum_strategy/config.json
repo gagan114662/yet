@@ -1,0 +1,7 @@
+{
+    "description": "Cross-Asset Regime Momentum Strategy with volatility targeting and 5x leverage targeting 35%+ CAGR",
+    "parameters": {},
+    "algorithm-type-name": "RegimeMomentumStrategy",
+    "algorithm-language": "Python",
+    "algorithm-location": "main.py"
+}

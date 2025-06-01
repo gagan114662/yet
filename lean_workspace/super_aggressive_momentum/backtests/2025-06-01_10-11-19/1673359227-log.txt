@@ -1,0 +1,15 @@
+2017-12-22 14:00:00 Launching analysis for 1673359227 with LEAN Engine v2.5.0.0
+2017-12-22 14:00:00 Accurate daily end-times now enabled by default. See more at https://qnt.co/3YHaWHL. To disable it and use legacy daily bars set self.settings.daily_precise_end_time = False.
+2017-12-22 14:00:00 Algorithm starting warm up...
+2018-01-02 11:00:00 Algorithm finished warming up.
+2018-09-11 16:00:00 Daily loss limit triggered at 5.03% loss
+2018-09-12 10:00:00 Daily loss limit triggered at 5.04% loss
+2023-12-29 16:00:00 
+=== PERFORMANCE SUMMARY ===
+2023-12-29 16:00:00 Total Trades: 54
+2023-12-29 16:00:00 Win Rate: 1.85%
+2023-12-29 16:00:00 Average Profit per Trade: 0.03%
+2023-12-29 16:00:00 Total Return: -5.04%
+2023-12-29 16:00:00 CAGR: -0.86%
+2023-12-29 16:00:00 Final Portfolio Value: $94,964.97
+2023-12-29 16:00:00 Algorithm Id:(1673359227) completed in 1.37 seconds at 8k data points per second. Processing total of 10,585 data points.

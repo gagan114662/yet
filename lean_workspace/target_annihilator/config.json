@@ -1,0 +1,9 @@
+{
+    "algorithm-type-name": "TargetAnnihilator",
+    "algorithm-language": "Python",
+    "algorithm-location": "main.py",
+    "parameters": {},
+    "description": "Target Annihilator - Precision strategy designed to DESTROY all 5 targets: 25%+ CAGR, 1.0+ Sharpe, 100+ trades, 0.75%+ profit, <20% drawdown",
+    "cloud-id": 23286600,
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0"
+}

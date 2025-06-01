@@ -1,0 +1,9 @@
+{
+    "algorithm-type-name": "TargetBeaterFinal",
+    "algorithm-language": "Python",
+    "algorithm-location": "main.py",
+    "parameters": {},
+    "description": "Target Beater Final - Extreme leverage strategy with 12x effective exposure, regime adaptation, and crisis alpha designed to beat all 5 targets",
+    "cloud-id": 23295378,
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0"
+}

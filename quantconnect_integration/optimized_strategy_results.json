@@ -1,0 +1,46 @@
+{
+  "timestamp": "2025-05-30T17:13:51.731468",
+  "total_tested": 3,
+  "successful": 0,
+  "criteria": {
+    "cagr": 0.25,
+    "sharpe_ratio": 1.0,
+    "max_drawdown": 0.2,
+    "avg_profit": 0.0075,
+    "min_trades_per_year": 100
+  },
+  "results": [
+    {
+      "strategy": "Aggressive_SPY_Momentum",
+      "metrics": {
+        "cagr": 0.0008347043213579042,
+        "sharpe_ratio": 0.345,
+        "max_drawdown": 0.17,
+        "total_return": 0.003343,
+        "win_rate": 0.39,
+        "total_trades": 506,
+        "trades_per_year": 126.5,
+        "avg_profit": 0.01
+      },
+      "evaluation": {
+        "meets_criteria": false,
+        "details": {
+          "cagr": "Target: 25.00%, Actual: 0.08%",
+          "sharpe_ratio": "Target: 1.00, Actual: 0.34"
+        }
+      },
+      "status": "below_target",
+      "project_path": "./rd_agent_strategy_20250530_171329_076469"
+    },
+    {
+      "strategy": "Multi_Timeframe_Reversal",
+      "status": "failed",
+      "error": "/usr/lib/python3/dist-packages/paramiko/transport.py:237: CryptographyDeprecationWarning: Blowfish has been deprecated and will be removed in a future release\n  \"class\": algorithms.Blowfish,\n"
+    },
+    {
+      "strategy": "Breakout_Scalping_Strategy",
+      "status": "failed",
+      "error": "/usr/lib/python3/dist-packages/paramiko/transport.py:237: CryptographyDeprecationWarning: Blowfish has been deprecated and will be removed in a future release\n  \"class\": algorithms.Blowfish,\n"
+    }
+  ]
+}

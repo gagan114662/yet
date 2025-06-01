@@ -1,0 +1,7 @@
+{
+    "description": "Master Strategy Rotator with dynamic allocation across 5 strategies targeting 50%+ CAGR",
+    "parameters": {},
+    "algorithm-type-name": "MasterStrategyRotator",
+    "algorithm-language": "Python",
+    "algorithm-location": "main.py"
+}

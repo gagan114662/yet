@@ -1,0 +1,7 @@
+{
+    "description": "Microstructure & Intraday Mean Reversion Strategy with 15x leverage targeting 45%+ CAGR",
+    "parameters": {},
+    "algorithm-type-name": "MicrostructureStrategy",
+    "algorithm-language": "Python",
+    "algorithm-location": "main.py"
+}

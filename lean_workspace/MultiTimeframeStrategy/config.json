@@ -1,0 +1,26 @@
+{
+    "algorithm-language": "Python",
+    "parameters": {
+        "daily_allocation": "0.2",
+        "weekly_allocation": "0.3",
+        "monthly_allocation": "0.5",
+        "rsi_period": "14",
+        "rsi_oversold": "30",
+        "rsi_overbought": "70",
+        "bb_period": "20",
+        "bb_std_dev": "2",
+        "macd_fast": "12",
+        "macd_slow": "26",
+        "macd_signal": "9",
+        "ema_fast": "20",
+        "ema_slow": "50",
+        "stop_loss_pct": "5",
+        "take_profit_pct": "20",
+        "risk_per_trade_pct": "1"
+    },
+    "description": "Multi-timeframe quantitative trading strategy using daily, weekly, and monthly signals with advanced risk management",
+    "cloud-id": 23162232,
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0",
+    "python-venv": 1,
+    "encrypted": false
+}

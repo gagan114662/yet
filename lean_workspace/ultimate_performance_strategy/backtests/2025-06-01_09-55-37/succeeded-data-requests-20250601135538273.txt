@@ -1,0 +1,3 @@
+/equity/usa/minute/spy/20230803_quote.zip
+/equity/usa/minute/spy/20230803_trade.zip
+/alternative/interest-rate/usa/interest-rate.csv

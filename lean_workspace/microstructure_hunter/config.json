@@ -1,0 +1,9 @@
+{
+    "algorithm-type-name": "MicrostructureHunter",
+    "algorithm-language": "Python",
+    "algorithm-location": "main.py",
+    "parameters": {},
+    "description": "Microstructure Hunter - Exploits market making inefficiencies with high-frequency intraday mean reversion and order flow analysis",
+    "cloud-id": 23295245,
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0"
+}

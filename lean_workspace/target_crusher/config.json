@@ -1,0 +1,9 @@
+{
+    "algorithm-type-name": "TargetCrusher",
+    "algorithm-language": "Python",
+    "algorithm-location": "main.py",
+    "parameters": {},
+    "description": "Target Crusher - Aggressive strategy designed to exceed ALL targets: 25%+ CAGR, 1.0+ Sharpe, 100+ trades/year, 0.75%+ avg profit",
+    "cloud-id": 23286500,
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0"
+}
