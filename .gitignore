@@ -1,0 +1,5 @@
+# Ignore backtest result files
+lean_workspace/*/backtests/**/*.json
+lean_workspace/*/backtests/**/*.txt
+lean_workspace/*/backtests/**/*-log.txt
+lean_workspace/*/backtests/**/*-order-events.json
