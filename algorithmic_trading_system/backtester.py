@@ -2,50 +2,106 @@ import subprocess
 import json
 import os
 from typing import Dict
-from .strategy_utils import Strategy # Assuming Strategy is in strategy_utils.py
-from . import config # To access Lean CLI configurations
+from datetime import datetime
+try:
+    from quantconnect_integration.rd_agent_qc_bridge import QuantConnectIntegration
+except ImportError:
+    print("Warning: QuantConnect integration not available. Falling back to basic Lean CLI.")
+    QuantConnectIntegration = None
+import config # To access Lean CLI configurations
 
 class Backtester:
     def __init__(self):
         """
-        Initializes the Backtester.
-        Loads Lean CLI configuration and sets up paths.
+        Initializes the Backtester with QuantConnect integration if available,
+        otherwise falls back to basic Lean CLI setup.
         """
-        self.lean_cli_user_id = config.LEAN_CLI_USER_ID
-        self.lean_cli_api_token = config.LEAN_CLI_API_TOKEN
-        self.lean_cli_path = config.LEAN_CLI_PATH
-        self.temp_lean_project_path = "lean_workspace/TempBacktestStrategy"
-        # Ensure the base workspace directory exists
-        os.makedirs("lean_workspace", exist_ok=True)
+        # Try to use QuantConnect integration first
+        if QuantConnectIntegration:
+            try:
+                self.qc_integration = QuantConnectIntegration()
+                self.use_qc_integration = True
+                print("Using QuantConnect integration for backtesting.")
+            except Exception as e:
+                print(f"Failed to initialize QuantConnect integration: {e}")
+                self.use_qc_integration = False
+        else:
+            self.use_qc_integration = False
+            
+        # Fallback to basic Lean CLI setup
+        if not self.use_qc_integration:
+            self.lean_cli_user_id = config.LEAN_CLI_USER_ID
+            self.lean_cli_api_token = config.LEAN_CLI_API_TOKEN
+            self.lean_cli_path = config.LEAN_CLI_PATH
+            self.temp_lean_project_path = "lean_workspace/TempBacktestStrategy"
+            # Ensure the base workspace directory exists
+            os.makedirs("lean_workspace", exist_ok=True)
+            print("Using basic Lean CLI for backtesting.")
 
-
-    def backtest_strategy(self, strategy: Strategy) -> Dict:
+    def backtest_strategy(self, strategy_idea: Dict) -> Dict:
         """
-        Backtests a strategy using Lean CLI.
+        Backtests a strategy using either QuantConnect integration or basic Lean CLI.
 
         Args:
-            strategy: The strategy object to backtest.
+            strategy_idea: A dictionary containing the strategy definition.
 
         Returns:
             A dictionary containing performance metrics or error information.
         """
-        print(f"Backtesting strategy ID: {strategy.id}, Type: {strategy.type}, Params: {strategy.parameters} using Lean CLI.")
+        strategy_name = strategy_idea.get('name', 'UnnamedStrategy')
+        print(f"Backtesting strategy: {strategy_name}")
+        
+        # Use QuantConnect integration if available
+        if self.use_qc_integration:
+            return self._backtest_with_qc_integration(strategy_idea)
+        else:
+            return self._backtest_with_lean_cli(strategy_idea)
+    
+    def _backtest_with_qc_integration(self, strategy_idea: Dict) -> Dict:
+        """Backtest using QuantConnect integration."""
+        strategy_name = strategy_idea.get('name', 'UnnamedStrategy').replace(' ', '_')
+        unique_project_name = f"{strategy_name}_{datetime.now().strftime('%Y%m%d_%H%M%S_%f')}"
 
-        # --- Prepare Strategy File ---
-        # For now, using a default strategy code as strategy.get_code() is not available.
-        default_strategy_code = """
-from AlgorithmImports import *
-class DefaultQCAlgorithm(QCAlgorithm):
-    def Initialize(self):
-        self.SetStartDate(2023, 10, 1)
-        self.SetEndDate(2023, 10, 11) # Short period for faster testing
-        self.SetCash(100000)
-        self.AddEquity("SPY", Resolution.Daily)
-    def OnData(self, data):
-        if not self.Portfolio.Invested:
-            self.SetHoldings("SPY", 1)
-"""
-        strategy_code = default_strategy_code # Replace with strategy.get_code() when available
+        print(f"Preparing to backtest strategy: {unique_project_name}")
+        print(f"Strategy details: {strategy_idea}")
+
+        try:
+            # 1. Create a LEAN project directory
+            print(f"Attempting to create LEAN project: {unique_project_name}")
+            project_path = self.qc_integration.create_lean_project(project_name=unique_project_name)
+            print(f"LEAN project created at: {project_path}")
+
+            # 2. Generate strategy code from the idea
+            print("Generating strategy code...")
+            strategy_code = self.qc_integration.generate_strategy_code(strategy_idea)
+
+            # 3. Run the backtest
+            print(f"Running backtest for project: {unique_project_name} at path: {project_path}...")
+            results = self.qc_integration.run_backtest(strategy_code, project_path)
+
+            if "error" in results:
+                print(f"Warning: Backtest for {unique_project_name} encountered an error: {results['error']}")
+            else:
+                print(f"Backtest completed for {unique_project_name}. Results: {results}")
+
+            return results
+
+        except Exception as e:
+            print(f"An unexpected error occurred during backtesting strategy {unique_project_name}: {e}")
+            return {
+                "error": str(e),
+                "details": "Exception in Backtester._backtest_with_qc_integration",
+                "project_name": unique_project_name,
+                "strategy_idea": strategy_idea
+            }
+    
+    def _backtest_with_lean_cli(self, strategy_idea: Dict) -> Dict:
+        """Backtest using basic Lean CLI."""
+        strategy_name = strategy_idea.get('name', 'UnnamedStrategy')
+        print(f"Backtesting strategy: {strategy_name} using basic Lean CLI.")
+
+        # Generate strategy code from strategy_idea
+        strategy_code = self._generate_strategy_code_from_idea(strategy_idea)
 
         try:
             os.makedirs(self.temp_lean_project_path, exist_ok=True)
@@ -66,55 +122,40 @@ class DefaultQCAlgorithm(QCAlgorithm):
             print(f"Error writing strategy or config files: {e}")
             return {
                 'error': 'File system error preparing Lean project', 'details': str(e),
-                'annual_return': 0, 'max_drawdown': -1, 'sharpe_ratio': 0, 'win_rate': 0, 'trades_executed': 0
+                'cagr': 0, 'max_drawdown': 1, 'sharpe_ratio': 0, 'avg_profit': 0, 'total_trades': 0
             }
 
         # --- Construct Lean CLI Command ---
-        # Adjust output_dir if Lean CLI saves files there instead of stdout
         output_dir = os.path.join(self.temp_lean_project_path, "lean_output")
-        os.makedirs(output_dir, exist_ok=True) # Ensure output directory exists
+        os.makedirs(output_dir, exist_ok=True)
 
-        # Command structure: lean backtest <project> --output <output_path_for_results_json> --json
-        # The --json flag is key. Some versions of Lean CLI might output JSON to stdout,
-        # others might save it in the --output path. We'll first try to parse stdout.
-        # If that fails, we'll look for a results.json in the output_dir.
-        # The project path should be the directory containing main.py and config.json
         command = [
             self.lean_cli_path,
             "backtest",
-            self.temp_lean_project_path, # Path to the project directory
-            "--output", output_dir,      # Directory where Lean stores detailed results
-            "--json"                     # Request JSON output (hopefully to stdout or a known file)
+            self.temp_lean_project_path,
+            "--output", output_dir,
+            "--json"
         ]
 
         print(f"Executing Lean CLI command: {' '.join(command)}")
 
         # --- Execute Command ---
         try:
-            # Environment variables for Lean (if needed, typically for cloud operations or specific auth)
-            # For local backtesting with a pre-configured CLI, this might not be strictly necessary
-            # but good to keep in mind. User ID and API Token are more for cloud.
             env = os.environ.copy()
-            # env["QC_USER_ID"] = self.lean_cli_user_id # Example if needed
-            # env["QC_API_TOKEN"] = self.lean_cli_api_token # Example if needed
-
-            process = subprocess.run(command, capture_output=True, text=True, env=env, check=False) # check=False to handle errors manually
+            process = subprocess.run(command, capture_output=True, text=True, env=env, check=False)
 
             if process.returncode != 0:
                 print(f"Error executing Lean CLI: {process.stderr}")
-                # Attempt to read results.json even if CLI reports error, as it might contain partial data or error details
-                # This is a fallback, primary expectation is stdout or success.
                 results_json_path = self.find_results_json(output_dir)
                 if results_json_path:
                     print(f"Attempting to parse results from {results_json_path} despite CLI error.")
                     return self.parse_lean_results_from_file(results_json_path, process.stderr)
                 return {
                     'error': 'Lean CLI execution failed', 'details': process.stderr,
-                    'annual_return': 0, 'max_drawdown': -1, 'sharpe_ratio': 0, 'win_rate': 0, 'trades_executed': 0
+                    'cagr': 0, 'max_drawdown': 1, 'sharpe_ratio': 0, 'avg_profit': 0, 'total_trades': 0
                 }
 
             # --- Parse Results ---
-            # Try parsing stdout first
             if process.stdout:
                 try:
                     lean_results_data = json.loads(process.stdout)
@@ -122,11 +163,10 @@ class DefaultQCAlgorithm(QCAlgorithm):
                     return self.parse_metrics_from_lean_json(lean_results_data, process.stdout)
                 except json.JSONDecodeError as e:
                     print(f"Failed to parse JSON from Lean CLI stdout: {e}. Stdout was: {process.stdout[:500]}...")
-                    # Fallback: Check if results.json was created in the output directory
 
-            # Fallback: look for results.json in the output directory or project's backtests folder
+            # Fallback: look for results.json in the output directory
             results_json_path = self.find_results_json(output_dir)
-            if not results_json_path: # If not in output_dir, check standard backtest location
+            if not results_json_path:
                 project_backtests_dir = os.path.join(self.temp_lean_project_path, "backtests")
                 results_json_path = self.find_results_json(project_backtests_dir)
 
@@ -134,54 +174,164 @@ class DefaultQCAlgorithm(QCAlgorithm):
                 print(f"Parsing Lean CLI output from file: {results_json_path}")
                 return self.parse_lean_results_from_file(results_json_path)
             else:
-                print(f"Lean CLI stdout was not JSON, and no results.json found in {output_dir} or project backtests.")
+                print(f"Lean CLI stdout was not JSON, and no results.json found.")
                 return {
                     'error': 'Lean CLI output not JSON and results.json not found', 'details': process.stdout[:1000],
-                    'annual_return': 0, 'max_drawdown': -1, 'sharpe_ratio': 0, 'win_rate': 0, 'trades_executed': 0
+                    'cagr': 0, 'max_drawdown': 1, 'sharpe_ratio': 0, 'avg_profit': 0, 'total_trades': 0
                 }
 
         except FileNotFoundError:
             print(f"Error: Lean CLI executable not found at '{self.lean_cli_path}'. Please check config.py.")
             return {
                 'error': 'Lean CLI executable not found', 'details': f"Path '{self.lean_cli_path}' is invalid.",
-                'annual_return': 0, 'max_drawdown': -1, 'sharpe_ratio': 0, 'win_rate': 0, 'trades_executed': 0
+                'cagr': 0, 'max_drawdown': 1, 'sharpe_ratio': 0, 'avg_profit': 0, 'total_trades': 0
             }
         except Exception as e:
             print(f"An unexpected error occurred during Lean CLI execution: {e}")
             return {
                 'error': 'Unexpected error during backtest', 'details': str(e),
-                'annual_return': 0, 'max_drawdown': -1, 'sharpe_ratio': 0, 'win_rate': 0, 'trades_executed': 0
+                'cagr': 0, 'max_drawdown': 1, 'sharpe_ratio': 0, 'avg_profit': 0, 'total_trades': 0
             }
 
+    def _generate_strategy_code_from_idea(self, strategy_idea: Dict) -> str:
+        """Generate Lean algorithm code from strategy idea."""
+        strategy_type = strategy_idea.get('type', 'momentum')
+        start_date = strategy_idea.get('start_date', '2020,1,1')
+        end_date = strategy_idea.get('end_date', '2023,12,31')
+        lookback_period = strategy_idea.get('lookback_period', 20)
+        position_size = strategy_idea.get('position_size', 0.1)
+        universe_size = strategy_idea.get('universe_size', 50)
+        min_price = strategy_idea.get('min_price', 10.0)
+        min_volume = strategy_idea.get('min_volume', 1000000)
+        rebalance_frequency = strategy_idea.get('rebalance_frequency', 5)
+        
+        # Get strategy-specific logic
+        indicator_setup = strategy_idea.get('indicator_setup', '"rsi": self.RSI("SPY", 14)')
+        signal_generation_logic = strategy_idea.get('signal_generation_logic', '''
+indicators = self.indicators["SPY"]
+rsi = indicators["rsi"].Current.Value
+signal = 0
+if self.Securities["SPY"].Price > 0 and rsi < 30:
+    signal = 1
+elif rsi > 70:
+    signal = -1
+''')
+        
+        code = f'''
+from AlgorithmImports import *
+import random
+
+class GeneratedStrategy(QCAlgorithm):
+    def Initialize(self):
+        self.SetStartDate({start_date})
+        self.SetEndDate({end_date})
+        self.SetCash(100000)
+        
+        # Strategy parameters
+        self.lookback_period = {lookback_period}
+        self.position_size = {position_size}
+        self.universe_size = {universe_size}
+        self.min_price = {min_price}
+        self.min_volume = {min_volume}
+        self.rebalance_frequency = {rebalance_frequency}
+        
+        # Universe selection
+        self.UniverseSettings.Resolution = Resolution.Daily
+        self.AddUniverse(self.CoarseSelectionFunction)
+        
+        # Storage for indicators and data
+        self.indicators = {{}}
+        self.last_rebalance = datetime.min
+        self.rebalance_count = 0
+        
+    def CoarseSelectionFunction(self, coarse):
+        # Filter by price and volume
+        filtered = [x for x in coarse if x.Price > self.min_price and x.DollarVolume > self.min_volume]
+        
+        # Sort by dollar volume and take top stocks
+        sorted_by_dollar_volume = sorted(filtered, key=lambda x: x.DollarVolume, reverse=True)
+        return [x.Symbol for x in sorted_by_dollar_volume[:self.universe_size]]
+    
+    def OnSecuritiesChanged(self, changes):
+        # Add indicators for new securities
+        for security in changes.AddedSecurities:
+            symbol = security.Symbol
+            if symbol not in self.indicators:
+                self.indicators[symbol] = {{{indicator_setup}}}
+        
+        # Clean up removed securities
+        for security in changes.RemovedSecurities:
+            symbol = security.Symbol
+            if symbol in self.indicators:
+                del self.indicators[symbol]
+    
+    def OnData(self, data):
+        # Check if it's time to rebalance
+        if (self.Time - self.last_rebalance).days < self.rebalance_frequency:
+            return
+            
+        # Generate signals for each security
+        signals = {{}}
+        for symbol in self.indicators.keys():
+            if symbol in data and data[symbol] is not None:
+                try:
+{signal_generation_logic}
+                    signals[symbol] = signal
+                except:
+                    signals[symbol] = 0
+        
+        # Execute trades based on signals
+        if signals:
+            self.Rebalance(signals)
+            self.last_rebalance = self.Time
+            self.rebalance_count += 1
+    
+    def Rebalance(self, signals):
+        # Count positive signals for position sizing
+        positive_signals = [s for s in signals.values() if s > 0]
+        if not positive_signals:
+            self.Liquidate()
+            return
+            
+        # Calculate position size per stock
+        position_size_per_stock = self.position_size / len(positive_signals)
+        
+        # Liquidate positions without signals
+        for symbol in self.Portfolio.Keys:
+            if symbol not in signals or signals[symbol] <= 0:
+                if self.Portfolio[symbol].Invested:
+                    self.Liquidate(symbol)
+        
+        # Enter new positions
+        for symbol, signal in signals.items():
+            if signal > 0:
+                self.SetHoldings(symbol, position_size_per_stock)
+'''
+        
+        return code
+
     def find_results_json(self, search_dir: str) -> str | None:
-        """
-        Finds the 'results.json' file, typically the latest one if multiple backtests exist.
-        Lean CLI usually stores results in <output_dir>/<timestamp>/results.json or <project_dir>/backtests/<timestamp>/results.json
-        """
+        """Find the latest results.json file in the search directory."""
         if not os.path.isdir(search_dir):
             return None
 
         latest_time = 0
         results_file = None
 
-        # Option 1: results.json directly in search_dir (e.g. if --output points to a file, or a specific folder)
+        # Option 1: results.json directly in search_dir
         direct_results_json = os.path.join(search_dir, "results.json")
         if os.path.isfile(direct_results_json):
-            return direct_results_json # Found it directly
+            return direct_results_json
 
         # Option 2: Search in subdirectories (timestamped folders)
         for item in os.listdir(search_dir):
             item_path = os.path.join(search_dir, item)
             if os.path.isdir(item_path):
-                # Heuristic: timestamped folders are often numeric or date-like
-                # More robustly, find the most recently modified folder if names aren't predictable
                 current_results_json = os.path.join(item_path, "results.json")
                 if os.path.isfile(current_results_json):
                     try:
-                        # If directory name is a timestamp (e.g. "1678886400")
                         folder_time = int(item)
                     except ValueError:
-                        # Or use modification time of the results.json file itself
                         folder_time = os.path.getmtime(current_results_json)
 
                     if folder_time > latest_time:
@@ -190,8 +340,6 @@ class DefaultQCAlgorithm(QCAlgorithm):
 
         if results_file:
             print(f"Found results.json at: {results_file}")
-        else:
-            print(f"No results.json found in {search_dir} or its subdirectories.")
         return results_file
 
     def parse_lean_results_from_file(self, file_path: str, cli_stderr_if_any: str = None) -> Dict:
@@ -199,129 +347,86 @@ class DefaultQCAlgorithm(QCAlgorithm):
             with open(file_path, 'r') as f:
                 lean_results_data = json.load(f)
             print(f"Successfully parsed Lean CLI JSON output from file: {file_path}")
-            # Include stderr in the output if the CLI command itself had an error,
-            # but we still managed to parse a JSON file.
             full_output_for_debugging = f"File: {file_path}"
             if cli_stderr_if_any:
-                full_output_for_debugging += f"\nCLI Stderr:\n{cli_stderr_if_any}"
+                full_output_for_debugging += f"\\nCLI Stderr:\\n{cli_stderr_if_any}"
 
             return self.parse_metrics_from_lean_json(lean_results_data, full_output_for_debugging)
         except json.JSONDecodeError as e:
             print(f"Failed to parse JSON from Lean results file {file_path}: {e}")
             return {
                 'error': 'Failed to parse results.json', 'details': str(e),
-                'annual_return': 0, 'max_drawdown': -1, 'sharpe_ratio': 0, 'win_rate': 0, 'trades_executed': 0
+                'cagr': 0, 'max_drawdown': 1, 'sharpe_ratio': 0, 'avg_profit': 0, 'total_trades': 0
             }
         except IOError as e:
             print(f"Failed to read results.json file {file_path}: {e}")
             return {
                 'error': 'Failed to read results.json', 'details': str(e),
-                'annual_return': 0, 'max_drawdown': -1, 'sharpe_ratio': 0, 'win_rate': 0, 'trades_executed': 0
+                'cagr': 0, 'max_drawdown': 1, 'sharpe_ratio': 0, 'avg_profit': 0, 'total_trades': 0
             }
 
     def parse_metrics_from_lean_json(self, lean_data: Dict, raw_output_for_debugging: str) -> Dict:
-        """
-        Parses metrics from Lean's JSON output structure.
-        The exact keys depend on Lean's output format.
-        Common keys: 'SharpeRatio', 'CompoundingAnnualReturn', 'TotalTrades', 'WinRate', 'Drawdown'.
-        """
+        """Parse metrics from Lean's JSON output structure."""
         try:
-            # Example: Extracting common metrics. Adjust keys based on actual Lean output.
-            # These are common names but might vary (e.g. "Sharpe Ratio" vs "SharpeRatio")
-            # The 'statistics' dictionary within 'results' is a common place for these.
-            # Or they might be in a 'Strategy Equity' chart's summary.
-            # For overall backtest statistics, they are usually in a top-level dictionary like 'Statistics' or 'summary'.
-            # Let's assume the JSON output itself is the final backtest result dictionary.
-
-            # Default values for metrics
+            # Default values for metrics (matching config.py format)
             metrics = {
-                'annual_return': 0.0,
-                'max_drawdown': -1.0, # Indicate failure with -1
+                'cagr': 0.0,
+                'max_drawdown': 1.0, # Positive value where smaller is better
                 'sharpe_ratio': 0.0,
-                'win_rate': 0.0,
-                'trades_executed': 0,
-                'lean_cli_output': raw_output_for_debugging[:2000] # Store sample of output
+                'avg_profit': 0.0,
+                'total_trades': 0,
+                'lean_cli_output': raw_output_for_debugging[:2000]
             }
 
-            # Actual Lean output parsing can be complex. The final summary is often in `oResults.Statistics`
-            # or similar. The exact structure can vary.
-            # Example: if results are flat in the JSON:
-            # metrics['sharpe_ratio'] = float(lean_data.get('Sharpe Ratio', lean_data.get('SharpeRatio', 0)))
-            # metrics['annual_return'] = float(lean_data.get('Compounding Annual Return', lean_data.get('CompoundingAnnualReturn', 0)))
-            # metrics['max_drawdown'] = float(lean_data.get('Drawdown', lean_data.get('Max Drawdown', -1))) # Ensure it's negative
-            # metrics['win_rate'] = float(lean_data.get('Win Rate', lean_data.get('WinRate', 0)))
-            # metrics['trades_executed'] = int(lean_data.get('Total Trades', lean_data.get('TotalTrades', 0)))
+            # Parse Lean output structure
+            stats = lean_data.get('Statistics', lean_data)
 
-            # A common structure for Lean CLI JSON output (especially with --json flag)
-            # is that `lean_data` directly contains the statistics dictionary.
-            # Or it might be nested, e.g., lean_data['statistics'] or lean_data['results']['Statistics']
-            # For this subtask, I'll assume the keys are directly available or in a "Statistics" dictionary.
-
-            stats = lean_data.get('Statistics', lean_data) # Try top-level, then 'Statistics' key
-
+            # Map Lean metrics to our format
             metrics['sharpe_ratio'] = float(stats.get('Sharpe Ratio', stats.get('SharpeRatio', 0.0)))
-            metrics['annual_return'] = float(stats.get('Compounding Annual Return', stats.get('CompoundingAnnualReturn', 0.0)))
-            # Max Drawdown in Lean is typically positive, so we make it negative.
+            metrics['cagr'] = float(stats.get('Compounding Annual Return', stats.get('CompoundingAnnualReturn', 0.0)))
+            
+            # Max Drawdown - ensure it's positive (smaller is better)
             max_drawdown_lean = float(stats.get('Drawdown', stats.get('Max Drawdown', stats.get('Maximum Drawdown', 1.0))))
-            metrics['max_drawdown'] = -abs(max_drawdown_lean) if max_drawdown_lean != 1.0 else -1.0 # Ensure negative, handle default
-
-            metrics['win_rate'] = float(stats.get('Win Rate', stats.get('WinRate', 0.0)))
-            metrics['trades_executed'] = int(stats.get('Total Trades', stats.get('TotalTrades', 0)))
-
-            # Additional check for required metrics, if some are absolutely critical
-            if metrics['sharpe_ratio'] == 0.0 and metrics['annual_return'] == 0.0 and metrics['trades_executed'] == 0:
-                 # This might indicate an empty or problematic backtest (e.g. no trades)
-                print("Warning: Parsed metrics seem to indicate no trading activity or problematic backtest.")
-
+            metrics['max_drawdown'] = abs(max_drawdown_lean) if max_drawdown_lean != 1.0 else 1.0
+            
+            # Calculate average profit per trade
+            total_trades = int(stats.get('Total Trades', stats.get('TotalTrades', 0)))
+            metrics['total_trades'] = total_trades
+            if total_trades > 0:
+                total_return = metrics['cagr']
+                metrics['avg_profit'] = total_return / total_trades if total_return != 0 else 0.0
 
             print(f"Parsed metrics: {metrics}")
             return metrics
 
-        except KeyError as e:
-            print(f"KeyError parsing Lean metrics: {e}. Data was: {str(lean_data)[:500]}")
+        except (KeyError, ValueError, TypeError) as e:
+            print(f"Error parsing Lean metrics: {e}. Data was: {str(lean_data)[:500]}")
             return {
-                'error': 'KeyError parsing Lean metrics', 'details': str(e),
-                'annual_return': 0, 'max_drawdown': -1, 'sharpe_ratio': 0, 'win_rate': 0, 'trades_executed': 0,
-                'lean_cli_output': raw_output_for_debugging[:2000]
-            }
-        except (ValueError, TypeError) as e:
-            print(f"ValueError/TypeError parsing Lean metrics: {e}. Data was: {str(lean_data)[:500]}")
-            return {
-                'error': 'Data type error parsing Lean metrics', 'details': str(e),
-                'annual_return': 0, 'max_drawdown': -1, 'sharpe_ratio': 0, 'win_rate': 0, 'trades_executed': 0,
+                'error': 'Error parsing Lean metrics', 'details': str(e),
+                'cagr': 0, 'max_drawdown': 1, 'sharpe_ratio': 0, 'avg_profit': 0, 'total_trades': 0,
                 'lean_cli_output': raw_output_for_debugging[:2000]
             }
 
-
-# Example usage (optional, for testing this file directly)
+# Example usage
 if __name__ == '__main__':
-    from .strategy_utils import generate_next_strategy # For standalone testing
+    from strategy_utils import generate_next_strategy
 
-    # Create a dummy strategy for testing
-    # Note: For this to run, config.py needs to be correctly populated with placeholder paths at least.
-    # And Lean CLI needs to be installed and executable via the path in config.py.
-    # This example will likely fail if Lean CLI is not configured and executable.
+    print("Generating a sample strategy idea for backtesting...")
+    strategy_idea_to_test = generate_next_strategy()
+    print(f"Strategy Idea: {strategy_idea_to_test}")
 
-    print("Attempting to initialize Backtester for standalone test...")
-    try:
-        backtester = Backtester()
-        print("Backtester initialized.")
+    backtester = Backtester()
+    print("\\nInitializing backtester and starting backtest process...")
+    backtest_results = backtester.backtest_strategy(strategy_idea_to_test)
 
-        test_strategy = generate_next_strategy()
-        print(f"Generated strategy for test: {test_strategy}")
+    print(f"\\nBacktester execution finished.")
+    print(f"Strategy Idea Tested: {strategy_idea_to_test.get('name')}")
+    print(f"Full Results: {backtest_results}")
 
-        print("Running backtest_strategy...")
-        # This will try to run Lean CLI. Ensure config.py has a valid LEAN_CLI_PATH (even if it's just "lean")
-        # and that "lean" is in your system PATH or the full path is provided.
-        # The placeholder credentials in config.py are fine for local backtesting.
-        results = backtester.backtest_strategy(test_strategy)
-
-        print(f"\nBacktester executed for strategy {test_strategy.id}.")
-        print(f"Results: {results}")
-
-    except ImportError as e:
-        print(f"ImportError during standalone test: {e}. Make sure config.py exists and is accessible.")
-        print("You might need to run this as a module if direct execution fails due to relative imports: python -m algorithmic_trading_system.backtester")
-    except Exception as e:
-        print(f"An error occurred during standalone test: {e}")
-
+    if "error" in backtest_results:
+        print(f"Error during backtest: {backtest_results['error']}")
+    elif backtest_results:
+        print(f"CAGR: {backtest_results.get('cagr')}")
+        print(f"Sharpe Ratio: {backtest_results.get('sharpe_ratio')}")
+        print(f"Max Drawdown: {backtest_results.get('max_drawdown')}")
+        print(f"Total Trades: {backtest_results.get('total_trades')}")
