@@ -26,21 +26,60 @@ class QuantConnectIntegration:
             "max_drawdown": 0.20,  # Max DD < 20%
             "avg_profit": 0.0075  # Average profit > 0.75%
         }
-        self.project_name = None
+        self.project_name = None # This will be set by create_lean_project
         
-    def create_lean_project(self, project_path: str = None) -> str:
+    def create_lean_project(self, project_name: str, project_path: str = None) -> str:
         """Create a new Lean project for backtesting"""
-        if not self.project_name:
-            self.project_name = f"rd_agent_strategy_{datetime.now().strftime('%Y%m%d_%H%M%S_%f')}"
+        self.project_name = project_name # Use the provided project_name
             
-        if not project_path:
-            project_path = f"./{self.project_name}"
-            
-        # Create project in current directory
-        cmd = f"lean create-project '{self.project_name}' --language python"
-        subprocess.run(cmd, shell=True, check=True, cwd=".")
+        if project_path is None:
+            # Default project_path if not provided, created in the current working directory
+            # of where this script's methods are called.
+            project_path = Path.cwd() / self.project_name
+        else:
+            # If project_path is provided, ensure it's a Path object
+            project_path = Path(project_path)
+
+        # Ensure project_path is an absolute path string for the command
+        # and that the parent directory exists for lean create-project.
+        # lean create-project typically creates the project in the CWD,
+        # so we'll handle path creation carefully.
+        # The command `lean create-project "My Project"` creates `./My Project`
+
+        # Convert project_name to a Path object to handle potential relative paths correctly
+        # The actual path where `lean create-project` will create the folder is relative to `cwd`.
+        # We want the project to be created with the given name inside the current directory (`.`)
+        # from where this method is effectively run (or a specified base like /app).
+        # The `backtester.py` invokes this from `algorithmic_trading_system` directory.
+        # So, `cwd="."` means projects will be inside `algorithmic_trading_system`.
+
+        # The `lean create-project` command will create a directory with the project name.
+        # The `project_path` variable should then point to this directory.
+
+        lean_project_name_arg = self.project_name # Name for Lean CLI
+
+        # Define the directory where projects will be created.
+        # This should ideally be the CWD from where the main script is run,
+        # or a dedicated projects directory. For now, `.` (CWD of `main.py`) is implicit.
+        # The backtester.py is in algorithmic_trading_system, so cwd="." means inside it.
+        # If we want projects in /app/algorithmic_trading_system/PROJECT_NAME:
+        # The command `lean create-project 'PROJECT_NAME'` run from `/app/algorithmic_trading_system`
+        # will create `/app/algorithmic_trading_system/PROJECT_NAME`.
+        # So, the returned project_path should be this.
+
+        cmd = f"lean create-project \"{lean_project_name_arg}\" --language python"
+        try:
+            # Assuming this is called from a context where CWD is /app/algorithmic_trading_system
+            subprocess.run(cmd, shell=True, check=True, cwd=".", capture_output=True, text=True)
+        except subprocess.CalledProcessError as e:
+            error_message = f"Failed to create LEAN project '{lean_project_name_arg}'. Error: {e.stderr}"
+            print(error_message) # Ensure this is visible
+            raise Exception(error_message) from e
+
+        # The actual path of the created project will be CWD / lean_project_name_arg
+        created_project_path = Path.cwd() / lean_project_name_arg
         
-        return project_path
+        return str(created_project_path)
         
     def generate_strategy_code(self, strategy_idea: Dict[str, Any]) -> str:
         """Convert strategy idea from RD-Agent into QuantConnect algorithm code"""

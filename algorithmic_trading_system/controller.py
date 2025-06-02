@@ -4,7 +4,7 @@ import json # For potential future use (e.g., saving strategies)
 
 # Project-specific imports
 import config
-from strategy_utils import generate_next_strategy, Strategy # Import Strategy for type hinting
+from strategy_utils import generate_next_strategy # Strategy NamedTuple no longer used
 from backtester import Backtester
 
 class TargetSeekingController:
@@ -15,7 +15,7 @@ class TargetSeekingController:
         self.targets = config.TARGET_METRICS
         self.required_successful_strategies = config.REQUIRED_SUCCESSFUL_STRATEGIES
 
-        self.successful_strategies = []  # List to store (strategy_object, results_dict) tuples
+        self.successful_strategies = []  # List to store (strategy_idea_dict, results_dict) tuples
         self.iteration_count = 0
         self.start_time = time.time()
         self.last_progress_update_time = time.time() # For periodic reporting
@@ -56,14 +56,15 @@ class TargetSeekingController:
                 return False
 
             # Check each target metric
-            # Annual Return: should be >= target
-            if results.get('annual_return', float('-inf')) < self.targets['annual_return']:
-                # print(f"Debug: Annual return {results.get('annual_return')} < {self.targets['annual_return']}")
+            # CAGR: should be >= target
+            if results.get('cagr', float('-inf')) < self.targets['cagr']:
+                # print(f"Debug: CAGR {results.get('cagr')} < {self.targets['cagr']}")
                 return False
 
-            # Max Drawdown: should be >= target (since target is negative, e.g., result -0.10 >= target -0.12)
-            if results.get('max_drawdown', float('-inf')) < self.targets['max_drawdown']:
-                # print(f"Debug: Max drawdown {results.get('max_drawdown')} < {self.targets['max_drawdown']}")
+            # Max Drawdown: should be < target (e.g., result 0.15 < target 0.20). Smaller is better.
+            # Both result and target are positive.
+            if results.get('max_drawdown', float('inf')) > self.targets['max_drawdown']:
+                # print(f"Debug: Max drawdown {results.get('max_drawdown')} > {self.targets['max_drawdown']}")
                 return False
 
             # Sharpe Ratio: should be >= target
@@ -71,12 +72,16 @@ class TargetSeekingController:
                 # print(f"Debug: Sharpe ratio {results.get('sharpe_ratio')} < {self.targets['sharpe_ratio']}")
                 return False
 
-            # Win Rate: should be >= target
-            if results.get('win_rate', float('-inf')) < self.targets['win_rate']:
-                # print(f"Debug: Win rate {results.get('win_rate')} < {self.targets['win_rate']}")
+            # Avg Profit: should be >= target
+            if results.get('avg_profit', float('-inf')) < self.targets['avg_profit']:
+                # print(f"Debug: Avg Profit {results.get('avg_profit')} < {self.targets['avg_profit']}")
                 return False
 
-            # If all checks passed
+            # If all checks passed, including any other metrics not explicitly listed here but present in self.targets
+            # For example, if 'win_rate' was still in self.targets for some reason, it would need a check:
+            # if 'win_rate' in self.targets and results.get('win_rate', float('-inf')) < self.targets['win_rate']:
+            #     return False
+
             return True
 
         except KeyError as e:
@@ -87,20 +92,23 @@ class TargetSeekingController:
             return False
 
     # --- Methods for Step 8 (Placeholders for now) ---
-    def save_strategy(self, strategy, results):
+    def save_strategy(self, strategy_idea: dict, results: dict):
         """Placeholder for saving a successful strategy."""
-        print(f"INFO: [Placeholder] Strategy {strategy.id} would be saved here. Results: {results}")
+        strategy_name = strategy_idea.get('name', 'UnnamedStrategy')
+        print(f"INFO: [Placeholder] Strategy '{strategy_name}' would be saved here. Results: {results}")
         # Actual implementation might involve writing to a file in self.strategies_archive_path
-        # e.g., with json.dump or a custom format
+        # e.g., with json.dump({'idea': strategy_idea, 'results': results})
 
-    def notify_user_breakthrough(self, strategy, results):
+    def notify_user_breakthrough(self, strategy_idea: dict, results: dict):
         """Placeholder for notifying user about a breakthrough."""
-        print(f"SUCCESS: Strategy {strategy.id} met all targets! Results: {results}")
+        strategy_name = strategy_idea.get('name', 'UnnamedStrategy')
+        print(f"SUCCESS: Strategy '{strategy_name}' met all targets! Results: {results}")
         # Actual implementation will involve more detailed formatted messages or alerts
 
-    def analyze_failure(self, strategy, results):
+    def analyze_failure(self, strategy_idea: dict, results: dict):
         """Placeholder for analyzing a failed strategy."""
-        # print(f"INFO: [Placeholder] Analyzing failure for strategy {strategy.id}. Results: {results}")
+        # strategy_name = strategy_idea.get('name', 'UnnamedStrategy')
+        # print(f"INFO: [Placeholder] Analyzing failure for strategy '{strategy_name}'. Results: {results}")
         # Actual implementation will involve deeper analysis based on which targets were missed
         pass # Keep it quiet for now during loop testing
 
@@ -142,11 +150,15 @@ class TargetSeekingController:
         print("="*50)
         print("FINAL SUCCESS: All target criteria met!")
         print(f"Found {len(self.successful_strategies)} successful strategies.")
-        for i, (strategy, results) in enumerate(self.successful_strategies):
-            print(f"\nStrategy {i+1}:")
-            print(f"  ID: {strategy.id}")
-            print(f"  Type: {strategy.type}")
-            print(f"  Parameters: {strategy.parameters}")
+        for i, (strategy_idea, results) in enumerate(self.successful_strategies):
+            strategy_name = strategy_idea.get('name', 'UnnamedStrategy')
+            strategy_type = strategy_idea.get('type', 'N/A')
+            lookback = strategy_idea.get('lookback_period', 'N/A')
+            print(f"\nStrategy {i+1}: '{strategy_name}'")
+            print(f"  Type: {strategy_type}")
+            print(f"  Lookback Period: {lookback}") # Example of a specific parameter
+            # Add other relevant parameters from strategy_idea as needed
+            print(f"  Key Parameters: lookback={strategy_idea.get('lookback_period')}, rebalance_freq={strategy_idea.get('rebalance_frequency')}, position_size={strategy_idea.get('position_size')}")
             print(f"  Results: {results}")
         print("="*50)
 
@@ -163,19 +175,27 @@ class TargetSeekingController:
             while len(self.successful_strategies) < self.required_successful_strategies:
                 self.iteration_count += 1
 
-                strategy = self.strategy_generator_func()
-                results = self.backtester.backtest_strategy(strategy)
-                is_successful = self.meets_all_targets(results)
+                strategy_idea = self.strategy_generator_func() # Returns a dict
+                results = self.backtester.backtest_strategy(strategy_idea) # Expects a dict
+
+                # Handle cases where backtest might return an error structure
+                if results and "error" not in results:
+                    is_successful = self.meets_all_targets(results)
+                else:
+                    is_successful = False
+                    print(f"Warning: Backtest for strategy idea (name: {strategy_idea.get('name', 'N/A')}) failed or returned error: {results.get('error', 'Unknown error') if results else 'No results'}")
+
 
                 if is_successful:
-                    print(f"--- Iteration {self.iteration_count}: SUCCESS! Strategy {strategy.id} met targets. --- ({len(self.successful_strategies)+1}/{self.required_successful_strategies})")
-                    self.successful_strategies.append((strategy, results))
-                    self.save_strategy(strategy, results)
-                    self.notify_user_breakthrough(strategy, results)
+                    strategy_name = strategy_idea.get('name', 'UnnamedStrategy')
+                    print(f"--- Iteration {self.iteration_count}: SUCCESS! Strategy '{strategy_name}' met targets. --- ({len(self.successful_strategies)+1}/{self.required_successful_strategies})")
+                    self.successful_strategies.append((strategy_idea, results))
+                    self.save_strategy(strategy_idea, results)
+                    self.notify_user_breakthrough(strategy_idea, results)
                     self.failed_attempts_since_pivot = 0
                 else:
                     self.failed_attempts_since_pivot += 1
-                    self.analyze_failure(strategy, results)
+                    self.analyze_failure(strategy_idea, results if results else {})
 
                 self.maybe_send_progress_update()
                 self.maybe_adapt_research_direction(results)
@@ -218,25 +238,40 @@ if __name__ == '__main__':
     # Wrap generated_successful_count in a list to make it mutable from inner function
     generated_successful_count_wrapper = [0]
 
-    def mock_backtest_strategy(strategy_obj):
-        # Call the original backtester's print statements
-        print(f"Backtesting strategy ID: {strategy_obj.id}, Type: {strategy_obj.type}, Params: {strategy_obj.parameters}")
+    def mock_backtest_strategy(strategy_idea_dict): # Changed parameter name
+        strategy_name = strategy_idea_dict.get('name', 'UnnamedMockStrategy')
+        # Mock the print statement from the actual backtester if needed, or simplify
+        print(f"MOCK Backtesting strategy: {strategy_name}, Lookback: {strategy_idea_dict.get('lookback_period')}")
 
         # Use controller.required_successful_strategies directly
-        if generated_successful_count_wrapper[0] < controller.required_successful_strategies and controller.iteration_count % 150 == 0: # Make it find a good one every 150 iterations
+        # Make it find a good one every N iterations to test success path
+        if generated_successful_count_wrapper[0] < controller.required_successful_strategies and controller.iteration_count % 5 == 0: # Reduced for faster testing
             generated_successful_count_wrapper[0] += 1
-            print(f"MOCK: Generating SUCCESSFUL results for strategy {strategy_obj.id}")
+            print(f"MOCK: Generating SUCCESSFUL results for strategy '{strategy_name}'")
             results = {
-                'annual_return': 0.25, 'max_drawdown': -0.10,
-                'sharpe_ratio': 2.2, 'win_rate': 0.65, 'trades_executed': 120
+                'cagr': config.TARGET_METRICS['cagr'] + 0.05,             # Ensure it meets target
+                'max_drawdown': config.TARGET_METRICS['max_drawdown'] - 0.05, # Ensure it meets target (lower is better)
+                'sharpe_ratio': config.TARGET_METRICS['sharpe_ratio'] + 0.5, # Ensure it meets target
+                'avg_profit': config.TARGET_METRICS['avg_profit'] + 0.001, # Ensure it meets target
+                'total_trades': 120,
+                'win_rate': 0.65 # Can still be included if bridge provides it
             }
         else:
-            # print(f"MOCK: Generating REGULAR (failing) results for strategy {strategy_obj.id}")
+            # print(f"MOCK: Generating REGULAR (failing) results for strategy '{strategy_name}'")
             results = { # Default failing results
-                'annual_return': 0.05, 'max_drawdown': -0.20,
-                'sharpe_ratio': 0.5, 'win_rate': 0.45, 'trades_executed': 90
+                'cagr': config.TARGET_METRICS['cagr'] - 0.1,
+                'max_drawdown': config.TARGET_METRICS['max_drawdown'] + 0.1, # Worse drawdown
+                'sharpe_ratio': config.TARGET_METRICS['sharpe_ratio'] - 0.5,
+                'avg_profit': config.TARGET_METRICS['avg_profit'] - 0.005,
+                'total_trades': 90,
+                'win_rate': 0.45
             }
-        print(f"Backtest results for {strategy_obj.id}: {results}")
+
+        # Ensure max_drawdown is positive as per new convention
+        if results['max_drawdown'] < 0:
+             results['max_drawdown'] = abs(results['max_drawdown'])
+
+        print(f"MOCK Backtest results for '{strategy_name}': {results}")
         return results
 
     # Temporarily override the backtest_strategy method for this test run
