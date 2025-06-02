@@ -200,10 +200,6 @@ class TargetSeekingController:
                         # Only increment failure count if backtest succeeded but didn't meet targets
                         self.failed_attempts_since_pivot += 1
                         self.analyze_failure(strategy_idea, results)
-                else:
-                    self.failed_attempts_since_pivot += 1
-                    self.analyze_failure(strategy_idea, results if results else {})
->>>>>>> origin/feat/quantconnect-integration
 
                 self.maybe_send_progress_update()
                 self.maybe_adapt_research_direction(results)

@@ -194,121 +194,408 @@ class Backtester:
             }
 
     def _generate_strategy_code_from_idea(self, strategy_idea: Dict) -> str:
-        """Generate Lean algorithm code from strategy idea."""
+        """Generate sophisticated Lean algorithm code from strategy idea."""
+        # Extract strategy parameters
         strategy_type = strategy_idea.get('type', 'momentum')
         start_date = strategy_idea.get('start_date', '2020,1,1')
         end_date = strategy_idea.get('end_date', '2023,12,31')
         lookback_period = strategy_idea.get('lookback_period', 20)
-        position_size = strategy_idea.get('position_size', 0.1)
-        universe_size = strategy_idea.get('universe_size', 50)
+        position_size = strategy_idea.get('position_size', 0.2)
+        leverage = strategy_idea.get('leverage', 2.0)
+        universe_size = strategy_idea.get('universe_size', 100)
         min_price = strategy_idea.get('min_price', 10.0)
-        min_volume = strategy_idea.get('min_volume', 1000000)
-        rebalance_frequency = strategy_idea.get('rebalance_frequency', 5)
+        min_volume = strategy_idea.get('min_volume', 5000000)
+        rebalance_frequency = strategy_idea.get('rebalance_frequency', 3)
+        stop_loss = strategy_idea.get('stop_loss', 0.12)
+        profit_target = strategy_idea.get('profit_target', 0.20)
+        volatility_target = strategy_idea.get('volatility_target', 0.15)
+        max_drawdown = strategy_idea.get('max_drawdown', 0.15)
+        
+        # Check if this is a strategy from lean_workspace with base_template
+        if 'base_template' in strategy_idea:
+            from strategy_importer import StrategyImporter
+            importer = StrategyImporter()
+            template_code = importer.get_strategy_code(strategy_idea['base_template'])
+            if template_code and 'class' in template_code:
+                return template_code
+        
+        # Generate universe based on strategy type
+        if strategy_type == 'leveraged_etf':
+            universe = strategy_idea.get('etf_universe', ["TQQQ", "UPRO", "QLD", "SSO", "SQQQ", "SPXS"])
+            universe_str = str(universe)
+        elif strategy_type == 'volatility_harvesting':
+            universe = ["SPY", "QQQ", "VXX", "SVXY", "UVXY"]
+            universe_str = str(universe)
+        elif strategy_type == 'options':
+            universe = strategy_idea.get('option_symbols', ["SPY", "QQQ"])
+            universe_str = str(universe)
+        else:
+            universe_str = f'self.universe_symbols[:min({universe_size}, len(self.universe_symbols))]'
         
         # Get strategy-specific logic
-        indicator_setup = strategy_idea.get('indicator_setup', '"rsi": self.RSI("SPY", 14)')
+        indicator_setup = strategy_idea.get('indicator_setup', '"rsi": self.RSI(symbol, 14), "macd": self.MACD(symbol, 12, 26, 9)')
         signal_generation_logic = strategy_idea.get('signal_generation_logic', '''
-indicators = self.indicators["SPY"]
+indicators = self.indicators[symbol]
 rsi = indicators["rsi"].Current.Value
-signal = 0
-if self.Securities["SPY"].Price > 0 and rsi < 30:
-    signal = 1
-elif rsi > 70:
-    signal = -1
+macd = indicators["macd"].Current.Value
+signal = indicators["macd"].Signal.Current.Value
+trade_signal = 0
+
+if self.Securities[symbol].Price > 0 and rsi < 35 and macd > signal:
+    trade_signal = 1
+elif rsi > 65 and macd < signal:
+    trade_signal = -1
 ''')
         
-        code = f'''
+        # Generate sophisticated strategy code based on type
+        if strategy_type == 'leveraged_etf':
+            code = self._generate_leveraged_etf_strategy(strategy_idea)
+        elif strategy_type == 'volatility_harvesting':
+            code = self._generate_volatility_strategy(strategy_idea) 
+        elif strategy_type == 'options':
+            code = self._generate_options_strategy(strategy_idea)
+        elif strategy_type in ['multi_factor', 'aggressive_momentum', 'high_frequency']:
+            code = self._generate_advanced_strategy(strategy_idea)
+        else:
+            code = self._generate_default_strategy(strategy_idea)
+            
+        return code
+    
+    def _generate_leveraged_etf_strategy(self, strategy_idea: Dict) -> str:
+        """Generate leveraged ETF rotation strategy"""
+        etfs = strategy_idea.get('etf_universe', ["TQQQ", "UPRO", "SQQQ", "SPXS"])
+        leverage = strategy_idea.get('leverage', 3.0)
+        stop_loss = strategy_idea.get('stop_loss', 0.12)
+        
+        return f'''
 from AlgorithmImports import *
-import random
 
-class GeneratedStrategy(QCAlgorithm):
+class LeveragedETFStrategy(QCAlgorithm):
     def Initialize(self):
-        self.SetStartDate({start_date})
-        self.SetEndDate({end_date})
+        self.SetStartDate({strategy_idea.get('start_date', '2020,1,1')})
+        self.SetEndDate({strategy_idea.get('end_date', '2023,12,31')})
+        self.SetCash(100000)
+        
+        # Leveraged ETF universe
+        self.etfs = {etfs}
+        self.leverage = {leverage}
+        self.stop_loss = {stop_loss}
+        
+        # Add ETF securities
+        for etf in self.etfs:
+            self.AddEquity(etf, Resolution.Hour)
+            
+        # Technical indicators
+        self.rsi = {{}}
+        self.macd = {{}}
+        self.bb = {{}}
+        self.adx = {{}}
+        
+        for etf in self.etfs:
+            self.rsi[etf] = self.RSI(etf, 14)
+            self.macd[etf] = self.MACD(etf, 12, 26, 9)
+            self.bb[etf] = self.BB(etf, 20, 2)
+            self.adx[etf] = self.ADX(etf, 14)
+            
+        # Risk management
+        self.entry_prices = {{}}
+        self.max_portfolio_loss = 0.15
+        
+    def OnData(self, data):
+        # Portfolio drawdown protection
+        if self.Portfolio.TotalUnrealizedProfit / self.Portfolio.TotalPortfolioValue < -self.max_portfolio_loss:
+            self.Liquidate("Portfolio drawdown protection triggered")
+            return
+            
+        for etf in self.etfs:
+            if not data.ContainsKey(etf) or not self.rsi[etf].IsReady:
+                continue
+                
+            rsi = self.rsi[etf].Current.Value
+            macd = self.macd[etf].Current.Value
+            signal = self.macd[etf].Signal.Current.Value
+            bb_upper = self.bb[etf].UpperBand.Current.Value
+            bb_lower = self.bb[etf].LowerBand.Current.Value
+            adx = self.adx[etf].Current.Value
+            price = data[etf].Price
+            
+            # Risk management - stop losses
+            if self.Portfolio[etf].Invested:
+                entry_price = self.entry_prices.get(etf, price)
+                if self.Portfolio[etf].IsLong and price < entry_price * (1 - self.stop_loss):
+                    self.Liquidate(etf, "Stop loss hit")
+                    continue
+                elif self.Portfolio[etf].IsShort and price > entry_price * (1 + self.stop_loss):
+                    self.Liquidate(etf, "Stop loss hit")
+                    continue
+            
+            # Strategy logic for leveraged ETFs
+            if etf in ["TQQQ", "UPRO", "QLD", "SSO"]:  # Bull ETFs
+                if (price < bb_lower and rsi < 30 and adx > 25 and macd > signal):
+                    if not self.Portfolio[etf].Invested:
+                        self.SetHoldings(etf, self.leverage * 0.4)
+                        self.entry_prices[etf] = price
+                elif rsi > 75 or macd < signal:
+                    if self.Portfolio[etf].Invested:
+                        self.Liquidate(etf)
+                        
+            elif etf in ["SQQQ", "SPXS"]:  # Bear ETFs
+                if (price > bb_upper and rsi > 70 and adx > 25 and macd < signal):
+                    if not self.Portfolio[etf].Invested:
+                        self.SetHoldings(etf, self.leverage * 0.3)
+                        self.entry_prices[etf] = price
+                elif rsi < 25 or macd > signal:
+                    if self.Portfolio[etf].Invested:
+                        self.Liquidate(etf)
+'''
+
+    def _generate_advanced_strategy(self, strategy_idea: Dict) -> str:
+        """Generate advanced multi-factor strategy"""
+        return f'''
+from AlgorithmImports import *
+import numpy as np
+
+class AdvancedStrategy(QCAlgorithm):
+    def Initialize(self):
+        self.SetStartDate({strategy_idea.get('start_date', '2020,1,1')})
+        self.SetEndDate({strategy_idea.get('end_date', '2023,12,31')})
         self.SetCash(100000)
         
         # Strategy parameters
-        self.lookback_period = {lookback_period}
-        self.position_size = {position_size}
-        self.universe_size = {universe_size}
-        self.min_price = {min_price}
-        self.min_volume = {min_volume}
-        self.rebalance_frequency = {rebalance_frequency}
+        self.leverage = {strategy_idea.get('leverage', 3.0)}
+        self.position_size = {strategy_idea.get('position_size', 0.3)}
+        self.stop_loss = {strategy_idea.get('stop_loss', 0.12)}
+        self.universe_size = {strategy_idea.get('universe_size', 100)}
+        self.min_volume = {strategy_idea.get('min_volume', 10000000)}
+        
+        # Universe selection
+        self.UniverseSettings.Resolution = Resolution.Hour
+        self.AddUniverse(self.CoarseSelectionFunction)
+        
+        # Multi-factor indicators
+        self.indicators = {{}}
+        self.momentum_scores = {{}}
+        self.volatility_scores = {{}}
+        
+        # Risk management
+        self.max_drawdown = {strategy_idea.get('max_drawdown', 0.15)}
+        self.entry_prices = {{}}
+        self.last_rebalance = datetime.min
+        
+    def CoarseSelectionFunction(self, coarse):
+        # High-volume, liquid stocks only
+        filtered = [x for x in coarse if x.Price > 10 and x.DollarVolume > self.min_volume]
+        sorted_by_volume = sorted(filtered, key=lambda x: x.DollarVolume, reverse=True)
+        return [x.Symbol for x in sorted_by_volume[:self.universe_size]]
+    
+    def OnSecuritiesChanged(self, changes):
+        for security in changes.AddedSecurities:
+            symbol = security.Symbol
+            if symbol not in self.indicators:
+                self.indicators[symbol] = {{
+                    "rsi": self.RSI(symbol, 14),
+                    "macd": self.MACD(symbol, 12, 26, 9),
+                    "bb": self.BB(symbol, 20, 2),
+                    "momentum": self.MOMP(symbol, 20),
+                    "adx": self.ADX(symbol, 14),
+                    "atr": self.ATR(symbol, 14)
+                }}
+                
+        for security in changes.RemovedSecurities:
+            symbol = security.Symbol
+            if symbol in self.indicators:
+                del self.indicators[symbol]
+                
+    def OnData(self, data):
+        # Portfolio protection
+        if self.Portfolio.TotalUnrealizedProfit / self.Portfolio.TotalPortfolioValue < -self.max_drawdown:
+            self.Liquidate("Maximum drawdown exceeded")
+            return
+            
+        # Rebalance every 2 hours
+        if (self.Time - self.last_rebalance).total_seconds() < 7200:
+            return
+            
+        # Score all securities
+        scores = {{}}
+        for symbol in self.indicators.keys():
+            if symbol in data and self.indicators[symbol]["rsi"].IsReady:
+                score = self.CalculateScore(symbol, data[symbol])
+                if abs(score) > 0.3:  # Only trade high-conviction signals
+                    scores[symbol] = score
+                    
+        # Risk management - stop losses
+        for symbol in list(self.Portfolio.Keys):
+            if self.Portfolio[symbol].Invested and symbol in data:
+                entry_price = self.entry_prices.get(symbol, data[symbol].Price)
+                current_price = data[symbol].Price
+                
+                if self.Portfolio[symbol].IsLong:
+                    if current_price < entry_price * (1 - self.stop_loss):
+                        self.Liquidate(symbol, "Stop loss")
+                else:
+                    if current_price > entry_price * (1 + self.stop_loss):
+                        self.Liquidate(symbol, "Stop loss")
+        
+        # Execute top signals
+        if scores:
+            sorted_scores = sorted(scores.items(), key=lambda x: abs(x[1]), reverse=True)
+            top_signals = sorted_scores[:min(10, len(sorted_scores))]
+            
+            for symbol, score in top_signals:
+                weight = self.position_size * abs(score) * self.leverage
+                weight = min(weight, 0.25)  # Max 25% per position
+                
+                if score > 0.3 and not self.Portfolio[symbol].IsLong:
+                    self.SetHoldings(symbol, weight)
+                    self.entry_prices[symbol] = data[symbol].Price
+                elif score < -0.3 and not self.Portfolio[symbol].IsShort:
+                    self.SetHoldings(symbol, -weight)
+                    self.entry_prices[symbol] = data[symbol].Price
+                    
+        self.last_rebalance = self.Time
+        
+    def CalculateScore(self, symbol, bar):
+        indicators = self.indicators[symbol]
+        
+        # Multi-factor scoring
+        momentum_score = 0
+        mean_reversion_score = 0
+        volatility_score = 0
+        
+        rsi = indicators["rsi"].Current.Value
+        macd = indicators["macd"].Current.Value
+        signal = indicators["macd"].Signal.Current.Value
+        momentum = indicators["momentum"].Current.Value
+        adx = indicators["adx"].Current.Value
+        
+        # Momentum factor
+        if momentum > 0.05 and macd > signal and adx > 25:
+            momentum_score = min((momentum * 10 + (macd - signal) * 5), 1.0)
+        elif momentum < -0.05 and macd < signal and adx > 25:
+            momentum_score = max((momentum * 10 + (macd - signal) * 5), -1.0)
+            
+        # Mean reversion factor
+        if rsi < 25:
+            mean_reversion_score = (30 - rsi) / 30
+        elif rsi > 75:
+            mean_reversion_score = -(rsi - 70) / 30
+            
+        # Combine factors with weights
+        final_score = (momentum_score * 0.6 + mean_reversion_score * 0.4)
+        
+        return final_score
+'''
+    
+    def _generate_default_strategy(self, strategy_idea: Dict) -> str:
+        """Generate default enhanced strategy"""
+        indicator_setup = strategy_idea.get('indicator_setup', '"rsi": self.RSI(symbol, 14), "macd": self.MACD(symbol, 12, 26, 9)')
+        signal_logic = strategy_idea.get('signal_generation_logic', '''
+indicators = self.indicators[symbol]
+rsi = indicators["rsi"].Current.Value
+macd = indicators["macd"].Current.Value
+signal = indicators["macd"].Signal.Current.Value
+trade_signal = 0
+
+if rsi < 35 and macd > signal:
+    trade_signal = 1
+elif rsi > 65 and macd < signal:
+    trade_signal = -1
+''')
+        
+        return f'''
+from AlgorithmImports import *
+
+class EnhancedStrategy(QCAlgorithm):
+    def Initialize(self):
+        self.SetStartDate({strategy_idea.get('start_date', '2020,1,1')})
+        self.SetEndDate({strategy_idea.get('end_date', '2023,12,31')})
+        self.SetCash(100000)
+        
+        # Enhanced parameters
+        self.position_size = {strategy_idea.get('position_size', 0.2)}
+        self.leverage = {strategy_idea.get('leverage', 2.0)}
+        self.universe_size = {strategy_idea.get('universe_size', 100)}
+        self.min_volume = {strategy_idea.get('min_volume', 5000000)}
+        self.stop_loss = {strategy_idea.get('stop_loss', 0.12)}
         
         # Universe selection
         self.UniverseSettings.Resolution = Resolution.Daily
         self.AddUniverse(self.CoarseSelectionFunction)
         
-        # Storage for indicators and data
         self.indicators = {{}}
         self.last_rebalance = datetime.min
-        self.rebalance_count = 0
+        self.entry_prices = {{}}
         
     def CoarseSelectionFunction(self, coarse):
-        # Filter by price and volume
-        filtered = [x for x in coarse if x.Price > self.min_price and x.DollarVolume > self.min_volume]
-        
-        # Sort by dollar volume and take top stocks
-        sorted_by_dollar_volume = sorted(filtered, key=lambda x: x.DollarVolume, reverse=True)
-        return [x.Symbol for x in sorted_by_dollar_volume[:self.universe_size]]
+        filtered = [x for x in coarse if x.Price > 10 and x.DollarVolume > self.min_volume]
+        sorted_by_volume = sorted(filtered, key=lambda x: x.DollarVolume, reverse=True)
+        return [x.Symbol for x in sorted_by_volume[:self.universe_size]]
     
     def OnSecuritiesChanged(self, changes):
-        # Add indicators for new securities
         for security in changes.AddedSecurities:
             symbol = security.Symbol
             if symbol not in self.indicators:
                 self.indicators[symbol] = {{{indicator_setup}}}
         
-        # Clean up removed securities
         for security in changes.RemovedSecurities:
             symbol = security.Symbol
             if symbol in self.indicators:
                 del self.indicators[symbol]
     
     def OnData(self, data):
-        # Check if it's time to rebalance
-        if (self.Time - self.last_rebalance).days < self.rebalance_frequency:
+        # Rebalance every few days
+        if (self.Time - self.last_rebalance).days < {strategy_idea.get('rebalance_frequency', 3)}:
             return
             
-        # Generate signals for each security
         signals = {{}}
         for symbol in self.indicators.keys():
-            if symbol in data and data[symbol] is not None:
+            if symbol in data and self.indicators[symbol]["rsi"].IsReady:
                 try:
-{signal_generation_logic}
-                    signals[symbol] = signal
+{signal_logic}
+                    signals[symbol] = trade_signal
                 except:
                     signals[symbol] = 0
         
-        # Execute trades based on signals
-        if signals:
-            self.Rebalance(signals)
-            self.last_rebalance = self.Time
-            self.rebalance_count += 1
+        # Risk management and execution
+        self.ExecuteSignals(signals, data)
+        self.last_rebalance = self.Time
     
-    def Rebalance(self, signals):
-        # Count positive signals for position sizing
-        positive_signals = [s for s in signals.values() if s > 0]
-        if not positive_signals:
-            self.Liquidate()
-            return
-            
-        # Calculate position size per stock
-        position_size_per_stock = self.position_size / len(positive_signals)
-        
-        # Liquidate positions without signals
-        for symbol in self.Portfolio.Keys:
-            if symbol not in signals or signals[symbol] <= 0:
-                if self.Portfolio[symbol].Invested:
+    def ExecuteSignals(self, signals, data):
+        # Stop loss management
+        for symbol in list(self.Portfolio.Keys):
+            if self.Portfolio[symbol].Invested and symbol in data:
+                entry_price = self.entry_prices.get(symbol, data[symbol].Price)
+                current_price = data[symbol].Price
+                
+                if self.Portfolio[symbol].IsLong and current_price < entry_price * (1 - self.stop_loss):
+                    self.Liquidate(symbol)
+                elif self.Portfolio[symbol].IsShort and current_price > entry_price * (1 + self.stop_loss):
                     self.Liquidate(symbol)
         
-        # Enter new positions
-        for symbol, signal in signals.items():
-            if signal > 0:
-                self.SetHoldings(symbol, position_size_per_stock)
+        # Position sizing with leverage
+        positive_signals = [s for s in signals.values() if s > 0]
+        if positive_signals:
+            position_per_stock = (self.position_size * self.leverage) / len(positive_signals)
+            position_per_stock = min(position_per_stock, 0.25)  # Max 25% per position
+            
+            for symbol, signal in signals.items():
+                if signal > 0 and not self.Portfolio[symbol].IsLong:
+                    self.SetHoldings(symbol, position_per_stock)
+                    self.entry_prices[symbol] = data[symbol].Price
+                elif signal <= 0 and self.Portfolio[symbol].IsLong:
+                    self.Liquidate(symbol)
+        else:
+            self.Liquidate()
 '''
-        
-        return code
+    
+    def _generate_volatility_strategy(self, strategy_idea: Dict) -> str:
+        """Generate volatility harvesting strategy - placeholder"""
+        return self._generate_default_strategy(strategy_idea)
+    
+    def _generate_options_strategy(self, strategy_idea: Dict) -> str:
+        """Generate options strategy - placeholder"""
+        return self._generate_default_strategy(strategy_idea)
 
     def find_results_json(self, search_dir: str) -> str | None:
         """Find the latest results.json file in the search directory."""

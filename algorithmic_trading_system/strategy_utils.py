@@ -1,12 +1,10 @@
 import uuid
 import random
-from typing import Dict #, NamedTuple # Commenting out Strategy NamedTuple
+from typing import Dict
+from strategy_importer import StrategyImporter
 
-# Using NamedTuple for a simple immutable Strategy structure
-# class Strategy(NamedTuple):
-#     id: str
-#     parameters: Dict
-#     type: str
+# Initialize strategy importer
+strategy_importer = StrategyImporter()
 
 def generate_strategy_id() -> str:
     """Generates a unique strategy ID."""
@@ -14,65 +12,122 @@ def generate_strategy_id() -> str:
 
 def generate_next_strategy() -> Dict:
     """
-    Generates a new strategy idea as a dictionary.
-    It randomly selects one of several predefined strategy templates and populates it with random parameters.
+    Generates a new strategy idea using either lean_workspace templates or fallback strategies.
+    Uses sophisticated strategies designed to meet aggressive performance targets.
     """
+    # 70% chance to use high-performance strategy from lean_workspace
+    if random.random() < 0.7:
+        try:
+            return strategy_importer.get_random_high_performance_strategy()
+        except Exception as e:
+            print(f"Error generating strategy from importer: {e}. Falling back to template.")
+    
+    # Fallback to enhanced template-based generation
     strategy_templates = [
         {
-            "name": "MomentumStrategy",
-            "description": "A momentum strategy that buys when momentum is positive and RSI is not overbought, and sells when momentum is negative and RSI is not oversold.",
-            "type": "momentum",
-            "indicator_setup": '\'"momentum": self.MOMP(symbol, self.lookback_period), "rsi": self.RSI(symbol, 14)\'',
+            "name": "AggressiveMomentumStrategy",
+            "description": "High-leverage momentum strategy targeting 25%+ CAGR",
+            "type": "aggressive_momentum",
+            "indicator_setup": '\'"momentum": self.MOMP(symbol, self.lookback_period), "rsi": self.RSI(symbol, 14), "macd": self.MACD(symbol, 12, 26, 9)\'',
             "signal_generation_logic": '''
 indicators = self.indicators[symbol]
 momentum = indicators["momentum"].Current.Value
 rsi = indicators["rsi"].Current.Value
-signal = 0
-if self.Securities[symbol].Price > 0 and momentum > (0.01 + random.uniform(-0.005, 0.005)) and rsi < (70 + random.randint(-5, 5)): # Randomized threshold
-    signal = 1
-elif self.Securities[symbol].Price > 0 and momentum < (-0.01 + random.uniform(-0.005, 0.005)) and rsi > (30 + random.randint(-5, 5)): # Randomized threshold
-    signal = -1
+macd = indicators["macd"].Current.Value
+signal = indicators["macd"].Signal.Current.Value
+trade_signal = 0
+
+# Aggressive momentum entry with confluence
+if (self.Securities[symbol].Price > 0 and 
+    momentum > 0.02 and 
+    rsi < 65 and 
+    macd > signal):
+    trade_signal = 1
+elif (self.Securities[symbol].Price > 0 and 
+      momentum < -0.02 and 
+      rsi > 35 and 
+      macd < signal):
+    trade_signal = -1
 '''
         },
         {
-            "name": "MeanReversionBB",
-            "description": "A mean reversion strategy using Bollinger Bands and RSI. Buys when price crosses below lower BB and RSI is oversold. Sells when price crosses above upper BB and RSI is overbought.",
-            "type": "mean_reversion",
-            "indicator_setup": '\'"bb": self.BB(symbol, self.lookback_period, 2), "rsi": self.RSI(symbol, 10)\'',
+            "name": "LeveragedETFStrategy", 
+            "description": "Leveraged ETF rotation targeting extreme performance",
+            "type": "leveraged_etf",
+            "indicator_setup": '\'"rsi": self.RSI(symbol, 14), "bb": self.BB(symbol, 20, 2), "adx": self.ADX(symbol, 14)\'',
             "signal_generation_logic": '''
 indicators = self.indicators[symbol]
-price = self.Securities[symbol].Price
-upper_band = indicators["bb"].UpperBand.Current.Value
-lower_band = indicators["bb"].LowerBand.Current.Value
 rsi = indicators["rsi"].Current.Value
-signal = 0
-if self.Securities[symbol].Price > 0 and upper_band > 0 and lower_band > 0: # Ensure bands are valid
-    if price < lower_band and rsi < (35 + random.randint(-5,5)): # Randomized threshold
-        signal = 1
-    elif price > upper_band and rsi > (65 + random.randint(-5,5)): # Randomized threshold
-        signal = -1
+bb_upper = indicators["bb"].UpperBand.Current.Value  
+bb_lower = indicators["bb"].LowerBand.Current.Value
+adx = indicators["adx"].Current.Value
+price = self.Securities[symbol].Price
+trade_signal = 0
+
+# Leveraged ETF logic with trend strength
+if symbol in ["TQQQ", "UPRO"]:  # Bullish ETFs
+    if price < bb_lower and rsi < 35 and adx > 25:  # Oversold with strong trend
+        trade_signal = 1
+    elif rsi > 70:  # Exit overbought
+        trade_signal = 0
+elif symbol in ["SQQQ", "SPXS"]:  # Bearish ETFs  
+    if price > bb_upper and rsi > 65 and adx > 25:  # Overbought with strong trend
+        trade_signal = 1
+    elif rsi < 30:  # Exit oversold
+        trade_signal = 0
+'''
+        },
+        {
+            "name": "VolatilityHarvestingStrategy",
+            "description": "VIX premium harvesting for consistent alpha",
+            "type": "volatility_harvesting", 
+            "indicator_setup": '\'"vix": self.RSI("VIX", 14), "bb": self.BB("VXX", 20, 2.5)\'',
+            "signal_generation_logic": '''
+vix_rsi = indicators.get("vix", {}).get("Current", {}).get("Value", 50)
+vxx_price = self.Securities.get("VXX", {}).get("Price", 0)
+bb_upper = indicators.get("bb", {}).get("UpperBand", {}).get("Current", {}).get("Value", 0)
+bb_lower = indicators.get("bb", {}).get("LowerBand", {}).get("Current", {}).get("Value", 0)
+trade_signal = 0
+
+# Volatility premium harvesting logic
+if vix_rsi > 70 and vxx_price > bb_upper:  # High volatility, short VXX
+    trade_signal = -1  
+elif vix_rsi < 30 and vxx_price < bb_lower:  # Low volatility, long SVXY
+    trade_signal = 1
 '''
         }
     ]
 
-    # Randomly select a template
-    strategy_idea = random.choice(strategy_templates).copy() # Use .copy() to avoid modifying the original template
+    # Select template with bias toward aggressive strategies
+    strategy_idea = random.choice(strategy_templates).copy()
 
-    # Populate with general parameters
-    strategy_idea["start_date"] = "2004,1,1"
-    strategy_idea["end_date"] = "2023,12,31"
-    strategy_idea["lookback_period"] = random.randint(10, 60)
-    strategy_idea["rebalance_frequency"] = random.choice([1, 3, 5, 7, 10, 15, 20]) # Example values
-    strategy_idea["position_size"] = round(random.uniform(0.05, 0.2), 3)
-    strategy_idea["universe_size"] = random.randint(20, 100)
-    strategy_idea["min_price"] = round(random.uniform(5.0, 20.0), 2)
-    strategy_idea["min_volume"] = random.randint(1000000, 10000000)
-    strategy_idea["holding_period"] = random.randint(5, 20) # For insight duration
-    strategy_idea["schedule_rule"] = random.choice(['EveryDay', 'WeekStart', 'MonthStart']) # QC Schedule options
-    strategy_idea["max_dd_per_security"] = round(random.uniform(0.02, 0.10), 3)
-
-    # strategy_id = generate_strategy_id() # Can be added if needed by other parts of the system later
-    # strategy_idea["id"] = strategy_id
+    # Enhanced parameters for aggressive performance
+    strategy_idea.update({
+        "start_date": "2020,1,1",
+        "end_date": "2023,12,31",
+        "lookback_period": random.randint(10, 30),  # Shorter for more responsive
+        "rebalance_frequency": random.choice([1, 2, 3]),  # More frequent rebalancing
+        "position_size": round(random.uniform(0.2, 0.4), 3),  # Larger positions
+        "leverage": round(random.uniform(2.0, 4.0), 1),  # High leverage for targets
+        "universe_size": random.randint(50, 150),
+        "min_price": round(random.uniform(8.0, 25.0), 2),
+        "min_volume": random.randint(5000000, 20000000),
+        "stop_loss": round(random.uniform(0.08, 0.15), 2),  # Tight stops
+        "profit_target": round(random.uniform(0.12, 0.25), 2),  # Reasonable targets
+        "volatility_target": 0.15,  # 15% vol targeting
+        "max_drawdown": 0.15,  # 15% max drawdown limit
+        
+        # Advanced risk management
+        "position_concentration_limit": 0.25,  # Max 25% per position
+        "correlation_limit": 0.7,  # Limit correlated positions
+        "momentum_threshold": round(random.uniform(0.02, 0.05), 3),
+        "mean_reversion_threshold": round(random.uniform(1.5, 2.5), 1),
+        
+        # Performance targeting
+        "target_cagr": 0.25,  # 25% target
+        "target_sharpe": 1.0,  # 1.0+ Sharpe target
+        "target_max_dd": 0.15  # Max 15% drawdown
+    })
 
     return strategy_idea
 

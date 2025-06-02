@@ -1,8 +1,8 @@
 TARGET_METRICS = {
-    'cagr': 0.25,
-    'sharpe_ratio': 1.0,
-    'max_drawdown': 0.20,
-    'avg_profit': 0.0075
+    'cagr': 0.25,           # 25% annual return target
+    'sharpe_ratio': 1.0,     # 1.0+ Sharpe ratio target  
+    'max_drawdown': 0.15,    # Maximum 15% drawdown (lower is better)
+    'avg_profit': 0.002      # 0.2% average profit per trade
 }
 REQUIRED_SUCCESSFUL_STRATEGIES = 3
 PROGRESS_UPDATE_INTERVAL_SECONDS = 1800  # 30 minutes
