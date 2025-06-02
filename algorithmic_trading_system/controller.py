@@ -165,17 +165,26 @@ class TargetSeekingController:
 
                 strategy = self.strategy_generator_func()
                 results = self.backtester.backtest_strategy(strategy)
-                is_successful = self.meets_all_targets(results)
 
-                if is_successful:
-                    print(f"--- Iteration {self.iteration_count}: SUCCESS! Strategy {strategy.id} met targets. --- ({len(self.successful_strategies)+1}/{self.required_successful_strategies})")
-                    self.successful_strategies.append((strategy, results))
-                    self.save_strategy(strategy, results)
-                    self.notify_user_breakthrough(strategy, results)
-                    self.failed_attempts_since_pivot = 0
-                else:
+                # Check for errors from the backtester (e.g., Lean CLI failure)
+                if results.get('error'):
+                    print(f"--- Iteration {self.iteration_count}: BACKTEST ERROR! Strategy {strategy.id}. Error: {results.get('details', results.get('error'))} ---")
                     self.failed_attempts_since_pivot += 1
-                    self.analyze_failure(strategy, results)
+                    self.analyze_failure(strategy, results) # Pass error results for analysis
+                    is_successful = False # Explicitly mark as not successful
+                else:
+                    # No backtest error, proceed to check if targets are met
+                    is_successful = self.meets_all_targets(results)
+                    if is_successful:
+                        print(f"--- Iteration {self.iteration_count}: SUCCESS! Strategy {strategy.id} met targets. --- ({len(self.successful_strategies)+1}/{self.required_successful_strategies})")
+                        self.successful_strategies.append((strategy, results))
+                        self.save_strategy(strategy, results)
+                        self.notify_user_breakthrough(strategy, results)
+                        self.failed_attempts_since_pivot = 0 # Reset on true success
+                    else:
+                        # print(f"--- Iteration {self.iteration_count}: Did not meet targets. Strategy {strategy.id} ---") # Can be noisy
+                        self.failed_attempts_since_pivot += 1
+                        self.analyze_failure(strategy, results)
 
                 self.maybe_send_progress_update()
                 self.maybe_adapt_research_direction(results)
