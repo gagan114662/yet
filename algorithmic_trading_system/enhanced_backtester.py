@@ -17,7 +17,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Import configurations
-import config
+from . import config
 from quantconnect_integration.rd_agent_qc_bridge import QuantConnectIntegration
 
 

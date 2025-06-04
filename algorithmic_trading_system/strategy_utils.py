@@ -1,7 +1,7 @@
 import uuid
 import random
 from typing import Dict
-from strategy_importer import StrategyImporter
+from .strategy_importer import StrategyImporter
 
 # Initialize strategy importer
 strategy_importer = StrategyImporter()

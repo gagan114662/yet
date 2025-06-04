@@ -8,7 +8,7 @@ try:
 except ImportError:
     print("Warning: QuantConnect integration not available. Falling back to basic Lean CLI.")
     QuantConnectIntegration = None
-import config # To access Lean CLI configurations
+from . import config # To access Lean CLI configurations
 
 class Backtester:
     def __init__(self):
@@ -214,7 +214,7 @@ class Backtester:
         
         # Check if this is a strategy from lean_workspace with base_template
         if 'base_template' in strategy_idea:
-            from strategy_importer import StrategyImporter
+            from .strategy_importer import StrategyImporter
             importer = StrategyImporter()
             template_code = importer.get_strategy_code(strategy_idea['base_template'])
             if template_code and 'class' in template_code:
@@ -516,6 +516,7 @@ class EnhancedStrategy(QCAlgorithm):
         self.SetCash(100000)
         
         # Enhanced parameters
+        self.lookback_period = {strategy_idea.get('lookback_period', 20)} # Added lookback_period
         self.position_size = {strategy_idea.get('position_size', 0.2)}
         self.leverage = {strategy_idea.get('leverage', 2.0)}
         self.universe_size = {strategy_idea.get('universe_size', 100)}
