@@ -119,7 +119,8 @@ class PerformanceAttributionDashboard:
             'metrics': metrics.__dict__,
             'rating': rating,
             'strengths': self._identify_strengths(metrics),
-            'weaknesses': self._identify_weaknesses(metrics)
+            'weaknesses': self._identify_weaknesses(metrics),
+            'strategy_name': results.get('strategy_name', 'Unknown') # Add strategy_name here
         }
     
     def _calculate_attribution(self, results: Dict, trade_data: List, market_data: Dict) -> Dict:
@@ -222,6 +223,29 @@ class PerformanceAttributionDashboard:
             'regime_sensitivity': self._calculate_regime_sensitivity(regime_performance),
             'recommendations': self._generate_regime_recommendations(regime_performance)
         }
+
+    def _calculate_regime_sensitivity(self, regime_performance: Dict) -> float:
+        """
+        Placeholder for calculating regime sensitivity.
+        Actual implementation would analyze how performance varies across regimes.
+        """
+        # Example: could be std dev of returns across regimes, or diff between best/worst
+        returns = [v.get('return', 0) for k, v in regime_performance.items() if isinstance(v, dict)]
+        if len(returns) > 1:
+            return float(np.std(returns))
+        return 0.0
+
+    def _generate_regime_recommendations(self, regime_performance: Dict) -> List[str]:
+        """
+        Placeholder for generating regime-based recommendations.
+        """
+        # Example: if performance is poor in 'bear' but good in 'bull', suggest avoiding bear market.
+        recs = []
+        if regime_performance.get('bear', {}).get('return', 0) < -0.05: # Example threshold
+            recs.append("Strategy performs poorly in bear regimes. Consider hedging or avoiding.")
+        if regime_performance.get('bull', {}).get('return', 0) > 0.10: # Example threshold
+            recs.append("Strategy performs well in bull regimes.")
+        return recs
     
     def _analyze_trades(self, trade_data: List) -> Dict:
         """Detailed trade analysis"""
@@ -246,6 +270,25 @@ class PerformanceAttributionDashboard:
         }
         
         return analysis
+
+    def _analyze_trade_timing(self, df: pd.DataFrame) -> Dict:
+        """Placeholder for analyzing trade timing."""
+        # Example: return {'avg_holding_period_wins': 0, 'avg_holding_period_losses': 0}
+        return {}
+
+    def _analyze_symbol_performance(self, df: pd.DataFrame) -> Dict:
+        """Placeholder for analyzing performance by symbol."""
+        # Example: return {'best_symbol': '', 'worst_symbol': ''}
+        return {}
+
+    def _analyze_trade_patterns(self, df: pd.DataFrame) -> Dict:
+        """Placeholder for analyzing trade patterns (e.g., entry/exit times)."""
+        return {}
+
+    def _analyze_winning_streaks(self, df: pd.DataFrame) -> Dict:
+        """Placeholder for analyzing winning/losing streaks."""
+        # Example: return {'longest_win_streak': 0, 'longest_loss_streak': 0}
+        return {}
     
     def _decompose_risk(self, results: Dict, trade_data: List) -> Dict:
         """Decompose risk into components"""
@@ -272,6 +315,15 @@ class PerformanceAttributionDashboard:
             'risk_efficiency': results.get('sharpe_ratio', 0) / max(total_risk, 0.01),
             'recommendations': self._generate_risk_recommendations(risk_components, risk_metrics)
         }
+
+    def _generate_risk_recommendations(self, risk_components: Dict, risk_metrics: Dict) -> List[str]:
+        """Placeholder for generating risk-based recommendations."""
+        recs = []
+        if risk_components.get('market_risk', 0) > 0.10: # Example threshold
+            recs.append("Consider strategies with lower market beta or add hedges.")
+        if risk_metrics.get('value_at_risk', 0) > 0.05: # Example threshold
+            recs.append("Review position sizing to manage Value at Risk.")
+        return recs
     
     def _analyze_costs(self, results: Dict, trade_data: List) -> Dict:
         """Analyze all trading costs"""
@@ -305,6 +357,14 @@ class PerformanceAttributionDashboard:
             'cost_efficiency': results.get('cagr', 0) / max(total_cost_impact, 0.0001),
             'recommendations': self._generate_cost_recommendations(costs)
         }
+
+    def _generate_cost_recommendations(self, costs_breakdown: Dict) -> List[str]:
+        """Placeholder for generating cost-based recommendations."""
+        recs = []
+        total_impact = costs_breakdown.get('total_cost_impact', 0)
+        if total_impact > 0.02: # Example: 2% of return lost to costs
+            recs.append("High trading costs detected. Review commission/slippage, or reduce trade frequency.")
+        return recs
     
     def _analyze_failures(self, results: Dict, trade_data: List) -> Dict:
         """Analyze why strategies fail to meet targets"""
@@ -358,6 +418,33 @@ class PerformanceAttributionDashboard:
             'improvement_suggestions': improvements,
             'success_probability': self._estimate_success_probability(results, improvements)
         }
+
+    def _generate_improvement_suggestions(self, failures: Dict, results: Dict) -> List[str]:
+        """Placeholder for generating improvement suggestions."""
+        recs = []
+        if failures.get('return_failure', {}).get('failed'):
+            recs.append("Attempt to improve return generation: review entry/exit signals or market timing.")
+        if failures.get('drawdown_failure', {}).get('failed'):
+            recs.append("Implement stricter risk controls or drawdown limits.")
+        return recs
+
+    def _identify_root_causes(self, failures: Dict, results: Dict) -> List[str]:
+        """Placeholder for identifying root causes of failure."""
+        # Simplified logic
+        causes = []
+        for failure_type, details in failures.items():
+            if details.get('failed'):
+                causes.extend(details.get('reasons', [f"Issue with {failure_type.replace('_failure','')}"]))
+        if not causes:
+            causes.append("General underperformance or model decay.")
+        return list(set(causes)) # Unique causes
+
+    def _estimate_success_probability(self, results: Dict, improvements: List[str]) -> float:
+        """Placeholder for estimating success probability after improvements."""
+        # Higher if many improvements suggested and current sharpe is not too low
+        base_prob = max(0.1, min(results.get('sharpe_ratio', 0) / 2.0, 0.5))
+        improvement_factor = 1.0 + len(improvements) * 0.05
+        return min(base_prob * improvement_factor, 0.8)
     
     def _calculate_performance_rating(self, metrics: PerformanceMetrics) -> Dict:
         """Calculate overall performance rating"""
@@ -533,7 +620,7 @@ class PerformanceAttributionDashboard:
             </style>
         </head>
         <body>
-            <h1>Strategy Performance Attribution Report</h1>
+            <h1>Strategy Performance Report: {analysis.get('summary', {}).get('strategy_name', 'N/A')}</h1>
             <p>Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
             
             <h2>Performance Summary</h2>

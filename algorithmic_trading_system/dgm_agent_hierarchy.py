@@ -539,7 +539,7 @@ class PerformanceSynthesizerAgent(DGMAgent):
         
         # Decide on exploration vs exploitation
         regime_confidence = synthesis['regime_context'].get('regime_confidence', 0.5)
-        if regime_confidence > 0.8:
+        if regime_confidence >= 0.8: # Changed > to >=
             decisions['exploration_mode'] = 'exploit'  # High confidence, exploit current regime
         else:
             decisions['exploration_mode'] = 'explore'  # Low confidence, explore more
