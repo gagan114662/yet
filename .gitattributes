@@ -1,0 +1,43 @@
+# Git LFS Configuration for Algorithmic Trading System
+# Handle large backtest files with Git LFS
+
+# Large JSON backtest results (>10MB)
+**/*backtests/**/*.json filter=lfs diff=lfs merge=lfs -text
+**/*results/**/*.json filter=lfs diff=lfs merge=lfs -text
+
+# Large backtest data files
+**/*order-events.json filter=lfs diff=lfs merge=lfs -text
+**/*summary.json filter=lfs diff=lfs merge=lfs -text
+
+# Log files that may grow large
+*.log filter=lfs diff=lfs merge=lfs -text
+
+# Data files
+**/*data*/**/*.csv filter=lfs diff=lfs merge=lfs -text
+**/*data*/**/*.json filter=lfs diff=lfs merge=lfs -text
+
+# Binary strategy files
+*.pkl filter=lfs diff=lfs merge=lfs -text
+*.pickle filter=lfs diff=lfs merge=lfs -text
+
+# Large research notebooks
+*.ipynb filter=lfs diff=lfs merge=lfs -text
+
+# Archive files
+*.zip filter=lfs diff=lfs merge=lfs -text
+*.tar.gz filter=lfs diff=lfs merge=lfs -text
+
+# Evolution system checkpoints
+*checkpoint*.json filter=lfs diff=lfs merge=lfs -text
+*checkpoint*.pkl filter=lfs diff=lfs merge=lfs -text
+
+# Performance results
+*RESULTS*.json filter=lfs diff=lfs merge=lfs -text
+*results*.json filter=lfs diff=lfs merge=lfs -text
+
+# Keep small config files as regular text
+config.json -filter
+lean.json -filter
+*.py -filter
+*.md -filter
+requirements.txt -filter
