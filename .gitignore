@@ -5,3 +5,17 @@ lean_workspace/*/backtests/**/*.txt
 # Ignore downloaded data and large files
 git_ignore_folder/
 *.zip
+# Large temporary files
+*.tmp
+*.temp
+**/temp/**
+**/tmp/**
+
+# Compressed archives
+*.gz
+*.tar.gz
+*.zip
+
+# Old log files
+*.log.old
+*.log.[0-9]*
