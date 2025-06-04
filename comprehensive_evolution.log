@@ -1,0 +1,47 @@
+2025-06-03 15:03:11,583 | INFO | 🚀 STARTING COMPREHENSIVE EVOLUTION
+2025-06-03 15:03:11,583 | INFO | Seed strategy created: Seed_1_Gen0
+2025-06-03 15:03:11,583 | INFO | Seed strategy created: Seed_2_Gen0
+2025-06-03 15:03:11,583 | INFO | Seed strategy created: Seed_3_Gen0
+2025-06-03 15:03:11,583 | INFO | Seed strategy created: Seed_4_Gen0
+2025-06-03 15:03:11,583 | INFO | Seed strategy created: Seed_5_Gen0
+2025-06-03 15:03:11,583 | INFO | Seed strategy created: Seed_6_Gen0
+2025-06-03 15:03:11,583 | INFO | Seed strategy created: Seed_7_Gen0
+2025-06-03 15:03:11,583 | INFO | Seed strategy created: Seed_8_Gen0
+2025-06-03 15:03:22,695 | INFO | Champion found: Seed_1_Gen0 - 36.51% CAGR
+2025-06-03 15:03:22,695 | INFO | Strategy evaluated: Seed_1_Gen0
+2025-06-03 15:03:22,695 | INFO |   Performance: 36.51% CAGR
+2025-06-03 15:03:22,695 | INFO |   URL: https://www.quantconnect.com/terminal/23346109#open/b07c21e148be2b5bc73f05f8379d62a1
+2025-06-03 15:04:18,831 | INFO | Champion found: Seed_2_Gen0 - 37.35% CAGR
+2025-06-03 15:04:18,831 | INFO | Strategy evaluated: Seed_2_Gen0
+2025-06-03 15:04:18,831 | INFO |   Performance: 37.35% CAGR
+2025-06-03 15:04:18,831 | INFO |   URL: https://www.quantconnect.com/terminal/23346117#open/d7012d42311bce23e907a37b89d7c6e0
+2025-06-03 15:05:15,013 | INFO | Strategy evaluated: Seed_3_Gen0
+2025-06-03 15:05:15,013 | INFO |   Performance: 11.14% CAGR
+2025-06-03 15:05:15,013 | INFO |   URL: https://www.quantconnect.com/terminal/23346130#open/38811c17cd8a3be561e36c0a6f7a2f25
+2025-06-03 15:06:11,323 | INFO | Strategy evaluated: Seed_4_Gen0
+2025-06-03 15:06:11,323 | INFO |   Performance: 23.42% CAGR
+2025-06-03 15:06:11,323 | INFO |   URL: https://www.quantconnect.com/terminal/23346142#open/ade58045fd92a2af26c1c8b1b61c2af3
+2025-06-03 15:07:07,381 | INFO | Champion found: Seed_5_Gen0 - 27.18% CAGR
+2025-06-03 15:07:07,381 | INFO | Strategy evaluated: Seed_5_Gen0
+2025-06-03 15:07:07,381 | INFO |   Performance: 27.18% CAGR
+2025-06-03 15:07:07,381 | INFO |   URL: https://www.quantconnect.com/terminal/23346155#open/55a6ae37c6311854f15caf67b2908d9a
+2025-06-03 15:08:04,571 | INFO | Champion found: Seed_6_Gen0 - 32.28% CAGR
+2025-06-03 15:08:04,571 | INFO | Strategy evaluated: Seed_6_Gen0
+2025-06-03 15:08:04,571 | INFO |   Performance: 32.28% CAGR
+2025-06-03 15:08:04,571 | INFO |   URL: https://www.quantconnect.com/terminal/23346167#open/d28c2d3fc15be9c9dc8d71d463cca31c
+2025-06-03 15:09:00,598 | INFO | Champion found: Seed_7_Gen0 - 43.76% CAGR
+2025-06-03 15:09:00,598 | INFO | Strategy evaluated: Seed_7_Gen0
+2025-06-03 15:09:00,598 | INFO |   Performance: 43.76% CAGR
+2025-06-03 15:09:00,598 | INFO |   URL: https://www.quantconnect.com/terminal/23346184#open/483d2373fcb0eab78e1d14c191748631
+2025-06-03 15:09:56,875 | INFO | Champion found: Seed_8_Gen0 - 32.12% CAGR
+2025-06-03 15:09:56,875 | INFO | Strategy evaluated: Seed_8_Gen0
+2025-06-03 15:09:56,875 | INFO |   Performance: 32.12% CAGR
+2025-06-03 15:09:56,875 | INFO |   URL: https://www.quantconnect.com/terminal/23346200#open/71c03a565ddcac778200ca1cddea7973
+2025-06-03 15:09:56,875 | INFO | Elite selection completed: 3 elites chosen
+2025-06-03 15:09:56,875 | INFO | Mutation created: Seed_1_Gen0_MASSET_SWAP_0 from Seed_1_Gen0
+2025-06-03 15:09:56,875 | INFO | Breeding created: Hybrid_7x2_Gen0
+2025-06-03 15:09:56,875 | INFO | Breeding created: Hybrid_7x1_Gen0
+2025-06-03 15:09:56,875 | INFO | Breeding created: Hybrid_2x1_Gen0
+2025-06-03 15:09:56,875 | INFO | Population updated: 7 strategies for next generation
+2025-06-03 15:09:56,875 | INFO | Generation 0 completed
+2025-06-03 15:09:56,875 | INFO |   Best: 43.76%, Avg: 30.47%

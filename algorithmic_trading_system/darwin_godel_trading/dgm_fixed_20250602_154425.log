@@ -1,0 +1,408 @@
+[15:44:25] [SYSTEM] 🚀 TRUSTWORTHY DARWIN GÖDEL MACHINE
+[15:44:25] [SYSTEM] ✅ 100% QUANTCONNECT CLOUD VERIFIED
+[15:44:25] [SYSTEM] 🎯 TARGET CRITERIA:
+[15:44:25] [SYSTEM]    📊 CAGR: >25%
+[15:44:25] [SYSTEM]    📈 Sharpe: >1.0
+[15:44:25] [SYSTEM]    📉 Max DD: <20%
+[15:44:25] [SYSTEM]    💰 Avg Profit: >0.75%
+[15:44:25] [] 
+[15:44:25] [EVOLUTION] 🧬 CREATING BASE AGENT...
+[15:44:25] [VERIFY] ☁️ CLOUD VERIFICATION: base
+[15:44:25] [VERIFY]    📊 QQQ 8.0x leverage, 1.0x position
+[15:44:38] [VERIFY]    ✅ VERIFIED RESULTS:
+[15:44:38] [VERIFY]       📊 CAGR: 3.25% ❌
+[15:44:38] [VERIFY]       📈 Sharpe: 0.000 ❌
+[15:44:38] [VERIFY]       📉 DD: 24.7% ❌
+[15:44:38] [VERIFY]       💰 Trades: 7
+[15:44:38] [VERIFY]       🎯 SCORE: 0.0/4
+[15:44:38] [VERIFY]       🔗 VERIFY: https://www.quantconnect.com/project/23328081/8b5e9e9a5f1bd9f365b9f39213ddb95c
+[15:44:38] [EVOLUTION] ✅ BASE AGENT VERIFIED: 0.0/4 criteria
+[15:44:38] [] 
+[15:44:38] [] ================================================================================
+[15:44:38] [EVOLUTION] 🧬 GENERATION 1 | ⏱️ 0.2min
+[15:44:38] [EVOLUTION] 🎯 CURRENT BEST: 0.0/4 | 📊 CAGR: 3.2%
+[15:44:38] [] ================================================================================
+[15:44:38] [] 
+[15:44:38] [PARENT] 👨‍👩‍👧‍👦 PARENT 0: 0.0/4 (3.2% CAGR)
+[15:44:38] [PARENT] 🔗 Verify: https://www.quantconnect.com/project/23328081/8b5e9e9a5f1bd9f365b9f39213ddb95c
+[15:44:38] [] 
+[15:44:38] [MUTATION] 🧪 TESTING: INCREASE_LEVERAGE_MODERATE
+[15:44:38] [MUTATION]    📈 Moderate leverage increase to 12.0x
+[15:44:38] [VERIFY] ☁️ CLOUD VERIFICATION: gen1_increase_leverage_moderate
+[15:44:38] [VERIFY]    📊 QQQ 12.0x leverage, 1.0x position
+[15:44:53] [VERIFY]    ✅ VERIFIED RESULTS:
+[15:44:53] [VERIFY]       📊 CAGR: 3.25% ❌
+[15:44:53] [VERIFY]       📈 Sharpe: 0.000 ❌
+[15:44:53] [VERIFY]       📉 DD: 24.7% ❌
+[15:44:53] [VERIFY]       💰 Trades: 7
+[15:44:53] [VERIFY]       🎯 SCORE: 0.0/4
+[15:44:53] [VERIFY]       🔗 VERIFY: https://www.quantconnect.com/project/23328088/bebd511f1b5e8eb1709baf20752045f8
+[15:45:08] [] 
+[15:45:08] [MUTATION] 🧪 TESTING: INCREASE_POSITION_MODERATE
+[15:45:08] [MUTATION]    📏 Moderate position to 1.3x
+[15:45:08] [VERIFY] ☁️ CLOUD VERIFICATION: gen1_increase_position_moderate
+[15:45:08] [VERIFY]    📊 QQQ 8.0x leverage, 1.3x position
+[15:45:20] [VERIFY]    ✅ VERIFIED RESULTS:
+[15:45:20] [VERIFY]       📊 CAGR: 1.63% ❌
+[15:45:20] [VERIFY]       📈 Sharpe: 0.000 ❌
+[15:45:20] [VERIFY]       📉 DD: 31.2% ❌
+[15:45:20] [VERIFY]       💰 Trades: 3
+[15:45:20] [VERIFY]       🎯 SCORE: 0.0/4
+[15:45:20] [VERIFY]       🔗 VERIFY: https://www.quantconnect.com/project/23328099/af0f73c754be0fb978b7867c2762fabf
+[15:45:35] [] 
+[15:45:35] [MUTATION] 🧪 TESTING: FASTER_SIGNALS
+[15:45:35] [MUTATION]    ⚡ Faster signals: SMA(8,25)
+[15:45:35] [VERIFY] ☁️ CLOUD VERIFICATION: gen1_faster_signals
+[15:45:35] [VERIFY]    📊 QQQ 8.0x leverage, 1.0x position
+[15:45:52] [VERIFY]    ✅ VERIFIED RESULTS:
+[15:45:52] [VERIFY]       📊 CAGR: 3.18% ❌
+[15:45:52] [VERIFY]       📈 Sharpe: 0.000 ❌
+[15:45:52] [VERIFY]       📉 DD: 22.8% ❌
+[15:45:52] [VERIFY]       💰 Trades: 5
+[15:45:52] [VERIFY]       🎯 SCORE: 0.0/4
+[15:45:52] [VERIFY]       🔗 VERIFY: https://www.quantconnect.com/project/23328111/192e919880b2d3d95f187802d55647f6
+[15:46:07] [] 
+[15:46:07] [MUTATION] 🧪 TESTING: ADD_RSI_FILTER
+[15:46:07] [MUTATION]    🛡️ Added RSI risk filter
+[15:46:07] [VERIFY] ☁️ CLOUD VERIFICATION: gen1_add_rsi_filter
+[15:46:07] [VERIFY]    📊 QQQ 8.0x leverage, 1.0x position
+[15:46:22] [VERIFY]    ✅ VERIFIED RESULTS:
+[15:46:22] [VERIFY]       📊 CAGR: 2.76% ❌
+[15:46:22] [VERIFY]       📈 Sharpe: 0.000 ❌
+[15:46:22] [VERIFY]       📉 DD: 24.7% ❌
+[15:46:22] [VERIFY]       💰 Trades: 3
+[15:46:22] [VERIFY]       🎯 SCORE: 0.0/4
+[15:46:22] [VERIFY]       🔗 VERIFY: https://www.quantconnect.com/project/23328127/35e9dd60bd7a1c38e19b4032a5a6e034
+[15:46:37] [] 
+[15:46:37] [SUMMARY] 📊 GENERATION 1 COMPLETE
+[15:46:37] [SUMMARY]    🎯 Best Score: 0.0/4
+[15:46:37] [SUMMARY]    📊 Best CAGR: 3.2%
+[15:46:37] [SUMMARY]    🔗 Best URL: https://www.quantconnect.com/project/23328081/8b5e9e9a5f1bd9f365b9f39213ddb95c
+[15:46:37] [SUMMARY]    📁 Archive: 1 verified agents
+[15:46:37] [] 
+[15:46:37] [] ================================================================================
+[15:46:37] [EVOLUTION] 🧬 GENERATION 2 | ⏱️ 2.2min
+[15:46:37] [EVOLUTION] 🎯 CURRENT BEST: 0.0/4 | 📊 CAGR: 3.2%
+[15:46:37] [] ================================================================================
+[15:46:37] [] 
+[15:46:37] [PARENT] 👨‍👩‍👧‍👦 PARENT 0: 0.0/4 (3.2% CAGR)
+[15:46:37] [PARENT] 🔗 Verify: https://www.quantconnect.com/project/23328081/8b5e9e9a5f1bd9f365b9f39213ddb95c
+[15:46:37] [] 
+[15:46:37] [MUTATION] 🧪 TESTING: INCREASE_LEVERAGE_MODERATE
+[15:46:37] [MUTATION]    📈 Moderate leverage increase to 12.0x
+[15:46:37] [VERIFY] ☁️ CLOUD VERIFICATION: gen2_increase_leverage_moderate
+[15:46:37] [VERIFY]    📊 QQQ 12.0x leverage, 1.0x position
+[15:46:51] [VERIFY]    ✅ VERIFIED RESULTS:
+[15:46:51] [VERIFY]       📊 CAGR: 3.25% ❌
+[15:46:51] [VERIFY]       📈 Sharpe: 0.000 ❌
+[15:46:51] [VERIFY]       📉 DD: 24.7% ❌
+[15:46:51] [VERIFY]       💰 Trades: 7
+[15:46:51] [VERIFY]       🎯 SCORE: 0.0/4
+[15:46:51] [VERIFY]       🔗 VERIFY: https://www.quantconnect.com/project/23328140/2e937be7b8f039d504900407085710f0
+[15:47:06] [] 
+[15:47:06] [MUTATION] 🧪 TESTING: INCREASE_POSITION_MODERATE
+[15:47:06] [MUTATION]    📏 Moderate position to 1.3x
+[15:47:06] [VERIFY] ☁️ CLOUD VERIFICATION: gen2_increase_position_moderate
+[15:47:06] [VERIFY]    📊 QQQ 8.0x leverage, 1.3x position
+[15:47:19] [VERIFY]    ✅ VERIFIED RESULTS:
+[15:47:19] [VERIFY]       📊 CAGR: 1.63% ❌
+[15:47:19] [VERIFY]       📈 Sharpe: 0.000 ❌
+[15:47:19] [VERIFY]       📉 DD: 31.2% ❌
+[15:47:19] [VERIFY]       💰 Trades: 3
+[15:47:19] [VERIFY]       🎯 SCORE: 0.0/4
+[15:47:19] [VERIFY]       🔗 VERIFY: https://www.quantconnect.com/project/23328150/fdade2a1dd33b94d9306306946d6bddb
+[15:47:34] [] 
+[15:47:34] [MUTATION] 🧪 TESTING: FASTER_SIGNALS
+[15:47:34] [MUTATION]    ⚡ Faster signals: SMA(8,25)
+[15:47:34] [VERIFY] ☁️ CLOUD VERIFICATION: gen2_faster_signals
+[15:47:34] [VERIFY]    📊 QQQ 8.0x leverage, 1.0x position
+[15:47:37] [WARNING]    ⚠️ Backtest attempt 1 failed, retrying...
+[15:48:08] [WARNING]    ⚠️ Backtest attempt 2 failed, retrying...
+[15:48:38] [ERROR]    ❌ Backtest failed: /usr/lib/python3/dist-packages/paramiko/transport.py:237: CryptographyDeprecationWarning: Blowfish has been deprecated and will be removed in a future
+[15:48:53] [] 
+[15:48:53] [MUTATION] 🧪 TESTING: ADD_RSI_FILTER
+[15:48:53] [MUTATION]    🛡️ Added RSI risk filter
+[15:48:53] [VERIFY] ☁️ CLOUD VERIFICATION: gen2_add_rsi_filter
+[15:48:53] [VERIFY]    📊 QQQ 8.0x leverage, 1.0x position
+[15:48:56] [WARNING]    ⚠️ Backtest attempt 1 failed, retrying...
+[15:49:27] [WARNING]    ⚠️ Backtest attempt 2 failed, retrying...
+[15:49:57] [ERROR]    ❌ Backtest failed: /usr/lib/python3/dist-packages/paramiko/transport.py:237: CryptographyDeprecationWarning: Blowfish has been deprecated and will be removed in a future
+[15:50:12] [] 
+[15:50:12] [SUMMARY] 📊 GENERATION 2 COMPLETE
+[15:50:12] [SUMMARY]    🎯 Best Score: 0.0/4
+[15:50:12] [SUMMARY]    📊 Best CAGR: 3.2%
+[15:50:12] [SUMMARY]    🔗 Best URL: https://www.quantconnect.com/project/23328081/8b5e9e9a5f1bd9f365b9f39213ddb95c
+[15:50:12] [SUMMARY]    📁 Archive: 1 verified agents
+[15:50:12] [] 
+[15:50:12] [] ================================================================================
+[15:50:12] [EVOLUTION] 🧬 GENERATION 3 | ⏱️ 5.8min
+[15:50:12] [EVOLUTION] 🎯 CURRENT BEST: 0.0/4 | 📊 CAGR: 3.2%
+[15:50:12] [] ================================================================================
+[15:50:12] [] 
+[15:50:12] [PARENT] 👨‍👩‍👧‍👦 PARENT 0: 0.0/4 (3.2% CAGR)
+[15:50:12] [PARENT] 🔗 Verify: https://www.quantconnect.com/project/23328081/8b5e9e9a5f1bd9f365b9f39213ddb95c
+[15:50:12] [] 
+[15:50:12] [MUTATION] 🧪 TESTING: BOOST_LEVERAGE_15X
+[15:50:12] [MUTATION]    🚀 Boosted leverage to 15x
+[15:50:12] [VERIFY] ☁️ CLOUD VERIFICATION: gen3_boost_leverage_15x
+[15:50:12] [VERIFY]    📊 QQQ 15.0x leverage, 1.0x position
+[15:50:28] [VERIFY]    ✅ VERIFIED RESULTS:
+[15:50:28] [VERIFY]       📊 CAGR: 3.25% ❌
+[15:50:28] [VERIFY]       📈 Sharpe: 0.000 ❌
+[15:50:28] [VERIFY]       📉 DD: 24.7% ❌
+[15:50:28] [VERIFY]       💰 Trades: 7
+[15:50:28] [VERIFY]       🎯 SCORE: 0.0/4
+[15:50:28] [VERIFY]       🔗 VERIFY: https://www.quantconnect.com/project/23328225/a3261dc42f7427e3228216dbd6a6106a
+[15:50:43] [] 
+[15:50:43] [MUTATION] 🧪 TESTING: AGGRESSIVE_POSITION_2X
+[15:50:43] [MUTATION]    💪 Aggressive 2x position
+[15:50:43] [VERIFY] ☁️ CLOUD VERIFICATION: gen3_aggressive_position_2x
+[15:50:43] [VERIFY]    📊 QQQ 8.0x leverage, 2.0x position
+[15:51:12] [VERIFY]    ✅ VERIFIED RESULTS:
+[15:51:12] [VERIFY]       📊 CAGR: 1.02% ❌
+[15:51:12] [VERIFY]       📈 Sharpe: 0.000 ❌
+[15:51:12] [VERIFY]       📉 DD: 44.5% ❌
+[15:51:12] [VERIFY]       💰 Trades: 1
+[15:51:12] [VERIFY]       🎯 SCORE: 0.0/4
+[15:51:12] [VERIFY]       🔗 VERIFY: https://www.quantconnect.com/project/23328236/a298af37d0ec0788fbe895f9186f740e
+[15:51:27] [] 
+[15:51:27] [MUTATION] 🧪 TESTING: SWITCH_TO_TQQQ
+[15:51:27] [MUTATION]    📈 Switched to TQQQ with 5.6x leverage
+[15:51:27] [VERIFY] ☁️ CLOUD VERIFICATION: gen3_switch_to_tqqq
+[15:51:27] [VERIFY]    📊 TQQQ 5.6x leverage, 1.0x position
+[15:51:29] [WARNING]    ⚠️ Backtest attempt 1 failed, retrying...
+[15:52:01] [WARNING]    ⚠️ Backtest attempt 2 failed, retrying...
+[15:52:31] [ERROR]    ❌ Backtest failed: /usr/lib/python3/dist-packages/paramiko/transport.py:237: CryptographyDeprecationWarning: Blowfish has been deprecated and will be removed in a future
+[15:52:46] [] 
+[15:52:46] [MUTATION] 🧪 TESTING: ULTRA_FAST_SIGNALS
+[15:52:46] [MUTATION]    ⚡ Ultra fast signals: SMA(3,12)
+[15:52:46] [VERIFY] ☁️ CLOUD VERIFICATION: gen3_ultra_fast_signals
+[15:52:46] [VERIFY]    📊 QQQ 8.0x leverage, 1.0x position
+[15:53:03] [VERIFY]    ✅ VERIFIED RESULTS:
+[15:53:03] [VERIFY]       📊 CAGR: 1.79% ❌
+[15:53:03] [VERIFY]       📈 Sharpe: 0.000 ❌
+[15:53:03] [VERIFY]       📉 DD: 34.1% ❌
+[15:53:03] [VERIFY]       💰 Trades: 3
+[15:53:03] [VERIFY]       🎯 SCORE: 0.0/4
+[15:53:03] [VERIFY]       🔗 VERIFY: https://www.quantconnect.com/project/23328294/530867f0ddc0b70b0f25cccefcbe26f0
+[15:53:18] [] 
+[15:53:18] [MUTATION] 🧪 TESTING: ADD_MACD_MOMENTUM
+[15:53:18] [MUTATION]    📊 Added MACD momentum
+[15:53:18] [VERIFY] ☁️ CLOUD VERIFICATION: gen3_add_macd_momentum
+[15:53:18] [VERIFY]    📊 QQQ 8.0x leverage, 1.0x position
+[15:53:21] [WARNING]    ⚠️ Backtest attempt 1 failed, retrying...
+[15:53:53] [WARNING]    ⚠️ Backtest attempt 2 failed, retrying...
+[15:54:23] [ERROR]    ❌ Backtest failed: /usr/lib/python3/dist-packages/paramiko/transport.py:237: CryptographyDeprecationWarning: Blowfish has been deprecated and will be removed in a future
+[15:54:38] [] 
+[15:54:38] [SUMMARY] 📊 GENERATION 3 COMPLETE
+[15:54:38] [SUMMARY]    🎯 Best Score: 0.0/4
+[15:54:38] [SUMMARY]    📊 Best CAGR: 3.2%
+[15:54:38] [SUMMARY]    🔗 Best URL: https://www.quantconnect.com/project/23328081/8b5e9e9a5f1bd9f365b9f39213ddb95c
+[15:54:38] [SUMMARY]    📁 Archive: 1 verified agents
+[15:54:38] [] 
+[15:54:38] [] ================================================================================
+[15:54:38] [EVOLUTION] 🧬 GENERATION 4 | ⏱️ 10.2min
+[15:54:38] [EVOLUTION] 🎯 CURRENT BEST: 0.0/4 | 📊 CAGR: 3.2%
+[15:54:38] [] ================================================================================
+[15:54:38] [] 
+[15:54:38] [PARENT] 👨‍👩‍👧‍👦 PARENT 0: 0.0/4 (3.2% CAGR)
+[15:54:38] [PARENT] 🔗 Verify: https://www.quantconnect.com/project/23328081/8b5e9e9a5f1bd9f365b9f39213ddb95c
+[15:54:38] [] 
+[15:54:38] [MUTATION] 🧪 TESTING: BOOST_LEVERAGE_15X
+[15:54:38] [MUTATION]    🚀 Boosted leverage to 15x
+[15:54:38] [VERIFY] ☁️ CLOUD VERIFICATION: gen4_boost_leverage_15x
+[15:54:38] [VERIFY]    📊 QQQ 15.0x leverage, 1.0x position
+[15:54:40] [WARNING]    ⚠️ Backtest attempt 1 failed, retrying...
+[15:55:21] [VERIFY]    ✅ VERIFIED RESULTS:
+[15:55:21] [VERIFY]       📊 CAGR: 3.25% ❌
+[15:55:21] [VERIFY]       📈 Sharpe: 0.000 ❌
+[15:55:21] [VERIFY]       📉 DD: 24.7% ❌
+[15:55:21] [VERIFY]       💰 Trades: 7
+[15:55:21] [VERIFY]       🎯 SCORE: 0.0/4
+[15:55:21] [VERIFY]       🔗 VERIFY: https://www.quantconnect.com/project/23328343/2b0ceced5a0b135e15e362b0a8c1413b
+[15:55:36] [] 
+[15:55:36] [MUTATION] 🧪 TESTING: AGGRESSIVE_POSITION_2X
+[15:55:36] [MUTATION]    💪 Aggressive 2x position
+[15:55:36] [VERIFY] ☁️ CLOUD VERIFICATION: gen4_aggressive_position_2x
+[15:55:36] [VERIFY]    📊 QQQ 8.0x leverage, 2.0x position
+[15:55:49] [VERIFY]    ✅ VERIFIED RESULTS:
+[15:55:49] [VERIFY]       📊 CAGR: 1.02% ❌
+[15:55:49] [VERIFY]       📈 Sharpe: 0.000 ❌
+[15:55:49] [VERIFY]       📉 DD: 44.5% ❌
+[15:55:49] [VERIFY]       💰 Trades: 1
+[15:55:49] [VERIFY]       🎯 SCORE: 0.0/4
+[15:55:49] [VERIFY]       🔗 VERIFY: https://www.quantconnect.com/project/23328366/c033549d97346f446c589bb40dd3dfea
+[15:56:04] [] 
+[15:56:04] [MUTATION] 🧪 TESTING: SWITCH_TO_TQQQ
+[15:56:04] [MUTATION]    📈 Switched to TQQQ with 5.6x leverage
+[15:56:04] [VERIFY] ☁️ CLOUD VERIFICATION: gen4_switch_to_tqqq
+[15:56:04] [VERIFY]    📊 TQQQ 5.6x leverage, 1.0x position
+[15:56:07] [WARNING]    ⚠️ Backtest attempt 1 failed, retrying...
+[15:56:38] [WARNING]    ⚠️ Backtest attempt 2 failed, retrying...
+[15:57:08] [ERROR]    ❌ Backtest failed: /usr/lib/python3/dist-packages/paramiko/transport.py:237: CryptographyDeprecationWarning: Blowfish has been deprecated and will be removed in a future
+[15:57:23] [] 
+[15:57:23] [MUTATION] 🧪 TESTING: ULTRA_FAST_SIGNALS
+[15:57:23] [MUTATION]    ⚡ Ultra fast signals: SMA(3,12)
+[15:57:23] [VERIFY] ☁️ CLOUD VERIFICATION: gen4_ultra_fast_signals
+[15:57:23] [VERIFY]    📊 QQQ 8.0x leverage, 1.0x position
+[15:57:26] [WARNING]    ⚠️ Backtest attempt 1 failed, retrying...
+[15:57:57] [WARNING]    ⚠️ Backtest attempt 2 failed, retrying...
+[15:58:27] [ERROR]    ❌ Backtest failed: /usr/lib/python3/dist-packages/paramiko/transport.py:237: CryptographyDeprecationWarning: Blowfish has been deprecated and will be removed in a future
+[15:58:42] [] 
+[15:58:42] [MUTATION] 🧪 TESTING: ADD_MACD_MOMENTUM
+[15:58:42] [MUTATION]    📊 Added MACD momentum
+[15:58:42] [VERIFY] ☁️ CLOUD VERIFICATION: gen4_add_macd_momentum
+[15:58:42] [VERIFY]    📊 QQQ 8.0x leverage, 1.0x position
+[15:58:56] [VERIFY]    ✅ VERIFIED RESULTS:
+[15:58:56] [VERIFY]       📊 CAGR: 2.77% ❌
+[15:58:56] [VERIFY]       📈 Sharpe: 0.000 ❌
+[15:58:56] [VERIFY]       📉 DD: 24.4% ❌
+[15:58:56] [VERIFY]       💰 Trades: 6
+[15:58:56] [VERIFY]       🎯 SCORE: 0.0/4
+[15:58:56] [VERIFY]       🔗 VERIFY: https://www.quantconnect.com/project/23328440/6e6906917462ad0db07c5695f27cdd21
+[15:59:11] [] 
+[15:59:11] [SUMMARY] 📊 GENERATION 4 COMPLETE
+[15:59:11] [SUMMARY]    🎯 Best Score: 0.0/4
+[15:59:11] [SUMMARY]    📊 Best CAGR: 3.2%
+[15:59:11] [SUMMARY]    🔗 Best URL: https://www.quantconnect.com/project/23328081/8b5e9e9a5f1bd9f365b9f39213ddb95c
+[15:59:11] [SUMMARY]    📁 Archive: 1 verified agents
+[15:59:11] [] 
+[15:59:11] [] ================================================================================
+[15:59:11] [EVOLUTION] 🧬 GENERATION 5 | ⏱️ 14.8min
+[15:59:11] [EVOLUTION] 🎯 CURRENT BEST: 0.0/4 | 📊 CAGR: 3.2%
+[15:59:11] [] ================================================================================
+[15:59:11] [] 
+[15:59:11] [PARENT] 👨‍👩‍👧‍👦 PARENT 0: 0.0/4 (3.2% CAGR)
+[15:59:11] [PARENT] 🔗 Verify: https://www.quantconnect.com/project/23328081/8b5e9e9a5f1bd9f365b9f39213ddb95c
+[15:59:11] [] 
+[15:59:11] [MUTATION] 🧪 TESTING: SWITCH_TO_TQQQ
+[15:59:11] [MUTATION]    📈 Switched to TQQQ with 5.6x leverage
+[15:59:11] [VERIFY] ☁️ CLOUD VERIFICATION: gen5_switch_to_tqqq
+[15:59:11] [VERIFY]    📊 TQQQ 5.6x leverage, 1.0x position
+[15:59:13] [WARNING]    ⚠️ Backtest attempt 1 failed, retrying...
+[15:59:59] [VERIFY]    ✅ VERIFIED RESULTS:
+[15:59:59] [VERIFY]       📊 CAGR: 6.21% ❌
+[15:59:59] [VERIFY]       📈 Sharpe: 0.000 ❌
+[15:59:59] [VERIFY]       📉 DD: 55.7% ❌
+[15:59:59] [VERIFY]       💰 Trades: 14
+[15:59:59] [VERIFY]       🎯 SCORE: 0.0/4
+[15:59:59] [VERIFY]       🔗 VERIFY: https://www.quantconnect.com/project/23328453/44ee18c3c09478b9f1dfe9d67f07656a
+[15:59:59] [] 
+[15:59:59] [CHAMPION] 🎉🎉🎉 NEW CHAMPION! 🎉🎉🎉
+[15:59:59] [CHAMPION] 📈 Score improved: 0.0 → 0.0/4
+[15:59:59] [CHAMPION] 💰 CAGR improved: 3.2% → 6.2%
+[15:59:59] [CHAMPION] 🔗 VERIFY: https://www.quantconnect.com/project/23328453/44ee18c3c09478b9f1dfe9d67f07656a
+[15:59:59] [CHAMPION] 🧬 Evolution: switch_to_tqqq
+[16:00:14] [] 
+[16:00:14] [MUTATION] 🧪 TESTING: BOOST_LEVERAGE_20X
+[16:00:14] [MUTATION]    🚀 HIGH leverage: 20x
+[16:00:14] [VERIFY] ☁️ CLOUD VERIFICATION: gen5_boost_leverage_20x
+[16:00:14] [VERIFY]    📊 QQQ 20.0x leverage, 1.0x position
+[16:00:18] [WARNING]    ⚠️ Backtest attempt 1 failed, retrying...
+[16:01:14] [VERIFY]    ✅ VERIFIED RESULTS:
+[16:01:14] [VERIFY]       📊 CAGR: 3.48% ❌
+[16:01:14] [VERIFY]       📈 Sharpe: 0.000 ❌
+[16:01:14] [VERIFY]       📉 DD: 24.7% ❌
+[16:01:14] [VERIFY]       💰 Trades: 7
+[16:01:14] [VERIFY]       🎯 SCORE: 0.0/4
+[16:01:14] [VERIFY]       🔗 VERIFY: https://www.quantconnect.com/project/23328480/5b456f514775f5a792ee78ca0cc36c03
+[16:01:29] [] 
+[16:01:29] [MUTATION] 🧪 TESTING: BOOST_LEVERAGE_25X
+[16:01:29] [MUTATION]    🚀 EXTREME leverage: 25x
+[16:01:29] [VERIFY] ☁️ CLOUD VERIFICATION: gen5_boost_leverage_25x
+[16:01:29] [VERIFY]    📊 QQQ 25.0x leverage, 1.0x position
+[16:01:42] [VERIFY]    ✅ VERIFIED RESULTS:
+[16:01:42] [VERIFY]       📊 CAGR: 3.48% ❌
+[16:01:42] [VERIFY]       📈 Sharpe: 0.000 ❌
+[16:01:42] [VERIFY]       📉 DD: 24.7% ❌
+[16:01:42] [VERIFY]       💰 Trades: 8
+[16:01:42] [VERIFY]       🎯 SCORE: 0.0/4
+[16:01:42] [VERIFY]       🔗 VERIFY: https://www.quantconnect.com/project/23328512/cf636e1d225274e21e6187a4e30443b1
+[16:01:57] [] 
+[16:01:57] [MUTATION] 🧪 TESTING: EXTREME_POSITION_3X
+[16:01:57] [MUTATION]    ⚡ EXTREME position: 3x
+[16:01:57] [VERIFY] ☁️ CLOUD VERIFICATION: gen5_extreme_position_3x
+[16:01:57] [VERIFY]    📊 QQQ 8.0x leverage, 3.0x position
+[16:02:00] [WARNING]    ⚠️ Backtest attempt 1 failed, retrying...
+[16:02:44] [VERIFY]    ✅ VERIFIED RESULTS:
+[16:02:44] [VERIFY]       📊 CAGR: 1.31% ❌
+[16:02:44] [VERIFY]       📈 Sharpe: 0.000 ❌
+[16:02:44] [VERIFY]       📉 DD: 60.0% ❌
+[16:02:44] [VERIFY]       💰 Trades: 1
+[16:02:44] [VERIFY]       🎯 SCORE: 0.0/4
+[16:02:44] [VERIFY]       🔗 VERIFY: https://www.quantconnect.com/project/23328525/5f28bd76d26728acd5e5a92991b2109b
+[16:02:59] [] 
+[16:02:59] [SUMMARY] 📊 GENERATION 5 COMPLETE
+[16:02:59] [SUMMARY]    🎯 Best Score: 0.0/4
+[16:02:59] [SUMMARY]    📊 Best CAGR: 6.2%
+[16:02:59] [SUMMARY]    🔗 Best URL: https://www.quantconnect.com/project/23328453/44ee18c3c09478b9f1dfe9d67f07656a
+[16:02:59] [SUMMARY]    📁 Archive: 1 verified agents
+[16:02:59] [] 
+[16:02:59] [] ================================================================================
+[16:02:59] [EVOLUTION] 🧬 GENERATION 6 | ⏱️ 18.6min
+[16:02:59] [EVOLUTION] 🎯 CURRENT BEST: 0.0/4 | 📊 CAGR: 6.2%
+[16:02:59] [] ================================================================================
+[16:02:59] [] 
+[16:02:59] [PARENT] 👨‍👩‍👧‍👦 PARENT 0: 0.0/4 (3.2% CAGR)
+[16:02:59] [PARENT] 🔗 Verify: https://www.quantconnect.com/project/23328081/8b5e9e9a5f1bd9f365b9f39213ddb95c
+[16:02:59] [] 
+[16:02:59] [MUTATION] 🧪 TESTING: SWITCH_TO_TQQQ
+[16:02:59] [MUTATION]    📈 Switched to TQQQ with 5.6x leverage
+[16:02:59] [VERIFY] ☁️ CLOUD VERIFICATION: gen6_switch_to_tqqq
+[16:02:59] [VERIFY]    📊 TQQQ 5.6x leverage, 1.0x position
+[16:03:01] [WARNING]    ⚠️ Backtest attempt 1 failed, retrying...
+[16:03:33] [WARNING]    ⚠️ Backtest attempt 2 failed, retrying...
+[16:04:03] [ERROR]    ❌ Backtest failed: /usr/lib/python3/dist-packages/paramiko/transport.py:237: CryptographyDeprecationWarning: Blowfish has been deprecated and will be removed in a future
+[16:04:18] [] 
+[16:04:18] [MUTATION] 🧪 TESTING: BOOST_LEVERAGE_20X
+[16:04:18] [MUTATION]    🚀 HIGH leverage: 20x
+[16:04:18] [VERIFY] ☁️ CLOUD VERIFICATION: gen6_boost_leverage_20x
+[16:04:18] [VERIFY]    📊 QQQ 20.0x leverage, 1.0x position
+[16:04:20] [WARNING]    ⚠️ Backtest attempt 1 failed, retrying...
+[16:04:51] [WARNING]    ⚠️ Backtest attempt 2 failed, retrying...
+[16:05:21] [ERROR]    ❌ Backtest failed: /usr/lib/python3/dist-packages/paramiko/transport.py:237: CryptographyDeprecationWarning: Blowfish has been deprecated and will be removed in a future
+[16:05:36] [] 
+[16:05:36] [MUTATION] 🧪 TESTING: BOOST_LEVERAGE_25X
+[16:05:36] [MUTATION]    🚀 EXTREME leverage: 25x
+[16:05:36] [VERIFY] ☁️ CLOUD VERIFICATION: gen6_boost_leverage_25x
+[16:05:36] [VERIFY]    📊 QQQ 25.0x leverage, 1.0x position
+[16:05:39] [WARNING]    ⚠️ Backtest attempt 1 failed, retrying...
+[16:06:10] [WARNING]    ⚠️ Backtest attempt 2 failed, retrying...
+[16:06:40] [ERROR]    ❌ Backtest failed: /usr/lib/python3/dist-packages/paramiko/transport.py:237: CryptographyDeprecationWarning: Blowfish has been deprecated and will be removed in a future
+[16:06:55] [] 
+[16:06:55] [MUTATION] 🧪 TESTING: EXTREME_POSITION_3X
+[16:06:55] [MUTATION]    ⚡ EXTREME position: 3x
+[16:06:55] [VERIFY] ☁️ CLOUD VERIFICATION: gen6_extreme_position_3x
+[16:06:55] [VERIFY]    📊 QQQ 8.0x leverage, 3.0x position
+[16:06:57] [WARNING]    ⚠️ Backtest attempt 1 failed, retrying...
+[16:07:29] [WARNING]    ⚠️ Backtest attempt 2 failed, retrying...
+[16:07:59] [ERROR]    ❌ Backtest failed: /usr/lib/python3/dist-packages/paramiko/transport.py:237: CryptographyDeprecationWarning: Blowfish has been deprecated and will be removed in a future
+[16:08:14] [] 
+[16:08:14] [SUMMARY] 📊 GENERATION 6 COMPLETE
+[16:08:14] [SUMMARY]    🎯 Best Score: 0.0/4
+[16:08:14] [SUMMARY]    📊 Best CAGR: 6.2%
+[16:08:14] [SUMMARY]    🔗 Best URL: https://www.quantconnect.com/project/23328453/44ee18c3c09478b9f1dfe9d67f07656a
+[16:08:14] [SUMMARY]    📁 Archive: 1 verified agents
+[16:08:14] [] 
+[16:08:14] [] ================================================================================
+[16:08:14] [EVOLUTION] 🧬 GENERATION 7 | ⏱️ 23.8min
+[16:08:14] [EVOLUTION] 🎯 CURRENT BEST: 0.0/4 | 📊 CAGR: 6.2%
+[16:08:14] [] ================================================================================
+[16:08:14] [] 
+[16:08:14] [PARENT] 👨‍👩‍👧‍👦 PARENT 0: 0.0/4 (3.2% CAGR)
+[16:08:14] [PARENT] 🔗 Verify: https://www.quantconnect.com/project/23328081/8b5e9e9a5f1bd9f365b9f39213ddb95c
+[16:08:14] [] 
+[16:08:14] [MUTATION] 🧪 TESTING: SWITCH_TO_TQQQ
+[16:08:14] [MUTATION]    📈 Switched to TQQQ with 5.6x leverage
+[16:08:14] [VERIFY] ☁️ CLOUD VERIFICATION: gen7_switch_to_tqqq
+[16:08:14] [VERIFY]    📊 TQQQ 5.6x leverage, 1.0x position
+[16:08:16] [WARNING]    ⚠️ Backtest attempt 1 failed, retrying...
+[16:08:47] [WARNING]    ⚠️ Backtest attempt 2 failed, retrying...
+[16:09:17] [ERROR]    ❌ Backtest failed: /usr/lib/python3/dist-packages/paramiko/transport.py:237: CryptographyDeprecationWarning: Blowfish has been deprecated and will be removed in a future
+[16:09:33] [] 
+[16:09:33] [MUTATION] 🧪 TESTING: BOOST_LEVERAGE_20X
+[16:09:33] [MUTATION]    🚀 HIGH leverage: 20x
+[16:09:33] [VERIFY] ☁️ CLOUD VERIFICATION: gen7_boost_leverage_20x
+[16:09:33] [VERIFY]    📊 QQQ 20.0x leverage, 1.0x position
+[16:09:35] [WARNING]    ⚠️ Backtest attempt 1 failed, retrying...
+[16:10:07] [WARNING]    ⚠️ Backtest attempt 2 failed, retrying...

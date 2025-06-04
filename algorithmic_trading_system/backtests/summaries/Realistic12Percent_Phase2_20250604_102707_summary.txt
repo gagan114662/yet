@@ -1,0 +1,39 @@
+
+BACKTEST RESULTS SUMMARY
+========================
+
+Strategy: Realistic12Percent_Phase2
+Project ID: 23358651
+Backtest ID: cc5f4ff8f142f60d225e60b372f39e3c
+Fetched: 20250604_102707
+
+PERFORMANCE METRICS
+===================
+CAGR: 4.22% (weak)
+Sharpe Ratio: 0.139 (poor)
+Max Drawdown: 28.6% (acceptable)
+Net Profit: 17.95%
+Alpha: 0.000
+Beta: 0.000
+
+TRADING ACTIVITY
+================
+Total Orders: 128.0
+Win Rate: 71.0%
+
+RISK ANALYSIS
+=============
+Risk-Adjusted Return: 0.147
+Estimated Volatility: 30.3%
+Calmar Ratio: 0.147
+
+OVERALL ASSESSMENT
+==================
+Grade: D
+Score: 1.0/4.0
+
+FILES CREATED
+=============
+Raw Results: Realistic12Percent_Phase2_20250604_102707_raw.json
+Processed Metrics: Realistic12Percent_Phase2_20250604_102707_metrics.json
+Summary Report: Realistic12Percent_Phase2_20250604_102707_summary.txt

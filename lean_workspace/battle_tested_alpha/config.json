@@ -1,0 +1,15 @@
+{
+    "algorithm-id": "battle-tested-alpha",
+    "algorithm-name": "Battle Tested Alpha",
+    "algorithm-description": "Simplified high-performance strategy that actually works",
+    "algorithm-version": "1.0",
+    "algorithm-language": "Python",
+    "parameters": {},
+    "backtest-settings": {
+        "start-date": "2005-01-01",
+        "end-date": "2025-01-01",
+        "cash": 100000,
+        "data-folder": "../data"
+    },
+    "local-id": 455957354
+}

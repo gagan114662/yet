@@ -1,0 +1,143 @@
+[13:30:40] 🚀 FIXED ADVANCED DARWIN GÖDEL MACHINE
+[13:30:40] Target: 25% CAGR - WILL NOT STOP!
+[13:30:40] ======================================================================
+[13:30:40] 
+🧬 Creating base agent...
+[13:30:47] Base CAGR: 4.3%
+[13:30:47] 
+======================================================================
+[13:30:47] 🧬 GENERATION 1
+[13:30:47] Best: 4.3% | Target: 25% | Gap: 20.7%
+[13:30:47] Runtime: 0.0h | Progress: 17.1%
+[13:30:47] 
+  👨‍👩‍👧‍👦 Parent 0: base (4.3%)
+[13:30:47]     🧪 Testing: switch_to_qqq
+[13:30:55]     🎯 NEW CHAMPION! +3.0% → 7.2%
+[13:30:55]        Mutations: switch_to_qqq
+[13:30:55] 💾 Winner saved: /mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/winner_25pct_20250602_133055
+[13:30:55]     🧪 Testing: switch_to_tqqq
+[13:31:01]     🧪 Testing: double_leverage
+[13:31:08]     🧪 Testing: max_leverage
+[13:31:15]     🧪 Testing: add_rsi
+[13:31:22]     🧪 Testing: add_macd
+[13:31:29]     🧪 Testing: add_both_indicators
+[13:31:36]     🧪 Testing: daily_trading
+[13:31:43]     🧪 Testing: faster_sma
+[13:31:50]     🧪 Testing: aggressive_position
+[13:31:58]     🧪 Testing: relaxed_rsi
+[13:32:05]     🧪 Testing: ultra_fast_sma
+[13:32:12]     🧪 Testing: extreme_leverage
+[13:32:19]     🧪 Testing: tqqq_max_combo
+[13:32:25] 
+📊 Generation 1 Summary:
+[13:32:25]    New agents: 14
+[13:32:25]    Archive: 15 agents
+[13:32:25]    Best: 7.2% CAGR
+[13:32:25]    Progress: 29.0% to target
+[13:32:25] 
+======================================================================
+[13:32:25] 🧬 GENERATION 2
+[13:32:25] Best: 7.2% | Target: 25% | Gap: 17.8%
+[13:32:25] Runtime: 0.0h | Progress: 29.0%
+[13:32:25] 
+  👨‍👩‍👧‍👦 Parent 0: gen1_p0_switch_to_qqq (7.2%)
+[13:32:25]     🧪 Testing: switch_to_qqq
+[13:32:33]     🧪 Testing: switch_to_tqqq
+[13:32:40]     🧪 Testing: double_leverage
+[13:32:47]     🧪 Testing: max_leverage
+[13:32:54]     🧪 Testing: add_rsi
+[13:33:02]     🧪 Testing: add_macd
+[13:33:09]     🧪 Testing: add_both_indicators
+[13:33:16]     🧪 Testing: daily_trading
+[13:33:23]     🎯 NEW CHAMPION! +0.7% → 7.9%
+[13:33:23]        Mutations: switch_to_qqq → daily_trading
+[13:33:23] 💾 Winner saved: /mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/winner_25pct_20250602_133323
+[13:33:23]     🧪 Testing: faster_sma
+[13:33:30]     🧪 Testing: aggressive_position
+[13:33:38]     🎯 NEW CHAMPION! +3.8% → 11.7%
+[13:33:38]        Mutations: switch_to_qqq → aggressive_position
+[13:33:38] 💾 Winner saved: /mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/winner_25pct_20250602_133338
+[13:33:38]     🧪 Testing: relaxed_rsi
+[13:33:45]     🧪 Testing: ultra_fast_sma
+[13:33:53]     🧪 Testing: extreme_leverage
+[13:34:00]     🧪 Testing: tqqq_max_combo
+[13:34:07] 
+  👨‍👩‍👧‍👦 Parent 1: gen1_p0_aggressive_position (6.7%)
+[13:34:07]     🧪 Testing: switch_to_qqq
+[13:34:14]     🧪 Testing: switch_to_tqqq
+[13:34:21]     🧪 Testing: double_leverage
+[13:34:28]     🧪 Testing: max_leverage
+[13:34:35]     🧪 Testing: add_rsi
+[13:34:42]     🧪 Testing: add_macd
+[13:34:49]     🧪 Testing: add_both_indicators
+[13:34:57]     🧪 Testing: daily_trading
+[13:35:04]     🧪 Testing: faster_sma
+[13:35:12]     🧪 Testing: aggressive_position
+[13:35:19]     🧪 Testing: relaxed_rsi
+[13:35:26]     🧪 Testing: ultra_fast_sma
+[13:35:33]     🧪 Testing: extreme_leverage
+[13:35:40]     🧪 Testing: tqqq_max_combo
+[13:35:47] 
+  👨‍👩‍👧‍👦 Parent 2: gen1_p0_double_leverage (4.3%)
+[13:35:47]     🧪 Testing: switch_to_qqq
+[13:35:54]     🧪 Testing: switch_to_tqqq
+[13:36:00]     🧪 Testing: double_leverage
+[13:36:08]     🧪 Testing: max_leverage
+[13:36:15]     🧪 Testing: add_rsi
+[13:36:22]     🧪 Testing: add_macd
+[13:36:29]     🧪 Testing: add_both_indicators
+[13:36:36]     🧪 Testing: daily_trading
+[13:36:43]     🧪 Testing: faster_sma
+[13:36:50]     🧪 Testing: aggressive_position
+[13:36:57]     🧪 Testing: relaxed_rsi
+[13:37:04]     🧪 Testing: ultra_fast_sma
+[13:37:11]     🧪 Testing: extreme_leverage
+[13:37:19]     🧪 Testing: tqqq_max_combo
+[13:37:25] 
+📊 Generation 2 Summary:
+[13:37:25]    New agents: 42
+[13:37:25]    Archive: 50 agents
+[13:37:25]    Best: 11.7% CAGR
+[13:37:25]    Progress: 47.0% to target
+[13:37:25] 
+======================================================================
+[13:37:25] 🧬 GENERATION 3
+[13:37:25] Best: 11.7% | Target: 25% | Gap: 13.3%
+[13:37:25] Runtime: 0.1h | Progress: 47.0%
+[13:37:25] 
+  👨‍👩‍👧‍👦 Parent 0: gen2_p0_aggressive_position (11.7%)
+[13:37:25]     🧪 Testing: switch_to_qqq
+[13:37:33]     🧪 Testing: switch_to_tqqq
+[13:37:39]     🧪 Testing: double_leverage
+[13:37:47]     🎯 NEW CHAMPION! +1.6% → 13.3%
+[13:37:47]        Mutations: switch_to_qqq → aggressive_position → double_leverage
+[13:37:47] 💾 Winner saved: /mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/winner_25pct_20250602_133747
+[13:37:47]     🧪 Testing: max_leverage
+[13:37:54]     🎯 NEW CHAMPION! +0.0% → 13.4%
+[13:37:54]        Mutations: switch_to_qqq → aggressive_position → max_leverage
+[13:37:54] 💾 Winner saved: /mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/winner_25pct_20250602_133754
+[13:37:54]     🧪 Testing: add_rsi
+[13:38:01]     🧪 Testing: add_macd
+[13:38:09]     🧪 Testing: add_both_indicators
+[13:38:16]     🧪 Testing: daily_trading
+[13:38:23]     🧪 Testing: faster_sma
+[13:38:31]     🧪 Testing: aggressive_position
+[13:38:38]     🧪 Testing: relaxed_rsi
+[13:38:45]     🧪 Testing: ultra_fast_sma
+[13:38:53]     🧪 Testing: extreme_leverage
+[13:39:00]     🧪 Testing: tqqq_max_combo
+[13:39:06] 
+  👨‍👩‍👧‍👦 Parent 1: gen2_p1_switch_to_qqq (11.7%)
+[13:39:06]     🧪 Testing: switch_to_qqq
+[13:39:14]     🧪 Testing: switch_to_tqqq
+[13:39:21]     🧪 Testing: double_leverage
+[13:39:28]     🧪 Testing: max_leverage
+[13:39:35]     🧪 Testing: add_rsi
+[13:39:42]     🧪 Testing: add_macd
+[13:39:49]     🧪 Testing: add_both_indicators
+[13:39:56]     🧪 Testing: daily_trading
+[13:40:03]     🧪 Testing: faster_sma
+[13:40:10]     🧪 Testing: aggressive_position
+[13:40:17]     🧪 Testing: relaxed_rsi
+[13:40:24]     🧪 Testing: ultra_fast_sma
+[13:40:31]     🧪 Testing: extreme_leverage

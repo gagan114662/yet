@@ -15,19 +15,15 @@ class ActiveTraderStrategy(QCAlgorithm):
         # Enable margin
         self.SetBrokerageModel(InteractiveBrokersBrokerageModel())
         
-        # HIGH-ALPHA universe for crushing targets
-        universe = ["TQQQ", "UPRO", "SOXL", "TECL", "QQQ", "SPY", "XLK", "XLF", "VXX", "UVXY"]
+        # Trading universe for active rotation
+        universe = ["SPY", "QQQ", "IWM", "XLK", "XLF", "XLE", "XLV", "XLI", "GLD", "TLT"]
         
         # Add securities
         self.trading_securities = {}
         for symbol in universe:
             try:
                 security = self.AddEquity(symbol, Resolution.Daily)
-                # Strategic leverage: 1x for leveraged ETFs, 2.5x for regular ETFs
-                if symbol in ["TQQQ", "UPRO", "SOXL", "TECL", "VXX", "UVXY"]:
-                    security.SetLeverage(1.0)  # Already leveraged
-                else:
-                    security.SetLeverage(2.5)  # Boost regular ETFs
+                security.SetLeverage(3.0)  # Moderate leverage for 25%+ target
                 security.SetDataNormalizationMode(DataNormalizationMode.Adjusted)
                 self.trading_securities[symbol] = security
             except:
@@ -53,9 +49,9 @@ class ActiveTraderStrategy(QCAlgorithm):
         
         # Position management
         self.max_positions = 5                   # Hold up to 5 positions
-        self.target_position_size = 0.7          # 70% per position for higher returns
+        self.target_position_size = 0.6          # 60% per position when fully invested
         self.rebalance_threshold = 0.03          # 3% change triggers rebalance
-        self.leverage_target = 3.5               # 350% total exposure for 25%+ CAGR
+        self.leverage_target = 2.8               # 280% total exposure target
         
         # ACTIVE TRADING SCHEDULES
         # Weekly major rebalancing (forced trades)
@@ -159,15 +155,15 @@ class ActiveTraderStrategy(QCAlgorithm):
             # Active trading score (optimized for frequent position changes)
             score = 0
             
-            # AGGRESSIVE momentum scoring for 25%+ CAGR
-            if mom_fast > 0.02:
-                score += 60  # Boost high momentum
-            elif mom_fast > 0.01:
-                score += 30
-            elif mom_fast < -0.02:
-                score -= 60  # Avoid weak momentum
-            elif mom_fast < -0.01:
-                score -= 30
+            # Fast momentum (40% weight) - drives active trading
+            if mom_fast > 0.015:
+                score += 40
+            elif mom_fast > 0.008:
+                score += 20
+            elif mom_fast < -0.015:
+                score -= 40
+            elif mom_fast < -0.008:
+                score -= 20
                 
             # Medium momentum (30% weight)
             if mom_med > 0.01:

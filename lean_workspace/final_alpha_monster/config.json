@@ -1,0 +1,15 @@
+{
+    "algorithm-id": "final-alpha-monster",
+    "algorithm-name": "Final Alpha Monster",
+    "algorithm-description": "Working high-performance strategy",
+    "algorithm-version": "1.0",
+    "algorithm-language": "Python",
+    "parameters": {},
+    "backtest-settings": {
+        "start-date": "2010-01-01",
+        "end-date": "2023-12-31",
+        "cash": 100000,
+        "data-folder": "../data"
+    },
+    "local-id": 196679788
+}

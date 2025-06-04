@@ -1,0 +1,28 @@
+{
+  "timestamp": 1749046919,
+  "tests_passed": 4,
+  "total_tests": 4,
+  "success_rate": 100.0,
+  "results": {
+    "lean_cli": {
+      "status": "PASS",
+      "version": "lean 1.0.218"
+    },
+    "strategy_creation": {
+      "status": "PASS",
+      "project": "validation_test_1749046912",
+      "path": "/mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/validation_test_1749046912"
+    },
+    "local_backtest": {
+      "status": "PASS",
+      "cagr": 0.0,
+      "sharpe": 0.0,
+      "drawdown": 0.0,
+      "output_length": 11415
+    },
+    "qc_api": {
+      "status": "PASS",
+      "test_project": "23358640"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "performance": {
+    "cagr": 0.07934999999999999,
+    "sharpe": 0.394,
+    "drawdown": 0.18,
+    "avg_profit": 0.024384000000000003,
+    "total_trades": 25,
+    "win_rate": 0.64,
+    "avg_win": 0.0762,
+    "avg_loss": -0.0337,
+    "total_return": 0.58073
+  },
+  "criteria_score": 2.0,
+  "criteria_details": {
+    "cagr": false,
+    "sharpe": false,
+    "drawdown": true,
+    "avg_profit": true
+  },
+  "mutations": [
+    "conservative_position"
+  ],
+  "components": {
+    "asset": "QQQ",
+    "leverage": 10.0,
+    "sma_fast": 10,
+    "sma_slow": 30,
+    "has_rsi": false,
+    "has_macd": false,
+    "trade_frequency": 1,
+    "position_size": 1.0,
+    "rsi_threshold": 70
+  },
+  "timestamp": "2025-06-02T14:14:09.018172"
+}

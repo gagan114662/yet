@@ -33,9 +33,10 @@ class Backtester:
             self.lean_cli_user_id = config.LEAN_CLI_USER_ID
             self.lean_cli_api_token = config.LEAN_CLI_API_TOKEN
             self.lean_cli_path = config.LEAN_CLI_PATH
-            self.temp_lean_project_path = "lean_workspace/TempBacktestStrategy"
+            self.lean_workspace_path = "../lean_workspace"
+            self.temp_lean_project_path = os.path.join(self.lean_workspace_path, "temp_backtest_strategy")
             # Ensure the base workspace directory exists
-            os.makedirs("lean_workspace", exist_ok=True)
+            os.makedirs(self.temp_lean_project_path, exist_ok=True)
             print("Using basic Lean CLI for backtesting.")
 
     def backtest_strategy(self, strategy_idea: Dict) -> Dict:
@@ -126,15 +127,10 @@ class Backtester:
             }
 
         # --- Construct Lean CLI Command ---
-        output_dir = os.path.join(self.temp_lean_project_path, "lean_output")
-        os.makedirs(output_dir, exist_ok=True)
-
         command = [
             self.lean_cli_path,
             "backtest",
-            self.temp_lean_project_path,
-            "--output", output_dir,
-            "--json"
+            self.temp_lean_project_path
         ]
 
         print(f"Executing Lean CLI command: {' '.join(command)}")
@@ -142,11 +138,16 @@ class Backtester:
         # --- Execute Command ---
         try:
             env = os.environ.copy()
-            process = subprocess.run(command, capture_output=True, text=True, env=env, check=False)
+            # Run from the lean workspace directory for proper context
+            process = subprocess.run(command, capture_output=True, text=True, env=env, 
+                                   check=False, cwd=self.lean_workspace_path)
 
+            # Look for backtest results in the backtests directory
+            project_backtests_dir = os.path.join(self.temp_lean_project_path, "backtests")
+            
             if process.returncode != 0:
                 print(f"Error executing Lean CLI: {process.stderr}")
-                results_json_path = self.find_results_json(output_dir)
+                results_json_path = self.find_results_json(project_backtests_dir)
                 if results_json_path:
                     print(f"Attempting to parse results from {results_json_path} despite CLI error.")
                     return self.parse_lean_results_from_file(results_json_path, process.stderr)
@@ -164,19 +165,19 @@ class Backtester:
                 except json.JSONDecodeError as e:
                     print(f"Failed to parse JSON from Lean CLI stdout: {e}. Stdout was: {process.stdout[:500]}...")
 
-            # Fallback: look for results.json in the output directory
-            results_json_path = self.find_results_json(output_dir)
-            if not results_json_path:
-                project_backtests_dir = os.path.join(self.temp_lean_project_path, "backtests")
-                results_json_path = self.find_results_json(project_backtests_dir)
-
+            # Fallback: look for results.json in the backtests directory
+            results_json_path = self.find_results_json(project_backtests_dir)
+            
             if results_json_path:
                 print(f"Parsing Lean CLI output from file: {results_json_path}")
                 return self.parse_lean_results_from_file(results_json_path)
             else:
                 print(f"Lean CLI stdout was not JSON, and no results.json found.")
+                print(f"Stdout: {process.stdout[:500]}...")
+                print(f"Stderr: {process.stderr[:500]}...")
                 return {
-                    'error': 'Lean CLI output not JSON and results.json not found', 'details': process.stdout[:1000],
+                    'error': 'Lean CLI output not JSON and results.json not found', 
+                    'details': f"Stdout: {process.stdout[:500]} | Stderr: {process.stderr[:500]}",
                     'cagr': 0, 'max_drawdown': 1, 'sharpe_ratio': 0, 'avg_profit': 0, 'total_trades': 0
                 }
 
@@ -217,7 +218,9 @@ class Backtester:
             importer = StrategyImporter()
             template_code = importer.get_strategy_code(strategy_idea['base_template'])
             if template_code and 'class' in template_code:
-                return template_code
+                # Adapt the template with real parameters
+                adapted_code = self._adapt_template_code(template_code, strategy_idea)
+                return adapted_code
         
         # Generate universe based on strategy type
         if strategy_type == 'leveraged_etf':
@@ -596,6 +599,45 @@ class EnhancedStrategy(QCAlgorithm):
     def _generate_options_strategy(self, strategy_idea: Dict) -> str:
         """Generate options strategy - placeholder"""
         return self._generate_default_strategy(strategy_idea)
+    
+    def _adapt_template_code(self, template_code: str, strategy_idea: Dict) -> str:
+        """Adapt template code with real parameters from strategy_idea"""
+        # Replace key parameters in the template code
+        adapted_code = template_code
+        
+        # Update dates to use config values
+        start_date = strategy_idea.get('start_date', config.BACKTEST_START_DATE)
+        end_date = strategy_idea.get('end_date', config.BACKTEST_END_DATE)
+        
+        # Replace common date patterns
+        adapted_code = adapted_code.replace('2020, 1, 1', start_date.replace(',', ', '))
+        adapted_code = adapted_code.replace('2023, 12, 31', end_date.replace(',', ', '))
+        adapted_code = adapted_code.replace('2020,1,1', start_date)
+        adapted_code = adapted_code.replace('2023,12,31', end_date)
+        
+        # Update capital
+        initial_capital = strategy_idea.get('initial_capital', config.INITIAL_CAPITAL)
+        adapted_code = adapted_code.replace('100000', str(initial_capital))
+        
+        # Update key parameters if they exist in the template
+        if 'leverage' in strategy_idea:
+            leverage = strategy_idea['leverage']
+            # Try to replace common leverage patterns
+            import re
+            adapted_code = re.sub(r'self\.leverage\s*=\s*[\d\.]+', f'self.leverage = {leverage}', adapted_code)
+            adapted_code = re.sub(r'leverage\s*=\s*[\d\.]+', f'leverage = {leverage}', adapted_code)
+        
+        if 'position_size' in strategy_idea:
+            position_size = strategy_idea['position_size']
+            adapted_code = re.sub(r'self\.position_size\s*=\s*[\d\.]+', f'self.position_size = {position_size}', adapted_code)
+            adapted_code = re.sub(r'position_size\s*=\s*[\d\.]+', f'position_size = {position_size}', adapted_code)
+        
+        if 'stop_loss' in strategy_idea:
+            stop_loss = strategy_idea['stop_loss']
+            adapted_code = re.sub(r'self\.stop_loss\s*=\s*[\d\.]+', f'self.stop_loss = {stop_loss}', adapted_code)
+            adapted_code = re.sub(r'stop_loss\s*=\s*[\d\.]+', f'stop_loss = {stop_loss}', adapted_code)
+        
+        return adapted_code
 
     def find_results_json(self, search_dir: str) -> str | None:
         """Find the latest results.json file in the search directory."""

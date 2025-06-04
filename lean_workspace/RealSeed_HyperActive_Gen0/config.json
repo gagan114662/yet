@@ -1,0 +1,9 @@
+{
+    "algorithm-language": "Python",
+    "parameters": {},
+    "description": "High-frequency HyperActive strategy targeting 100+ trades/year",
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0",
+    "python-venv": 1,
+    "encrypted": false,
+    "cloud-id": 23347214
+}

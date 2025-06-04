@@ -1,0 +1,29 @@
+{
+    "algorithm-id": "quantum-edge-dominator",
+    "algorithm-name": "Quantum Edge Dominator",
+    "algorithm-description": "Ultra-high performance multi-factor strategy targeting 40%+ CAGR with 1.8+ Sharpe ratio",
+    "algorithm-version": "1.0",
+    "algorithm-language": "Python",
+    "parameters": {
+        "max_leverage": "6.0",
+        "position_limit": "0.15",
+        "stop_loss": "0.02",
+        "drawdown_limit": "0.15",
+        "momentum_weight": "0.35",
+        "volatility_weight": "0.25",
+        "arbitrage_weight": "0.2",
+        "microstructure_weight": "0.2"
+    },
+    "backtest-settings": {
+        "start-date": "2005-01-01",
+        "end-date": "2025-01-01",
+        "cash": 100000,
+        "data-folder": "../data"
+    },
+    "local-id": 867599152,
+    "cloud-id": 23322164,
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0",
+    "description": "",
+    "python-venv": 1,
+    "encrypted": false
+}

@@ -1,0 +1,34 @@
+🔍 VERIFIED EVOLUTION SYSTEM
+================================================================================
+🕒 Started: 2025-06-03 15:19:55
+🎯 Target: 25.0% CAGR minimum
+📊 Format: Using YOUR proven strategy structure
+✅ Verification: Will check actual QuantConnect results
+================================================================================
+2025-06-03 15:19:55,717 | INFO | 🚀 STARTING VERIFIED EVOLUTION
+\n🌱 CREATING VERIFIED SEED STRATEGIES
+--------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/VANDAN_DISK/gagan_stuff/again and again/algorithmic_trading_system/verified_evolution_system.py", line 469, in <module>
+    asyncio.run(main())
+  File "/usr/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/mnt/VANDAN_DISK/gagan_stuff/again and again/algorithmic_trading_system/verified_evolution_system.py", line 460, in main
+    champions = await system.run_verified_evolution_cycle()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/VANDAN_DISK/gagan_stuff/again and again/algorithmic_trading_system/verified_evolution_system.py", line 82, in run_verified_evolution_cycle
+    await self._create_verified_seed_strategies()
+  File "/mnt/VANDAN_DISK/gagan_stuff/again and again/algorithmic_trading_system/verified_evolution_system.py", line 106, in _create_verified_seed_strategies
+    strategy_code = self._generate_strategy_using_your_format(i)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/VANDAN_DISK/gagan_stuff/again and again/algorithmic_trading_system/verified_evolution_system.py", line 212, in _generate_strategy_using_your_format
+    self.log(f"ENTRY: Trade #" + str(self.trade_count) + f" at ${current_price:.2f}")
+                                                                 ^^^^^^^^^^^^^
+NameError: name 'current_price' is not defined

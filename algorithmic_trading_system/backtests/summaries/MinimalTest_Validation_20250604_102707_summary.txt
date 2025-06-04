@@ -1,0 +1,39 @@
+
+BACKTEST RESULTS SUMMARY
+========================
+
+Strategy: MinimalTest_Validation
+Project ID: 23358162
+Backtest ID: e4d1937c4ed4b802d7d84ab1ff724ea6
+Fetched: 20250604_102707
+
+PERFORMANCE METRICS
+===================
+CAGR: -9.87% (poor)
+Sharpe Ratio: -0.027 (poor)
+Max Drawdown: 33.3% (poor)
+Net Profit: -4.25%
+Alpha: 0.002
+Beta: 0.981
+
+TRADING ACTIVITY
+================
+Total Orders: 1.0
+Win Rate: 0.0%
+
+RISK ANALYSIS
+=============
+Risk-Adjusted Return: -0.296
+Estimated Volatility: 365.4%
+Calmar Ratio: -0.296
+
+OVERALL ASSESSMENT
+==================
+Grade: D
+Score: 0.0/4.0
+
+FILES CREATED
+=============
+Raw Results: MinimalTest_Validation_20250604_102707_raw.json
+Processed Metrics: MinimalTest_Validation_20250604_102707_metrics.json
+Summary Report: MinimalTest_Validation_20250604_102707_summary.txt

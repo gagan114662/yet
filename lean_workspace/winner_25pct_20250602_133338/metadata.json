@@ -1,0 +1,25 @@
+{
+  "agent_id": "gen2_p0_aggressive_position",
+  "generation": 2,
+  "performance": {
+    "cagr": 0.11744,
+    "sharpe": 0.407,
+    "drawdown": 0.315
+  },
+  "mutations": [
+    "switch_to_qqq",
+    "aggressive_position"
+  ],
+  "components": {
+    "asset": "QQQ",
+    "leverage": 2.0,
+    "sma_fast": 10,
+    "sma_slow": 30,
+    "has_rsi": false,
+    "has_macd": false,
+    "trade_frequency": 7,
+    "position_size": 2.0,
+    "rsi_threshold": 70
+  },
+  "timestamp": "2025-06-02T13:33:38.222134"
+}

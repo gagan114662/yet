@@ -5,5 +5,7 @@
     "parameters": {},
     "description": "Multi-Factor Alpha - Combines momentum, value, quality, and low volatility factors with dynamic weighting",
     "cloud-id": 23294383,
-    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0"
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0",
+    "python-venv": 1,
+    "encrypted": false
 }

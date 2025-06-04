@@ -1,0 +1,39 @@
+{
+  "created": "2025-06-04T10:27:07.362717",
+  "total_backtests": 2,
+  "backtests": [
+    {
+      "strategy_name": "MinimalTest_Validation",
+      "project_id": "23358162",
+      "backtest_id": "e4d1937c4ed4b802d7d84ab1ff724ea6",
+      "timestamp": 1749047227,
+      "datetime": "20250604_102707",
+      "cagr": -9.865,
+      "sharpe": -0.027,
+      "drawdown": 33.3,
+      "grade": "D",
+      "files": {
+        "raw": "/mnt/VANDAN_DISK/gagan_stuff/again and again/algorithmic_trading_system/backtests/raw/MinimalTest_Validation_20250604_102707_raw.json",
+        "processed": "/mnt/VANDAN_DISK/gagan_stuff/again and again/algorithmic_trading_system/backtests/processed/MinimalTest_Validation_20250604_102707_metrics.json",
+        "summary": "/mnt/VANDAN_DISK/gagan_stuff/again and again/algorithmic_trading_system/backtests/summaries/MinimalTest_Validation_20250604_102707_summary.txt"
+      }
+    },
+    {
+      "strategy_name": "Realistic12Percent_Phase2",
+      "project_id": "23358651",
+      "backtest_id": "cc5f4ff8f142f60d225e60b372f39e3c",
+      "timestamp": 1749047227,
+      "datetime": "20250604_102707",
+      "cagr": 4.218,
+      "sharpe": 0.139,
+      "drawdown": 28.6,
+      "grade": "D",
+      "files": {
+        "raw": "/mnt/VANDAN_DISK/gagan_stuff/again and again/algorithmic_trading_system/backtests/raw/Realistic12Percent_Phase2_20250604_102707_raw.json",
+        "processed": "/mnt/VANDAN_DISK/gagan_stuff/again and again/algorithmic_trading_system/backtests/processed/Realistic12Percent_Phase2_20250604_102707_metrics.json",
+        "summary": "/mnt/VANDAN_DISK/gagan_stuff/again and again/algorithmic_trading_system/backtests/summaries/Realistic12Percent_Phase2_20250604_102707_summary.txt"
+      }
+    }
+  ],
+  "last_updated": "2025-06-04T10:27:07.631344"
+}

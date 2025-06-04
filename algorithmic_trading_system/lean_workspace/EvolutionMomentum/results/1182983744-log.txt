@@ -1,0 +1,8 @@
+2019-10-21 00:00:00 Launching analysis for 1182983744 with LEAN Engine v2.5.0.0
+2019-10-21 00:00:00 Accurate daily end-times now enabled by default. See more at https://qnt.co/3YHaWHL. To disable it and use legacy daily bars set self.settings.daily_precise_end_time = False.
+2019-10-21 00:00:00 Algorithm starting warm up...
+2019-10-21 00:00:00 === FINAL PERFORMANCE ===
+2019-10-21 00:00:00 Final Portfolio Value: $100000.00
+2019-10-21 00:00:00 Total Return: 0.00%
+2019-10-21 00:00:00 Annualized Return: 0.00%
+2019-10-21 00:00:00 Algorithm Id:(1182983744) completed in 0.13 seconds at 0k data points per second. Processing total of 1 data points.

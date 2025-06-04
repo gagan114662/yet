@@ -6,7 +6,7 @@ from pathlib import Path
 class StrategyImporter:
     """Import and adapt existing strategies from lean_workspace"""
     
-    def __init__(self, lean_workspace_path: str = "lean_workspace"):
+    def __init__(self, lean_workspace_path: str = "../lean_workspace"):
         self.lean_workspace_path = lean_workspace_path
         self.top_strategies = self._identify_top_strategies()
         

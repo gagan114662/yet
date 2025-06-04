@@ -5,5 +5,7 @@
     "parameters": {},
     "description": "Risk Parity with Leverage - Professional asset allocation balancing risk across multiple asset classes",
     "cloud-id": 23294333,
-    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0"
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0",
+    "python-venv": 1,
+    "encrypted": false
 }

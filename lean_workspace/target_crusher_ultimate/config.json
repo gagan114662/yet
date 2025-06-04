@@ -25,5 +25,11 @@
         }
     },
     "strategy-description": "Target Crusher Ultimate - High-performance multi-timeframe momentum and mean reversion strategy with dynamic leverage targeting CAGR >25%, Sharpe >1, Max DD <20%, and 100+ trades per year",
-    "local-id": 106992066
+    "local-id": 106992066,
+    "cloud-id": 23322298,
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0",
+    "parameters": {},
+    "description": "",
+    "python-venv": 1,
+    "encrypted": false
 }

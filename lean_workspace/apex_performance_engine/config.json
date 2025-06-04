@@ -1,0 +1,26 @@
+{
+    "algorithm-id": "apex-performance-engine",
+    "algorithm-name": "Apex Performance Engine",
+    "algorithm-description": "ML-enhanced multi-strategy system targeting 50%+ CAGR with 2.0+ Sharpe ratio",
+    "algorithm-version": "1.0",
+    "algorithm-language": "Python",
+    "parameters": {
+        "portfolio_heat_limit": 1.0,
+        "kelly_fraction": 0.25,
+        "var_limit": 0.02,
+        "max_correlation": 0.7,
+        "prediction_threshold": 0.65,
+        "strategy_weights": {
+            "trend": 0.25,
+            "mean_reversion": 0.20,
+            "momentum": 0.25,
+            "ml_alpha": 0.30
+        }
+    },
+    "backtest-settings": {
+        "start-date": "2005-01-01",
+        "end-date": "2025-01-01",
+        "cash": 100000,
+        "data-folder": "../data"
+    }
+}

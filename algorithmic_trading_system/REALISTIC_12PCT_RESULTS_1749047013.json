@@ -1,0 +1,23 @@
+{
+  "project_id": "23358651",
+  "backtest_id": "cc5f4ff8f142f60d225e60b372f39e3c",
+  "strategy": "Realistic12Percent",
+  "description": "Conservative momentum with 12% CAGR target",
+  "targets": {
+    "cagr": 12.0,
+    "leverage": 1.3,
+    "approach": "conservative"
+  },
+  "results": {
+    "cagr": 4.218,
+    "sharpe": 0.139,
+    "total_orders": 128.0,
+    "drawdown": 28.6,
+    "win_rate": 71.0,
+    "net_profit": 17.954,
+    "alpha": 0.0,
+    "beta": 0.0
+  },
+  "achievement": "\ud83d\udcc9 BELOW TARGET",
+  "timestamp": 1749047013
+}

@@ -32,7 +32,7 @@ def main():
     parser.add_argument('--iterations', type=int, default=2000, 
                        help='Maximum iterations to run (default: 2000)')
     parser.add_argument('--mock', action='store_true',
-                       help='Use mock backtesting for testing (faster)')
+                       help='Use mock backtesting for testing (faster, use only for debugging)')
     parser.add_argument('--verbose', action='store_true',
                        help='Enable verbose output')
     parser.add_argument('--targets-only', action='store_true',
@@ -45,6 +45,8 @@ def main():
         from controller import TargetSeekingController
         import config
         from strategy_importer import StrategyImporter
+        from parallel_backtesting_system import ParallelBacktestingIntegration
+        from staged_targets_system import StagedTargetsManager
     except ImportError as e:
         print(f"Import error: {e}")
         print("Make sure you're running from the algorithmic_trading_system directory.")
@@ -58,7 +60,7 @@ def main():
     print(f"🎯 Targets: {config.TARGET_METRICS}")
     print(f"📊 Required Successful Strategies: {config.REQUIRED_SUCCESSFUL_STRATEGIES}")
     print(f"⚙️  Max Iterations: {args.iterations}")
-    print(f"🔧 Mock Mode: {args.mock}")
+    print(f"🔧 Mode: {'MOCK (Debug)' if args.mock else 'REAL BACKTESTING'}")
     print()
     
     if args.targets_only:
@@ -79,15 +81,31 @@ def main():
         print("Continuing with basic strategy generation...")
         print()
     
-    # Initialize the controller
-    print("🏗️  Initializing Target-Seeking Controller...")
+    # Initialize the enhanced systems
+    print("🏗️  Initializing Enhanced Target-Seeking System...")
     try:
+        # Initialize parallel backtesting
+        print("🚀 Setting up parallel backtesting (6.5x speedup)...")
+        parallel_backtester = ParallelBacktestingIntegration()
+        
+        # Initialize staged targets
+        print("🎯 Setting up staged targets (15% → 20% → 25% progression)...")
+        staged_targets = StagedTargetsManager()
+        
+        # Initialize main controller
         controller = TargetSeekingController()
-        print(f"✅ Controller initialized successfully")
+        
+        # Integrate parallel backtesting
+        controller.parallel_backtester = parallel_backtester
+        controller.staged_targets = staged_targets
+        
+        print(f"✅ Enhanced controller initialized successfully")
         print(f"🔄 Backtester type: {'QuantConnect' if controller.backtester.use_qc_integration else 'Lean CLI'}")
+        print(f"⚡ Parallel workers: {parallel_backtester.parallel_backtester.max_workers}")
+        print(f"📊 Current stage: {staged_targets.current_stage.value}")
         print()
     except Exception as e:
-        print(f"❌ Failed to initialize controller: {e}")
+        print(f"❌ Failed to initialize enhanced controller: {e}")
         sys.exit(1)
     
     # Set up mock mode if requested

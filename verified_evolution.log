@@ -1,0 +1,79 @@
+2025-06-03 15:18:23,334 | INFO | 🚀 STARTING VERIFIED EVOLUTION
+2025-06-03 15:19:55,717 | INFO | 🚀 STARTING VERIFIED EVOLUTION
+2025-06-03 15:21:50,807 | INFO | 🚀 STARTING VERIFIED EVOLUTION
+2025-06-03 15:22:07,031 | INFO | 🚀 STARTING VERIFIED EVOLUTION
+2025-06-03 15:22:07,031 | INFO | Verified seed created: VerifiedSeed_1_Gen0
+2025-06-03 15:22:07,031 | INFO | Verified seed created: VerifiedSeed_2_Gen0
+2025-06-03 15:22:07,031 | INFO | Verified seed created: VerifiedSeed_3_Gen0
+2025-06-03 15:22:07,031 | INFO | Verified seed created: VerifiedSeed_4_Gen0
+2025-06-03 15:22:07,031 | INFO | Verified seed created: VerifiedSeed_5_Gen0
+2025-06-03 15:22:18,157 | INFO | VERIFIED DEPLOYMENT: VerifiedSeed_1_Gen0
+2025-06-03 15:22:18,157 | INFO |   Project ID: 23346389
+2025-06-03 15:22:18,157 | INFO |   URL: https://www.quantconnect.com/terminal/23346389#open/d0173fb95fcf8c37d5de5581bddebb43
+2025-06-03 15:22:18,157 | INFO |   Workspace: /mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/VerifiedSeed_1_Gen0
+2025-06-03 15:23:18,198 | INFO | CHAMPION: VerifiedSeed_1_Gen0 - 30.65% CAGR
+2025-06-03 15:24:17,374 | INFO | 🚀 STARTING VERIFIED EVOLUTION
+2025-06-03 15:24:17,374 | INFO | Verified seed created: VerifiedSeed_1_Gen0
+2025-06-03 15:24:17,374 | INFO | Verified seed created: VerifiedSeed_2_Gen0
+2025-06-03 15:24:17,374 | INFO | Verified seed created: VerifiedSeed_3_Gen0
+2025-06-03 15:24:17,374 | INFO | Verified seed created: VerifiedSeed_4_Gen0
+2025-06-03 15:24:17,374 | INFO | Verified seed created: VerifiedSeed_5_Gen0
+2025-06-03 15:24:28,499 | INFO | VERIFIED DEPLOYMENT: VerifiedSeed_1_Gen0
+2025-06-03 15:24:28,499 | INFO |   Project ID: 23346433
+2025-06-03 15:24:28,499 | INFO |   URL: https://www.quantconnect.com/terminal/23346433#open/c02e39907b432c0cf08758768a97ad89
+2025-06-03 15:24:28,499 | INFO |   Workspace: /mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/VerifiedSeed_1_Gen0
+2025-06-03 15:26:24,663 | INFO | VERIFIED DEPLOYMENT: VerifiedSeed_2_Gen0
+2025-06-03 15:26:24,663 | INFO |   Project ID: 23346469
+2025-06-03 15:26:24,663 | INFO |   URL: https://www.quantconnect.com/terminal/23346469#open/d50284e26456bca4914661a3c24c8663
+2025-06-03 15:26:24,663 | INFO |   Workspace: /mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/VerifiedSeed_2_Gen0
+2025-06-03 15:27:24,723 | INFO | CHAMPION: VerifiedSeed_2_Gen0 - 33.56% CAGR
+2025-06-03 15:28:20,860 | INFO | VERIFIED DEPLOYMENT: VerifiedSeed_3_Gen0
+2025-06-03 15:28:20,860 | INFO |   Project ID: 23346514
+2025-06-03 15:28:20,860 | INFO |   URL: https://www.quantconnect.com/terminal/23346514#open/de2a4d688e5e96d1ded97eca1fb607a9
+2025-06-03 15:28:20,860 | INFO |   Workspace: /mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/VerifiedSeed_3_Gen0
+2025-06-03 15:29:20,920 | INFO | CHAMPION: VerifiedSeed_3_Gen0 - 32.64% CAGR
+2025-06-03 15:30:16,913 | INFO | VERIFIED DEPLOYMENT: VerifiedSeed_4_Gen0
+2025-06-03 15:30:16,913 | INFO |   Project ID: 23346550
+2025-06-03 15:30:16,914 | INFO |   URL: https://www.quantconnect.com/terminal/23346550#open/767b3da6683eab28908b23198f1a0344
+2025-06-03 15:30:16,914 | INFO |   Workspace: /mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/VerifiedSeed_4_Gen0
+2025-06-03 15:31:16,951 | INFO | CHAMPION: VerifiedSeed_4_Gen0 - 34.90% CAGR
+2025-06-03 15:32:13,627 | INFO | VERIFIED DEPLOYMENT: VerifiedSeed_5_Gen0
+2025-06-03 15:32:13,627 | INFO |   Project ID: 23346585
+2025-06-03 15:32:13,627 | INFO |   URL: https://www.quantconnect.com/terminal/23346585#open/2aeb2552b3fe98985b7f921b0cbf333c
+2025-06-03 15:32:13,627 | INFO |   Workspace: /mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/VerifiedSeed_5_Gen0
+2025-06-03 15:33:13,688 | INFO | Breeding: Hybrid_2x3_Gen1 created
+2025-06-03 15:33:13,688 | INFO | BEST CHAMPION: VerifiedSeed_4_Gen0
+2025-06-03 15:33:13,688 | INFO |   Performance: 34.90% CAGR
+2025-06-03 15:33:13,688 | INFO |   URL: https://www.quantconnect.com/project/23346550
+2025-06-03 15:45:49,078 | INFO | 🚀 STARTING VERIFIED EVOLUTION
+2025-06-03 15:45:49,078 | INFO | Verified seed created: VerifiedSeed_1_Gen0
+2025-06-03 15:45:49,079 | INFO | Verified seed created: VerifiedSeed_2_Gen0
+2025-06-03 15:45:49,079 | INFO | Verified seed created: VerifiedSeed_3_Gen0
+2025-06-03 15:45:49,079 | INFO | Verified seed created: VerifiedSeed_4_Gen0
+2025-06-03 15:45:49,079 | INFO | Verified seed created: VerifiedSeed_5_Gen0
+2025-06-03 15:46:01,426 | INFO | VERIFIED DEPLOYMENT: VerifiedSeed_1_Gen0
+2025-06-03 15:46:01,426 | INFO |   Project ID: 23346750
+2025-06-03 15:46:01,426 | INFO |   URL: https://www.quantconnect.com/terminal/23346750#open/10a8500a4e3f43a28a9e51fc918ce822
+2025-06-03 15:46:01,426 | INFO |   Workspace: /mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/VerifiedSeed_1_Gen0
+2025-06-03 15:47:58,645 | INFO | VERIFIED DEPLOYMENT: VerifiedSeed_2_Gen0
+2025-06-03 15:47:58,645 | INFO |   Project ID: 23346781
+2025-06-03 15:47:58,645 | INFO |   URL: https://www.quantconnect.com/terminal/23346781#open/1ea5d36a8c23c3cbeaed3abc6586b13d
+2025-06-03 15:47:58,645 | INFO |   Workspace: /mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/VerifiedSeed_2_Gen0
+2025-06-03 15:49:55,831 | INFO | VERIFIED DEPLOYMENT: VerifiedSeed_3_Gen0
+2025-06-03 15:49:55,831 | INFO |   Project ID: 23346805
+2025-06-03 15:49:55,831 | INFO |   URL: https://www.quantconnect.com/terminal/23346805#open/346dfeb624f5eb1b9331907929c9c918
+2025-06-03 15:49:55,831 | INFO |   Workspace: /mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/VerifiedSeed_3_Gen0
+2025-06-03 15:50:55,891 | INFO | CHAMPION: VerifiedSeed_3_Gen0 - 28.88% CAGR
+2025-06-03 15:51:43,287 | INFO | VERIFIED DEPLOYMENT: VerifiedSeed_4_Gen0
+2025-06-03 15:51:43,287 | INFO |   Project ID: 23346820
+2025-06-03 15:51:43,287 | INFO |   URL: https://www.quantconnect.com/terminal/23346820#open/40b479c6fe1ca10368d3c4fb96160054
+2025-06-03 15:51:43,287 | INFO |   Workspace: /mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/VerifiedSeed_4_Gen0
+2025-06-03 15:52:43,332 | INFO | CHAMPION: VerifiedSeed_4_Gen0 - 32.58% CAGR
+2025-06-03 15:53:40,783 | INFO | VERIFIED DEPLOYMENT: VerifiedSeed_5_Gen0
+2025-06-03 15:53:40,784 | INFO |   Project ID: 23346837
+2025-06-03 15:53:40,784 | INFO |   URL: https://www.quantconnect.com/terminal/23346837#open/295bc805cc2fc167bff3d0ab6c3c8783
+2025-06-03 15:53:40,784 | INFO |   Workspace: /mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/VerifiedSeed_5_Gen0
+2025-06-03 15:54:40,843 | INFO | Breeding: Hybrid_3x4_Gen1 created
+2025-06-03 15:54:40,843 | INFO | BEST CHAMPION: VerifiedSeed_4_Gen0
+2025-06-03 15:54:40,843 | INFO |   Performance: 32.58% CAGR
+2025-06-03 15:54:40,843 | INFO |   URL: https://www.quantconnect.com/project/23346820

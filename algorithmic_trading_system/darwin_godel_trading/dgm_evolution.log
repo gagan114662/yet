@@ -1,0 +1,16 @@
+[15:12:01] [SYSTEM] 🚀 TRUSTWORTHY DARWIN GÖDEL MACHINE
+[15:12:01] [SYSTEM] ✅ 100% QUANTCONNECT CLOUD VERIFIED
+[15:12:01] [SYSTEM] 🎯 TARGET CRITERIA:
+[15:12:01] [SYSTEM]    📊 CAGR: >25%
+[15:12:01] [SYSTEM]    📈 Sharpe: >1.0
+[15:12:01] [SYSTEM]    📉 Max DD: <20%
+[15:12:01] [SYSTEM]    💰 Avg Profit: >0.75%
+[15:12:01] [] 
+[15:12:01] [EVOLUTION] 🧬 CREATING BASE AGENT...
+[15:12:01] [VERIFY] ☁️ CLOUD VERIFICATION: base
+[15:12:01] [VERIFY]    📊 QQQ 25.0x leverage, 3.0x position
+[15:12:04] [WARNING]    ⚠️ Backtest attempt 1 failed, retrying...
+[15:12:15] [WARNING]    ⚠️ Backtest attempt 2 failed, retrying...
+[15:12:25] [ERROR]    ❌ Backtest failed: /usr/lib/python3/dist-packages/paramiko/transport.py:237: CryptographyDeprecationWarning: Blowfish has been deprecated and will be removed in a future
+[15:12:25] [ERROR] ❌ Base agent verification failed
+[15:12:25] [WARNING] ⚠️ Evolution stopped or failed

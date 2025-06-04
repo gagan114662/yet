@@ -1,0 +1,17 @@
+{
+  "project_id": "23358194",
+  "backtest_id": "c67e2d90896ef9ede6833efe6831e790",
+  "strategy": "ImprovedMomentum",
+  "description": "SMA crossover with 1.2x max leverage, 2021-2023",
+  "results": {
+    "cagr": 6.311,
+    "sharpe": 0.215,
+    "total_orders": 248.0,
+    "drawdown": 22.0,
+    "win_rate": 48.0,
+    "net_profit": 20.105,
+    "alpha": -0.016,
+    "beta": 0.785
+  },
+  "timestamp": 1749044803
+}

@@ -1,0 +1,260 @@
+[13:14:20] 🚀 ADVANCED DARWIN GÖDEL MACHINE
+[13:14:20] Target: 25% CAGR
+[13:14:20] ============================================================
+[13:14:20] 
+🧬 Creating base agent...
+[13:14:27] Base CAGR: 4.3%
+[13:14:27] 
+============================================================
+[13:14:27] 🧬 GENERATION 1
+[13:14:27] Best: 4.3% | Target: 25%
+[13:14:27] 
+  Parent 0: base (4.3%)
+[13:14:27]     Testing: switch_to_qqq
+[13:14:33]     🎯 NEW BEST! +3.0% → 7.2%
+[13:14:33] 💾 Winner saved: /mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/winner_25pct_20250602_131433
+[13:14:33]     Testing: switch_to_tqqq
+[13:14:40]     Testing: double_leverage
+[13:14:48]     Testing: max_leverage
+[13:14:55]     Testing: add_rsi
+[13:14:55]     ❌ Mutation failed
+[13:14:55]     Testing: add_macd
+[13:14:55]     ❌ Mutation failed
+[13:14:55]     Testing: daily_trading
+[13:15:03]     Testing: faster_sma
+[13:15:10]     Testing: aggressive_position
+[13:15:17]     Testing: relaxed_rsi
+[13:15:24] 
+Generation 1 complete
+[13:15:24] Archive: 9 agents
+[13:15:24] Best: 7.2% CAGR
+[13:15:24] 
+============================================================
+[13:15:24] 🧬 GENERATION 2
+[13:15:24] Best: 7.2% | Target: 25%
+[13:15:24] 
+  Parent 0: gen1_p0_switch_to_qqq (7.2%)
+[13:15:24]     Testing: switch_to_qqq
+[13:15:31]     Testing: switch_to_tqqq
+[13:15:38]     Testing: double_leverage
+[13:15:45]     Testing: max_leverage
+[13:15:52]     Testing: add_rsi
+[13:15:52]     ❌ Mutation failed
+[13:15:52]     Testing: add_macd
+[13:15:52]     ❌ Mutation failed
+[13:15:52]     Testing: daily_trading
+[13:15:59]     🎯 NEW BEST! +0.7% → 7.9%
+[13:15:59] 💾 Winner saved: /mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/winner_25pct_20250602_131559
+[13:15:59]     Testing: faster_sma
+[13:16:06]     Testing: aggressive_position
+[13:16:13]     🎯 NEW BEST! +3.8% → 11.7%
+[13:16:13] 💾 Winner saved: /mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/winner_25pct_20250602_131613
+[13:16:13]     Testing: relaxed_rsi
+[13:16:20] 
+  Parent 1: gen1_p0_aggressive_position (6.7%)
+[13:16:20]     Testing: switch_to_qqq
+[13:16:28]     Testing: switch_to_tqqq
+[13:16:34]     Testing: double_leverage
+[13:16:41]     Testing: max_leverage
+[13:16:49]     Testing: add_rsi
+[13:16:49]     ❌ Mutation failed
+[13:16:49]     Testing: add_macd
+[13:16:49]     ❌ Mutation failed
+[13:16:49]     Testing: daily_trading
+[13:16:56]     Testing: faster_sma
+[13:17:03]     Testing: aggressive_position
+[13:17:11]     Testing: relaxed_rsi
+[13:17:18] 
+  Parent 2: gen1_p0_double_leverage (4.3%)
+[13:17:18]     Testing: switch_to_qqq
+[13:17:25]     Testing: switch_to_tqqq
+[13:17:32]     Testing: double_leverage
+[13:17:39]     Testing: max_leverage
+[13:17:46]     Testing: add_rsi
+[13:17:46]     ❌ Mutation failed
+[13:17:46]     Testing: add_macd
+[13:17:46]     ❌ Mutation failed
+[13:17:46]     Testing: daily_trading
+[13:17:54]     Testing: faster_sma
+[13:18:01]     Testing: aggressive_position
+[13:18:08]     Testing: relaxed_rsi
+[13:18:15] 
+Generation 2 complete
+[13:18:15] Archive: 30 agents
+[13:18:15] Best: 11.7% CAGR
+[13:18:15] 
+============================================================
+[13:18:15] 🧬 GENERATION 3
+[13:18:15] Best: 11.7% | Target: 25%
+[13:18:15] 
+  Parent 0: gen2_p0_aggressive_position (11.7%)
+[13:18:15]     Testing: switch_to_qqq
+[13:18:23]     Testing: switch_to_tqqq
+[13:18:29]     Testing: double_leverage
+[13:18:36]     🎯 NEW BEST! +1.6% → 13.3%
+[13:18:36] 💾 Winner saved: /mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/winner_25pct_20250602_131836
+[13:18:36]     Testing: max_leverage
+[13:18:43]     🎯 NEW BEST! +0.0% → 13.4%
+[13:18:43] 💾 Winner saved: /mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/winner_25pct_20250602_131843
+[13:18:43]     Testing: add_rsi
+[13:18:43]     ❌ Mutation failed
+[13:18:43]     Testing: add_macd
+[13:18:43]     ❌ Mutation failed
+[13:18:43]     Testing: daily_trading
+[13:18:50]     Testing: faster_sma
+[13:18:57]     Testing: aggressive_position
+[13:19:04]     Testing: relaxed_rsi
+[13:19:11] 
+  Parent 1: gen2_p1_switch_to_qqq (11.7%)
+[13:19:11]     Testing: switch_to_qqq
+[13:19:18]     Testing: switch_to_tqqq
+[13:19:24]     Testing: double_leverage
+[13:19:31]     Testing: max_leverage
+[13:19:38]     Testing: add_rsi
+[13:19:38]     ❌ Mutation failed
+[13:19:38]     Testing: add_macd
+[13:19:38]     ❌ Mutation failed
+[13:19:38]     Testing: daily_trading
+[13:19:45]     Testing: faster_sma
+[13:19:51]     Testing: aggressive_position
+[13:19:58]     Testing: relaxed_rsi
+[13:20:05] 
+  Parent 2: gen2_p0_daily_trading (7.9%)
+[13:20:05]     Testing: switch_to_qqq
+[13:20:12]     Testing: switch_to_tqqq
+[13:20:18]     Testing: double_leverage
+[13:20:25]     Testing: max_leverage
+[13:20:32]     Testing: add_rsi
+[13:20:32]     ❌ Mutation failed
+[13:20:32]     Testing: add_macd
+[13:20:32]     ❌ Mutation failed
+[13:20:32]     Testing: daily_trading
+[13:20:38]     Testing: faster_sma
+[13:20:45]     Testing: aggressive_position
+[13:20:52]     Testing: relaxed_rsi
+[13:20:59] 
+Generation 3 complete
+[13:20:59] Archive: 30 agents
+[13:20:59] Best: 13.4% CAGR
+[13:20:59] 
+============================================================
+[13:20:59] 🧬 GENERATION 4
+[13:20:59] Best: 13.4% | Target: 25%
+[13:20:59] 
+  Parent 0: gen3_p0_max_leverage (13.4%)
+[13:20:59]     Testing: switch_to_qqq
+[13:21:06]     Testing: switch_to_tqqq
+[13:21:12]     Testing: double_leverage
+[13:21:19]     Testing: max_leverage
+[13:21:26]     Testing: add_rsi
+[13:21:26]     ❌ Mutation failed
+[13:21:26]     Testing: add_macd
+[13:21:26]     ❌ Mutation failed
+[13:21:26]     Testing: daily_trading
+[13:21:33]     🎯 NEW BEST! +1.5% → 14.8%
+[13:21:33] 💾 Winner saved: /mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/winner_25pct_20250602_132133
+[13:21:33]     Testing: faster_sma
+[13:21:40]     Testing: aggressive_position
+[13:21:47]     Testing: relaxed_rsi
+[13:21:55] 
+  Parent 1: gen3_p1_max_leverage (13.4%)
+[13:21:55]     Testing: switch_to_qqq
+[13:22:02]     Testing: switch_to_tqqq
+[13:22:09]     Testing: double_leverage
+[13:22:17]     Testing: max_leverage
+[13:22:24]     Testing: add_rsi
+[13:22:24]     ❌ Mutation failed
+[13:22:24]     Testing: add_macd
+[13:22:24]     ❌ Mutation failed
+[13:22:24]     Testing: daily_trading
+[13:22:32]     Testing: faster_sma
+[13:22:39]     Testing: aggressive_position
+[13:22:46]     Testing: relaxed_rsi
+[13:22:53] 
+  Parent 2: gen3_p0_double_leverage (13.3%)
+[13:22:53]     Testing: switch_to_qqq
+[13:23:00]     Testing: switch_to_tqqq
+[13:23:06]     Testing: double_leverage
+[13:23:13]     Testing: max_leverage
+[13:23:20]     Testing: add_rsi
+[13:23:20]     ❌ Mutation failed
+[13:23:20]     Testing: add_macd
+[13:23:20]     ❌ Mutation failed
+[13:23:20]     Testing: daily_trading
+[13:23:27]     🎯 NEW BEST! +0.0% → 14.8%
+[13:23:27] 💾 Winner saved: /mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/winner_25pct_20250602_132327
+[13:23:27]     Testing: faster_sma
+[13:23:34]     Testing: aggressive_position
+[13:23:41]     Testing: relaxed_rsi
+[13:23:48] 
+Generation 4 complete
+[13:23:48] Archive: 30 agents
+[13:23:48] Best: 14.8% CAGR
+[13:23:48] 
+============================================================
+[13:23:48] 🧬 GENERATION 5
+[13:23:48] Best: 14.8% | Target: 25%
+[13:23:48] 
+  Parent 0: gen4_p2_daily_trading (14.8%)
+[13:23:48]     Testing: switch_to_qqq
+[13:23:55]     Testing: switch_to_tqqq
+[13:24:01]     Testing: double_leverage
+[13:24:09]     🎯 NEW BEST! +0.0% → 14.8%
+[13:24:09] 💾 Winner saved: /mnt/VANDAN_DISK/gagan_stuff/again and again/lean_workspace/winner_25pct_20250602_132409
+[13:24:09]     Testing: max_leverage
+[13:24:16]     Testing: add_rsi
+[13:24:16]     ❌ Mutation failed
+[13:24:16]     Testing: add_macd
+[13:24:16]     ❌ Mutation failed
+[13:24:16]     Testing: daily_trading
+[13:24:23]     Testing: faster_sma
+[13:24:30]     Testing: aggressive_position
+[13:24:38]     Testing: relaxed_rsi
+[13:24:45] 
+  Parent 1: gen4_p0_daily_trading (14.8%)
+[13:24:45]     Testing: switch_to_qqq
+[13:24:52]     Testing: switch_to_tqqq
+[13:24:59]     Testing: double_leverage
+[13:25:06]     Testing: max_leverage
+[13:25:13]     Testing: add_rsi
+[13:25:13]     ❌ Mutation failed
+[13:25:13]     Testing: add_macd
+[13:25:13]     ❌ Mutation failed
+[13:25:13]     Testing: daily_trading
+[13:25:20]     Testing: faster_sma
+[13:25:28]     Testing: aggressive_position
+[13:25:35]     Testing: relaxed_rsi
+[13:25:43] 
+  Parent 2: gen4_p1_daily_trading (14.8%)
+[13:25:43]     Testing: switch_to_qqq
+[13:25:50]     Testing: switch_to_tqqq
+[13:25:57]     Testing: double_leverage
+[13:26:05]     Testing: max_leverage
+[13:26:12]     Testing: add_rsi
+[13:26:12]     ❌ Mutation failed
+[13:26:12]     Testing: add_macd
+[13:26:12]     ❌ Mutation failed
+[13:26:12]     Testing: daily_trading
+[13:26:19]     Testing: faster_sma
+[13:26:27]     Testing: aggressive_position
+[13:26:34]     Testing: relaxed_rsi
+[13:26:41] 
+Generation 5 complete
+[13:26:41] Archive: 30 agents
+[13:26:41] Best: 14.8% CAGR
+[13:26:41] 
+============================================================
+[13:26:41] 🧬 GENERATION 6
+[13:26:41] Best: 14.8% | Target: 25%
+[13:26:41] 
+  Parent 0: gen5_p0_double_leverage (14.8%)
+[13:26:41]     Testing: switch_to_qqq
+[13:26:49]     Testing: switch_to_tqqq
+[13:26:55]     Testing: double_leverage
+[13:27:02]     Testing: max_leverage
+[13:27:09]     Testing: add_rsi
+[13:27:09]     ❌ Mutation failed
+[13:27:09]     Testing: add_macd
+[13:27:09]     ❌ Mutation failed
+[13:27:09]     Testing: daily_trading
+[13:27:16]     Testing: faster_sma

@@ -5,5 +5,7 @@
     "parameters": {},
     "description": "Master Strategy Rotator - Ultimate meta-strategy that intelligently rotates between 5 specialized strategies based on market conditions",
     "cloud-id": 23295116,
-    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0"
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0",
+    "python-venv": 1,
+    "encrypted": false
 }

@@ -1,0 +1,24 @@
+{
+  "agent_id": "gen1_p0_switch_to_qqq",
+  "generation": 1,
+  "performance": {
+    "cagr": 0.07248,
+    "sharpe": 0.328,
+    "drawdown": 0.182
+  },
+  "mutations": [
+    "switch_to_qqq"
+  ],
+  "components": {
+    "asset": "QQQ",
+    "leverage": 2.0,
+    "sma_fast": 10,
+    "sma_slow": 30,
+    "has_rsi": false,
+    "has_macd": false,
+    "trade_frequency": 7,
+    "position_size": 1.0,
+    "rsi_threshold": 70
+  },
+  "timestamp": "2025-06-02T13:30:55.157702"
+}

@@ -1,0 +1,29 @@
+{
+  "project_id": "23358287",
+  "backtest_id": "cc38f323fdd613086dd9b6e09638971f",
+  "strategy": "Final12PercentTarget",
+  "description": "Complete multi-component system with 1.2x max leverage",
+  "targets": {
+    "cagr": 12.0,
+    "sharpe": 1.0,
+    "max_drawdown": 20.0
+  },
+  "components": {
+    "momentum": "50% - SPY with SMA crossover + RSI",
+    "reversion": "30% - VTI with Bollinger Bands + RSI",
+    "factor": "20% - QQQ/IWM rotation based on momentum"
+  },
+  "results": {
+    "cagr": 4.435,
+    "sharpe": 0.114,
+    "total_orders": 698.0,
+    "drawdown": 17.5,
+    "win_rate": 56.0,
+    "net_profit": 13.873,
+    "alpha": 0.0,
+    "beta": 0.0
+  },
+  "targets_met": 1,
+  "success_rate": 33.33333333333333,
+  "timestamp": 1749045174
+}

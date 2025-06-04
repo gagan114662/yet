@@ -1,0 +1,233 @@
+2025-06-03 13:48:28,756 | INFO | 🧬 Live Evolution System Initialized
+2025-06-03 13:48:28,756 | INFO | Target CAGR: 25.0%
+2025-06-03 13:48:28,756 | INFO | Rate Limit: 45s between deployments
+2025-06-03 13:48:28,756 | INFO | 🚀 STARTING LIVE EVOLUTION DEMONSTRATION
+2025-06-03 13:48:28,756 | INFO | ================================================================================
+2025-06-03 13:48:28,756 | INFO | 🌱 Creating seed strategies...
+2025-06-03 13:48:28,756 | INFO | ✅ Created seed strategy: MomentumBase_Gen0
+2025-06-03 13:48:28,756 | INFO | ✅ Created seed strategy: MeanReversionBase_Gen0
+2025-06-03 13:48:28,756 | INFO | ✅ Created seed strategy: BreakoutBase_Gen0
+2025-06-03 13:48:28,756 | INFO | ✅ Created seed strategy: VolatilityBase_Gen0
+2025-06-03 13:48:28,757 | INFO | ✅ Created seed strategy: TrendFollowingBase_Gen0
+2025-06-03 13:48:28,757 | INFO | ✅ Created seed strategy: MomentumRSIBase_Gen0
+2025-06-03 13:48:28,757 | INFO | ✅ Created seed strategy: BollingerMeanBase_Gen0
+2025-06-03 13:48:28,757 | INFO | ✅ Created seed strategy: MultiTimeframeBase_Gen0
+2025-06-03 13:48:28,757 | INFO | 
+🧬 GENERATION 1 / 3
+2025-06-03 13:48:28,757 | INFO | ============================================================
+2025-06-03 13:48:28,757 | INFO | 🔄 Starting Evolution Cycle - Generation 0
+2025-06-03 13:48:28,757 | INFO | 📊 Phase 1: Population Assessment
+2025-06-03 13:48:28,757 | INFO | 🔬 Evaluating strategy: MomentumBase_Gen0
+2025-06-03 13:48:40,602 | INFO | ✅ Strategy deployed: MomentumBase_Gen0
+2025-06-03 13:48:40,602 | INFO |    Project ID: 23344950
+2025-06-03 13:48:40,602 | INFO |    Backtest ID: a314d7fdf46a8e79ccac67d7179caeaa
+2025-06-03 13:48:40,602 | INFO |    View: https://www.quantconnect.com/terminal/23344950#open/a314d7fdf46a8e79ccac67d7179caeaa
+2025-06-03 13:48:40,602 | INFO | 📊 Performance: 27.39% CAGR, Sharpe: 1.80
+2025-06-03 13:48:40,602 | INFO | 🔬 Evaluating strategy: MeanReversionBase_Gen0
+2025-06-03 13:48:40,602 | INFO | ⏳ Rate limiting: waiting 45.0s...
+2025-06-03 13:49:37,114 | INFO | ✅ Strategy deployed: MeanReversionBase_Gen0
+2025-06-03 13:49:37,114 | INFO |    Project ID: 23344958
+2025-06-03 13:49:37,114 | INFO |    Backtest ID: 29a6ae8dd668285ff854fbd02b201030
+2025-06-03 13:49:37,114 | INFO |    View: https://www.quantconnect.com/terminal/23344958#open/29a6ae8dd668285ff854fbd02b201030
+2025-06-03 13:49:37,114 | INFO | 📊 Performance: 11.21% CAGR, Sharpe: 1.12
+2025-06-03 13:49:37,114 | INFO | 🔬 Evaluating strategy: BreakoutBase_Gen0
+2025-06-03 13:49:37,114 | INFO | ⏳ Rate limiting: waiting 45.0s...
+2025-06-03 14:14:19,594 | INFO | 🧬 Live Evolution System Initialized
+2025-06-03 14:14:19,594 | INFO | Target CAGR: 25.0%
+2025-06-03 14:14:19,594 | INFO | Rate Limit: 45s between deployments
+2025-06-03 14:14:19,594 | INFO | 🚀 STARTING LIVE EVOLUTION DEMONSTRATION
+2025-06-03 14:14:19,594 | INFO | ================================================================================
+2025-06-03 14:14:19,594 | INFO | 🌱 Creating seed strategies...
+2025-06-03 14:14:19,594 | INFO | ✅ Created seed strategy: MomentumBase_Gen0
+2025-06-03 14:14:19,594 | INFO | ✅ Created seed strategy: MeanReversionBase_Gen0
+2025-06-03 14:14:19,594 | INFO | ✅ Created seed strategy: BreakoutBase_Gen0
+2025-06-03 14:14:19,594 | INFO | ✅ Created seed strategy: VolatilityBase_Gen0
+2025-06-03 14:14:19,594 | INFO | ✅ Created seed strategy: TrendFollowingBase_Gen0
+2025-06-03 14:14:19,594 | INFO | ✅ Created seed strategy: MomentumRSIBase_Gen0
+2025-06-03 14:14:19,594 | INFO | ✅ Created seed strategy: BollingerMeanBase_Gen0
+2025-06-03 14:14:19,594 | INFO | ✅ Created seed strategy: MultiTimeframeBase_Gen0
+2025-06-03 14:14:19,595 | INFO | 
+🧬 GENERATION 1 / 3
+2025-06-03 14:14:19,595 | INFO | ============================================================
+2025-06-03 14:14:19,595 | INFO | 🔄 Starting Evolution Cycle - Generation 0
+2025-06-03 14:14:19,595 | INFO | 📊 Phase 1: Population Assessment
+2025-06-03 14:14:19,595 | INFO | 🔬 Evaluating strategy: MomentumBase_Gen0
+2025-06-03 14:14:30,565 | INFO | ✅ Strategy deployed: MomentumBase_Gen0
+2025-06-03 14:14:30,566 | INFO |    Project ID: 23345295
+2025-06-03 14:14:30,566 | INFO |    Backtest ID: 3ffcbabc50a7942189192116398d8b21
+2025-06-03 14:14:30,566 | INFO |    View: https://www.quantconnect.com/terminal/23345295#open/3ffcbabc50a7942189192116398d8b21
+2025-06-03 14:14:30,566 | INFO | 📊 Performance: 19.85% CAGR, Sharpe: 1.05
+2025-06-03 14:14:30,566 | INFO | 🔬 Evaluating strategy: MeanReversionBase_Gen0
+2025-06-03 14:14:30,566 | INFO | ⏳ Rate limiting: waiting 45.0s...
+2025-06-03 14:15:26,738 | INFO | ✅ Strategy deployed: MeanReversionBase_Gen0
+2025-06-03 14:15:26,738 | INFO |    Project ID: 23345307
+2025-06-03 14:15:26,738 | INFO |    Backtest ID: 304d79e0f4dd0cc5abb301dc2062fd6f
+2025-06-03 14:15:26,738 | INFO |    View: https://www.quantconnect.com/terminal/23345307#open/304d79e0f4dd0cc5abb301dc2062fd6f
+2025-06-03 14:15:26,738 | INFO | 📊 Performance: 32.02% CAGR, Sharpe: 0.72
+2025-06-03 14:15:26,738 | INFO | 🔬 Evaluating strategy: BreakoutBase_Gen0
+2025-06-03 14:15:26,738 | INFO | ⏳ Rate limiting: waiting 45.0s...
+2025-06-03 14:16:23,084 | INFO | ✅ Strategy deployed: BreakoutBase_Gen0
+2025-06-03 14:16:23,084 | INFO |    Project ID: 23345318
+2025-06-03 14:16:23,084 | INFO |    Backtest ID: eaace7996599b3ee33e754bbf698a360
+2025-06-03 14:16:23,084 | INFO |    View: https://www.quantconnect.com/terminal/23345318#open/eaace7996599b3ee33e754bbf698a360
+2025-06-03 14:16:23,084 | INFO | 📊 Performance: 29.63% CAGR, Sharpe: 0.80
+2025-06-03 14:16:23,084 | INFO | 🔬 Evaluating strategy: VolatilityBase_Gen0
+2025-06-03 14:16:23,084 | INFO | ⏳ Rate limiting: waiting 45.0s...
+2025-06-03 14:17:19,085 | INFO | ✅ Strategy deployed: VolatilityBase_Gen0
+2025-06-03 14:17:19,085 | INFO |    Project ID: 23345333
+2025-06-03 14:17:19,085 | INFO |    Backtest ID: f92bdc96210ff3241c699701aba1ad26
+2025-06-03 14:17:19,085 | INFO |    View: https://www.quantconnect.com/terminal/23345333#open/f92bdc96210ff3241c699701aba1ad26
+2025-06-03 14:17:19,085 | INFO | 📊 Performance: 12.81% CAGR, Sharpe: 2.07
+2025-06-03 14:17:19,085 | INFO | 🔬 Evaluating strategy: TrendFollowingBase_Gen0
+2025-06-03 14:17:19,085 | INFO | ⏳ Rate limiting: waiting 45.0s...
+2025-06-03 14:18:15,093 | INFO | ✅ Strategy deployed: TrendFollowingBase_Gen0
+2025-06-03 14:18:15,093 | INFO |    Project ID: 23345348
+2025-06-03 14:18:15,093 | INFO |    Backtest ID: 388d5f30eefee3991189a8ff8170228c
+2025-06-03 14:18:15,093 | INFO |    View: https://www.quantconnect.com/terminal/23345348#open/388d5f30eefee3991189a8ff8170228c
+2025-06-03 14:18:15,093 | INFO | 📊 Performance: 14.95% CAGR, Sharpe: 1.62
+2025-06-03 14:18:15,093 | INFO | 🔬 Evaluating strategy: MomentumRSIBase_Gen0
+2025-06-03 14:18:15,093 | INFO | ⏳ Rate limiting: waiting 45.0s...
+2025-06-03 14:19:11,035 | INFO | ✅ Strategy deployed: MomentumRSIBase_Gen0
+2025-06-03 14:19:11,035 | INFO |    Project ID: 23345364
+2025-06-03 14:19:11,035 | INFO |    Backtest ID: 31838527e44df67bac9741a8cecdbc7e
+2025-06-03 14:19:11,035 | INFO |    View: https://www.quantconnect.com/terminal/23345364#open/31838527e44df67bac9741a8cecdbc7e
+2025-06-03 14:19:11,035 | INFO | 📊 Performance: 29.47% CAGR, Sharpe: 1.60
+2025-06-03 14:19:11,035 | INFO | 🔬 Evaluating strategy: BollingerMeanBase_Gen0
+2025-06-03 14:19:11,035 | INFO | ⏳ Rate limiting: waiting 45.0s...
+2025-06-03 14:20:07,033 | INFO | ✅ Strategy deployed: BollingerMeanBase_Gen0
+2025-06-03 14:20:07,033 | INFO |    Project ID: 23345388
+2025-06-03 14:20:07,033 | INFO |    Backtest ID: 1202fbb0dd1b8b78530fca12be45139f
+2025-06-03 14:20:07,033 | INFO |    View: https://www.quantconnect.com/terminal/23345388#open/1202fbb0dd1b8b78530fca12be45139f
+2025-06-03 14:20:07,033 | INFO | 📊 Performance: 22.86% CAGR, Sharpe: 1.28
+2025-06-03 14:20:07,033 | INFO | 🔬 Evaluating strategy: MultiTimeframeBase_Gen0
+2025-06-03 14:20:07,033 | INFO | ⏳ Rate limiting: waiting 45.0s...
+2025-06-03 14:21:03,256 | INFO | ✅ Strategy deployed: MultiTimeframeBase_Gen0
+2025-06-03 14:21:03,256 | INFO |    Project ID: 23345402
+2025-06-03 14:21:03,256 | INFO |    Backtest ID: 2a0c306346d664f29a9d0f33af656383
+2025-06-03 14:21:03,256 | INFO |    View: https://www.quantconnect.com/terminal/23345402#open/2a0c306346d664f29a9d0f33af656383
+2025-06-03 14:21:03,256 | INFO | 📊 Performance: 29.50% CAGR, Sharpe: 0.71
+2025-06-03 14:21:03,256 | INFO | ✅ Evaluated 8 strategies
+2025-06-03 14:21:03,256 | INFO | 🏆 Phase 2: Elite Selection
+2025-06-03 14:21:03,256 | INFO | ⭐ Elite: MeanReversionBase_Gen0 - 32.02% CAGR
+2025-06-03 14:21:03,256 | INFO | 🏆 CHAMPION DISCOVERED: MeanReversionBase_Gen0 (32.02% CAGR)
+2025-06-03 14:21:03,256 | INFO | ⭐ Elite: BreakoutBase_Gen0 - 29.63% CAGR
+2025-06-03 14:21:03,256 | INFO | 🏆 CHAMPION DISCOVERED: BreakoutBase_Gen0 (29.63% CAGR)
+2025-06-03 14:21:03,256 | INFO | 🧬 Phase 3: Mutation
+2025-06-03 14:21:03,256 | INFO | 🧬 Mutation: MeanReversionBase_Gen0 → MeanReversionBase_Gen0_MLEV_0 (LEVERAGE_BOOST)
+2025-06-03 14:21:03,256 | INFO | 🧬 Mutation: BreakoutBase_Gen0 → BreakoutBase_Gen0_MLEV_0 (LEVERAGE_BOOST)
+2025-06-03 14:21:03,256 | INFO | 👶 Phase 4: Breeding
+2025-06-03 14:21:03,256 | INFO | 👶 Breeding: MeanReversionBase_Gen0 × BreakoutBase_Gen0 → Breed_MeanRevexBreakout_Gen0
+2025-06-03 14:21:03,256 | INFO | 🔄 Phase 5: Population Update
+2025-06-03 14:21:03,256 | INFO | 📝 Phase 6: Evolution Logging
+2025-06-03 14:21:03,256 | INFO | 📈 Generation 0 Summary:
+2025-06-03 14:21:03,256 | INFO |    Best Performance: 32.02% CAGR
+2025-06-03 14:21:03,256 | INFO |    Average Performance: 23.89% CAGR
+2025-06-03 14:21:03,256 | INFO |    Champions Found: 2
+2025-06-03 14:21:03,256 | INFO | 📊 Current Best: 32.02% CAGR
+2025-06-03 14:21:03,256 | INFO | 🎯 Target: 25.0% CAGR
+2025-06-03 14:21:03,256 | INFO | 📈 Progress: 128.1%
+2025-06-03 14:21:03,256 | INFO | 
+🧬 GENERATION 2 / 3
+2025-06-03 14:21:03,256 | INFO | ============================================================
+2025-06-03 14:21:03,256 | INFO | 🔄 Starting Evolution Cycle - Generation 1
+2025-06-03 14:21:03,256 | INFO | 📊 Phase 1: Population Assessment
+2025-06-03 14:21:03,256 | INFO | 🔬 Evaluating strategy: MeanReversionBase_Gen0_MLEV_0
+2025-06-03 14:21:03,256 | INFO | ⏳ Rate limiting: waiting 45.0s...
+2025-06-03 14:21:59,500 | INFO | ✅ Strategy deployed: MeanReversionBase_Gen0_MLEV_0
+2025-06-03 14:21:59,501 | INFO |    Project ID: 23345421
+2025-06-03 14:21:59,501 | INFO |    Backtest ID: 9233018da757a477f01affe9c79de70b
+2025-06-03 14:21:59,501 | INFO |    View: https://www.quantconnect.com/terminal/23345421#open/9233018da757a477f01affe9c79de70b
+2025-06-03 14:21:59,501 | INFO | 📊 Performance: 30.25% CAGR, Sharpe: 1.98
+2025-06-03 14:21:59,501 | INFO | 🔬 Evaluating strategy: BreakoutBase_Gen0_MLEV_0
+2025-06-03 14:21:59,501 | INFO | ⏳ Rate limiting: waiting 45.0s...
+2025-06-03 14:22:55,647 | INFO | ✅ Strategy deployed: BreakoutBase_Gen0_MLEV_0
+2025-06-03 14:22:55,647 | INFO |    Project ID: 23345444
+2025-06-03 14:22:55,647 | INFO |    Backtest ID: c798fa9faacb3908e527072dd3c8f556
+2025-06-03 14:22:55,647 | INFO |    View: https://www.quantconnect.com/terminal/23345444#open/c798fa9faacb3908e527072dd3c8f556
+2025-06-03 14:22:55,647 | INFO | 📊 Performance: 22.27% CAGR, Sharpe: 0.62
+2025-06-03 14:22:55,647 | INFO | 🔬 Evaluating strategy: Breed_MeanRevexBreakout_Gen0
+2025-06-03 14:22:55,647 | INFO | ⏳ Rate limiting: waiting 45.0s...
+2025-06-03 14:23:51,830 | INFO | ✅ Strategy deployed: Breed_MeanRevexBreakout_Gen0
+2025-06-03 14:23:51,831 | INFO |    Project ID: 23345460
+2025-06-03 14:23:51,831 | INFO |    Backtest ID: fa2a889eedf8a8b6d8c548bf69ce41e9
+2025-06-03 14:23:51,831 | INFO |    View: https://www.quantconnect.com/terminal/23345460#open/fa2a889eedf8a8b6d8c548bf69ce41e9
+2025-06-03 14:23:51,831 | INFO | 📊 Performance: 33.28% CAGR, Sharpe: 0.70
+2025-06-03 14:23:51,831 | INFO | ✅ Evaluated 3 strategies
+2025-06-03 14:23:51,831 | INFO | 🏆 Phase 2: Elite Selection
+2025-06-03 14:23:51,831 | INFO | ⭐ Elite: Breed_MeanRevexBreakout_Gen0 - 33.28% CAGR
+2025-06-03 14:23:51,831 | INFO | 🏆 CHAMPION DISCOVERED: Breed_MeanRevexBreakout_Gen0 (33.28% CAGR)
+2025-06-03 14:23:51,831 | INFO | 🧬 Phase 3: Mutation
+2025-06-03 14:23:51,831 | INFO | 🧬 Mutation: Breed_MeanRevexBreakout_Gen0 → Breed_MeanRevexBreakout_Gen0_MSTO_1 (STOP_LOSS_ADD)
+2025-06-03 14:23:51,831 | INFO | 👶 Phase 4: Breeding
+2025-06-03 14:23:51,831 | INFO | 🔄 Phase 5: Population Update
+2025-06-03 14:23:51,831 | INFO | 📝 Phase 6: Evolution Logging
+2025-06-03 14:23:51,831 | INFO | 📈 Generation 1 Summary:
+2025-06-03 14:23:51,831 | INFO |    Best Performance: 33.28% CAGR
+2025-06-03 14:23:51,831 | INFO |    Average Performance: 29.49% CAGR
+2025-06-03 14:23:51,831 | INFO |    Champions Found: 3
+2025-06-03 14:23:51,831 | INFO | 🎉 SUCCESS! Found 3 champions - stopping early
+2025-06-03 14:23:51,831 | INFO | 
+================================================================================
+2025-06-03 14:23:51,831 | INFO | 🏁 LIVE EVOLUTION COMPLETE
+2025-06-03 14:23:51,831 | INFO | ================================================================================
+2025-06-03 14:23:51,831 | INFO | 🧬 Total Generations: 2
+2025-06-03 14:23:51,831 | INFO | 🏆 Champions Found: 3
+2025-06-03 14:23:51,831 | INFO | 🔬 Total Strategies Evaluated: 1
+2025-06-03 14:23:51,831 | INFO | 
+🏆 CHAMPION STRATEGIES:
+2025-06-03 14:23:51,831 | INFO |    • MeanReversionBase_Gen0
+2025-06-03 14:23:51,831 | INFO |      Performance: 32.02% CAGR
+2025-06-03 14:23:51,831 | INFO |      Sharpe: 0.72
+2025-06-03 14:23:51,831 | INFO |      Generation: 0
+2025-06-03 14:23:51,831 | INFO |      Mutations: SEED_CREATION
+2025-06-03 14:23:51,831 | INFO |      QC Project: 23345307
+2025-06-03 14:23:51,831 | INFO |    • BreakoutBase_Gen0
+2025-06-03 14:23:51,831 | INFO |      Performance: 29.63% CAGR
+2025-06-03 14:23:51,831 | INFO |      Sharpe: 0.80
+2025-06-03 14:23:51,831 | INFO |      Generation: 0
+2025-06-03 14:23:51,831 | INFO |      Mutations: SEED_CREATION
+2025-06-03 14:23:51,831 | INFO |      QC Project: 23345318
+2025-06-03 14:23:51,831 | INFO |    • Breed_MeanRevexBreakout_Gen0
+2025-06-03 14:23:51,831 | INFO |      Performance: 33.28% CAGR
+2025-06-03 14:23:51,831 | INFO |      Sharpe: 0.70
+2025-06-03 14:23:51,831 | INFO |      Generation: 0
+2025-06-03 14:23:51,831 | INFO |      Mutations: BREEDING
+2025-06-03 14:23:51,831 | INFO |      QC Project: 23345460
+2025-06-03 14:23:51,831 | INFO | 
+📈 PERFORMANCE PROGRESSION:
+2025-06-03 14:23:51,831 | INFO |    Gen 0: Best 32.02%, Avg 23.89%
+2025-06-03 14:23:51,832 | INFO |    Gen 1: Best 33.28%, Avg 29.49%
+2025-06-03 14:57:23,332 | INFO | 🧬 Live Evolution System Initialized
+2025-06-03 14:57:23,332 | INFO | Target CAGR: 25.0%
+2025-06-03 14:57:23,332 | INFO | Rate Limit: 45s between deployments
+2025-06-03 14:57:23,332 | INFO | 🚀 STARTING LIVE EVOLUTION DEMONSTRATION
+2025-06-03 14:57:23,332 | INFO | ================================================================================
+2025-06-03 14:57:23,332 | INFO | 🌱 Creating seed strategies...
+2025-06-03 14:57:23,332 | INFO | ✅ Created seed strategy: MomentumBase_Gen0
+2025-06-03 14:57:23,332 | INFO | ✅ Created seed strategy: MeanReversionBase_Gen0
+2025-06-03 14:57:23,332 | INFO | ✅ Created seed strategy: BreakoutBase_Gen0
+2025-06-03 14:57:23,332 | INFO | ✅ Created seed strategy: VolatilityBase_Gen0
+2025-06-03 14:57:23,332 | INFO | ✅ Created seed strategy: TrendFollowingBase_Gen0
+2025-06-03 14:57:23,332 | INFO | ✅ Created seed strategy: MomentumRSIBase_Gen0
+2025-06-03 14:57:23,332 | INFO | ✅ Created seed strategy: BollingerMeanBase_Gen0
+2025-06-03 14:57:23,332 | INFO | ✅ Created seed strategy: MultiTimeframeBase_Gen0
+2025-06-03 14:57:23,332 | INFO | 
+🧬 GENERATION 1 / 3
+2025-06-03 14:57:23,332 | INFO | ============================================================
+2025-06-03 14:57:23,332 | INFO | 🔄 Starting Evolution Cycle - Generation 0
+2025-06-03 14:57:23,332 | INFO | 📊 Phase 1: Population Assessment
+2025-06-03 14:57:23,332 | INFO | 🔬 Evaluating strategy: MomentumBase_Gen0
+2025-06-03 14:57:34,280 | INFO | ✅ Strategy deployed: MomentumBase_Gen0
+2025-06-03 14:57:34,280 | INFO |    Project ID: 23346045
+2025-06-03 14:57:34,280 | INFO |    Backtest ID: d8b4737841cc72d6790f3d30d9a821ad
+2025-06-03 14:57:34,280 | INFO |    View: https://www.quantconnect.com/terminal/23346045#open/d8b4737841cc72d6790f3d30d9a821ad
+2025-06-03 14:57:34,280 | INFO | 📊 Performance: 34.53% CAGR, Sharpe: 1.48
+2025-06-03 14:57:34,280 | INFO | 🔬 Evaluating strategy: MeanReversionBase_Gen0
+2025-06-03 14:57:34,280 | INFO | ⏳ Rate limiting: waiting 45.0s...
+2025-06-03 14:58:30,245 | INFO | ✅ Strategy deployed: MeanReversionBase_Gen0
+2025-06-03 14:58:30,245 | INFO |    Project ID: 23346054
+2025-06-03 14:58:30,245 | INFO |    Backtest ID: a41c351109e27fa8ff34c322a2b7e47d
+2025-06-03 14:58:30,245 | INFO |    View: https://www.quantconnect.com/terminal/23346054#open/a41c351109e27fa8ff34c322a2b7e47d
+2025-06-03 14:58:30,245 | INFO | 📊 Performance: 9.08% CAGR, Sharpe: 0.97
+2025-06-03 14:58:30,245 | INFO | 🔬 Evaluating strategy: BreakoutBase_Gen0
+2025-06-03 14:58:30,245 | INFO | ⏳ Rate limiting: waiting 45.0s...

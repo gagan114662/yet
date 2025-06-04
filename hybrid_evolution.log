@@ -1,0 +1,10 @@
+2025-06-03 18:08:23,576 | INFO | 🚀 STARTING HYBRID MULTI-STRATEGY EVOLUTION
+2025-06-03 18:08:23,577 | INFO | Hybrid strategy created: Hybrid_MomentumOptionsHybrid_Gen0
+2025-06-03 18:08:23,577 | INFO | Hybrid strategy created: Hybrid_RegimeAdaptiveHybrid_Gen0
+2025-06-03 18:08:34,611 | INFO | 🚀 STARTING HYBRID MULTI-STRATEGY EVOLUTION
+2025-06-03 18:08:34,611 | INFO | Hybrid strategy created: Hybrid_MomentumOptionsHybrid_Gen0
+2025-06-03 18:08:34,611 | INFO | Hybrid strategy created: Hybrid_RegimeAdaptiveHybrid_Gen0
+2025-06-03 18:08:34,615 | INFO | Hybrid strategy created: Hybrid_MultiTimeframeHybrid_Gen0
+2025-06-03 18:08:34,615 | INFO | Hybrid strategy created: Hybrid_VolatilityTargetingHybrid_Gen0
+2025-06-03 18:08:34,615 | INFO | Hybrid strategy created: Hybrid_CrossAssetMomentumHybrid_Gen0
+2025-06-03 18:10:17,901 | INFO | HYBRID RESULTS: Hybrid_MomentumOptionsHybrid_Gen0 - 0.24% CAGR, -3.47 Sharpe

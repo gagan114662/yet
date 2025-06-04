@@ -15,8 +15,8 @@ def generate_next_strategy() -> Dict:
     Generates a new strategy idea using either lean_workspace templates or fallback strategies.
     Uses sophisticated strategies designed to meet aggressive performance targets.
     """
-    # 70% chance to use high-performance strategy from lean_workspace
-    if random.random() < 0.7:
+    # 90% chance to use high-performance strategy from lean_workspace (increased for real trading)
+    if random.random() < 0.9:
         try:
             return strategy_importer.get_random_high_performance_strategy()
         except Exception as e:

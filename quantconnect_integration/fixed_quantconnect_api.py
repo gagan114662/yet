@@ -263,15 +263,17 @@ def test_quantconnect_api():
                                 
                                 if backtest_result['success']:
                                     print("✅ Backtest created successfully!")
-                        
-                        try:
-                            backtest_data = json.loads(backtest_result['response'])
-                            if 'backtestId' in backtest_data:
-                                backtest_id = backtest_data['backtestId']
-                                print(f"Backtest ID: {backtest_id}")
-                                print(f"🌐 View results at: https://www.quantconnect.com/terminal/processCache?request={backtest_id}")
+                                    
+                                    try:
+                                        backtest_data = json.loads(backtest_result['response'])
+                                        if 'backtestId' in backtest_data:
+                                            backtest_id = backtest_data['backtestId']
+                                            print(f"Backtest ID: {backtest_id}")
+                                            print(f"🌐 View results at: https://www.quantconnect.com/terminal/processCache?request={backtest_id}")
+                                    except:
+                                        pass
                         except:
-                            pass
+                            print("⚠️  Could not parse compile response")
                     else:
                         print("⚠️  Backtest creation failed")
                 else:

@@ -1,0 +1,27 @@
+{
+  "agent_id": "gen4_p2_daily_trading",
+  "generation": 4,
+  "performance": {
+    "cagr": 0.14827,
+    "sharpe": 0.523,
+    "drawdown": 0.336
+  },
+  "mutations": [
+    "switch_to_qqq",
+    "aggressive_position",
+    "double_leverage",
+    "daily_trading"
+  ],
+  "components": {
+    "asset": "QQQ",
+    "leverage": 4.0,
+    "sma_fast": 10,
+    "sma_slow": 30,
+    "has_rsi": false,
+    "has_macd": false,
+    "trade_frequency": 1,
+    "position_size": 2.0,
+    "rsi_threshold": 70
+  },
+  "timestamp": "2025-06-02T13:23:27.595612"
+}

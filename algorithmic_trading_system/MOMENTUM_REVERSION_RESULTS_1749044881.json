@@ -1,0 +1,22 @@
+{
+  "project_id": "23358214",
+  "backtest_id": "8074b8d66179231e9c6a70207ba0025a",
+  "strategy": "MomentumReversion",
+  "description": "50% momentum + 30% mean reversion, 1.2x max leverage",
+  "components": {
+    "momentum": "50% - SPY SMA crossover",
+    "reversion": "30% - VTI Bollinger Bands",
+    "cash_buffer": "20%"
+  },
+  "results": {
+    "cagr": 4.896,
+    "sharpe": 0.151,
+    "total_orders": 251.0,
+    "drawdown": 16.0,
+    "win_rate": 62.0,
+    "net_profit": 15.383,
+    "alpha": -0.017,
+    "beta": 0.558
+  },
+  "timestamp": 1749044881
+}

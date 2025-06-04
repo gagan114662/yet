@@ -1,0 +1,18 @@
+{
+    "algorithm-id": "proven-alpha",
+    "algorithm-name": "Proven Alpha",
+    "algorithm-description": "Battle-tested high-performance strategy",
+    "algorithm-version": "1.0",
+    "algorithm-language": "Python",
+    "parameters": {},
+    "backtest-settings": {
+        "start-date": "2005-01-01",
+        "end-date": "2024-12-31",
+        "cash": 100000
+    },
+    "cloud-id": 23322228,
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0",
+    "description": "",
+    "python-venv": 1,
+    "encrypted": false
+}

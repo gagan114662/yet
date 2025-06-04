@@ -5,5 +5,7 @@
     "parameters": {},
     "description": "Target Crusher V2 - High-leverage momentum strategy designed to exceed all 5 targets with strategic leverage and multiple daily scans",
     "cloud-id": 23293552,
-    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0"
+    "organization-id": "cd6f2f0926974671b071a3da0a9d36d0",
+    "python-venv": 1,
+    "encrypted": false
 }

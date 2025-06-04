@@ -1,0 +1,26 @@
+{
+  "performance": {
+    "cagr": -9.865,
+    "sharpe_ratio": -0.027,
+    "max_drawdown": 33.3,
+    "net_profit": -4.25,
+    "alpha": 0.002,
+    "beta": 0.981
+  },
+  "trading": {
+    "total_orders": 1.0,
+    "win_rate": 0.0
+  },
+  "classification": {
+    "cagr_class": "poor",
+    "sharpe_class": "poor",
+    "drawdown_class": "poor",
+    "overall_grade": "D",
+    "score": 0.0
+  },
+  "risk_metrics": {
+    "risk_adjusted_return": -0.2962462462462463,
+    "estimated_volatility": 365.3703703703704,
+    "calmar_ratio": -0.2962462462462463
+  }
+}

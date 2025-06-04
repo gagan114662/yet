@@ -1,0 +1,16 @@
+{
+  "project_id": "23358162",
+  "backtest_id": "e4d1937c4ed4b802d7d84ab1ff724ea6",
+  "strategy": "MinimalTest",
+  "results": {
+    "cagr": -9.865,
+    "sharpe": -0.027,
+    "total_orders": 1.0,
+    "drawdown": 33.3,
+    "win_rate": 0.0,
+    "net_profit": -4.25,
+    "alpha": 0.002,
+    "beta": 0.981
+  },
+  "timestamp": 1749044625
+}
